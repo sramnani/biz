@@ -1,0 +1,294 @@
+html, body { height: 100%; }
+option { color: #999; font-size: 12px; }
+select { color: #999; font-size: 12px; }
+
+
+@font-face {
+    font-family: 'proxima_novaregular';
+    src: url('../Proxima Nova Regular.eot');
+    src: url('../Proxima Nova Regular.eot?#iefix') format('embedded-opentype'),
+         url('../Proxima Nova Regular.woff2') format('woff2'),
+         url('../Proxima Nova Regular.woff') format('woff'),
+         url('../Proxima Nova Regular.ttf') format('truetype'),
+         url('../Proxima Nova Regular.svg#proxima_novaregular') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'proxima_novalight';
+    src: url('../fonts/proximanovalight.eot');
+    src: url('../fonts/proximanovalight.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanovalight.woff2') format('woff2'),
+         url('../fonts/proximanovalight.woff') format('woff'),
+         url('../fonts/proximanovalight.ttf') format('truetype'),
+         url('../fonts/proximanovalight.svg#proxima_novalight') format('svg');
+    font-weight: 100;
+    font-style: normal;
+
+}
+
+
+
+body { font-family: "proxima_novaregular", sans-serif; font-style: normal; font-weight: 300; font-size: 14px; color: #999; }
+.form-control::-moz-placeholder {
+font-size:12px;
+}
+.main { /*height: 100%;*/ padding-bottom:30px;}
+header { background: #1cb9b4; min-height: 120px; }
+.logo { padding-top: 50px; float: left }
+.welcome { float: right; padding-top: 50px; }
+.welcome p { color: #fff; float: left; padding-right: 25px; font-size: 14px; }
+.fa-bars { color: #fff; font-size: 25px; }
+.menu-toggle { background:none; border:none; }
+.menu-toggle .icon-bar { background: none repeat scroll 0 0 #fff; border-radius: 1px; display: block; height: 2px; margin-bottom: 7px; width: 35px; }
+.heading { font-size: 36px; font-weight: bold; color: #198c88;  }
+.heading span { font-weight: 100; font-style: normal; font-family:proxima_novalight;}
+h6 { font-size: 24px; color: #999999; }
+.entryInput { float: left; width: 38.5%; margin-right: 15px; }
+.entryInput1 { float: left; width: 38.5%; }
+.entryInput2 { float: left; width: 44%; margin-right: 15px; font-size: 12px; color: #999; }
+.entryInput3 { float: left; width: 33.3%; }
+.bussinessContact { width: 100%; }
+.addresec { margin-bottom: 18px; }
+.rightForm { float: right; }
+.main { margin-top: 40px; }
+.form-group.clearfix span { font-size: 12px; font-weight: normal; }
+.bussinessInfo { margin-top: 60px; }
+label { font-size: 15px; color: #999999; padding-bottom: 10px; }
+.left-control { width: 81% !important }
+.right-control { width: 73% !important }
+.bussinessInfo .form-group { margin-bottom: 35px; }
+footer { margin-top: 30px; }
+.footer_sec { border-top: 1px solid #e5e5e5; }
+.footer_sec p { padding: 25px 0; font-size: 14px; color: #999999; }
+.saveBtn {
+  background: none repeat scroll 0 0 #1cb9b4;
+  border: medium none;
+  box-shadow: 0 -4px 0 -0.5px #198c88 inset;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 14px 24px;
+}
+
+.saveBtn:hover { background-color: #1ac5c0 !important; color:#fff; }
+
+/***************login page css**********************/
+#login_sec{background:url(../images/login_bg.png) no-repeat; background-size:cover; max-height:790px; height:100%;}
+#login_sec .main{margin-top:0px; }
+.loginfooter{background:#198c88; margin-top:0px; padding:20px 0;}
+.loginfooter .footer_sec{border:none;}
+.loginfooter .footer_sec p{color:#fff; text-align:center; margin-bottom:0px;}
+.loginForm {
+  margin: 20% auto 0;
+  max-width: 460px;
+		text-align:center;
+
+}
+.loginForm .login_logo{text-align:center; margin-bottom:50px;}
+
+.formlogin{ background: none repeat scroll 0 0 #fff;
+  border-radius: 5px;
+  max-width: 460px;
+  min-height: 360px;
+  padding:30px 70px;
+  text-align: center;
+		overflow:hidden;}
+
+.loginForm input[type="email"]{border:none !important; box-shadow:none; border-bottom:1px solid #aeaeae !important; border-radius:0px;  background:url(../images/email_bg.png) no-repeat left center; padding-left:33px; height:65px;}
+.loginForm input[type="password"]{border:none !important; box-shadow:none; border-bottom:1px solid #aeaeae !important; border-radius:0px;  background:url(../images/password_bg.png) no-repeat left center; padding-left:33px;  height:65px;}
+.loginForm .form-group{margin-bottom:30px;}
+
+.loginForm .saveBtn{margin-top:10px !important; float:left;}
+.loginForm .form-control::-moz-placeholder{font-size:16px; color:#ccc;}
+.loginForm .reset{font-size:14px; font-weight:normal !important; float:left; padding-top:40px;}
+.loginForm .reset a{color:#1cb9b4;}
+.Reset_password{min-height:250px !important;}
+
+/***************Emd login page css**********************/
+
+/*************location page css*******************/
+
+.location {margin-top:60px;}
+.location .form-group {
+  margin-bottom: 35px;
+}
+
+.add_location{}
+.add_location h5{ color: #999999;
+    font-size: 15px;
+   font-weight:bold; margin-bottom:10px; margin-top:0px;}
+	.add_location ul {padding:0px; list-style:none;}			
+.add_location h4{color:#198c88;font-size:12px; font-weight:bold;}
+.add_location p{font-size:12px; width:69%; line-height:20px;}
+.add_location p a{color:#198c88;font-size:12px; font-weight:bold;}
+.location_text{padding-bottom:20px;}
+
+/*************End location page*******************/
+
+
+/*************activity page css*******************/
+
+.activitycamp{margin-top:60px;}
+.active_service{border:1px solid #e2e2e2; text-align:center;  overflow:hidden; margin-bottom:40px;}
+.camp{ padding:15px 0; border-right:1px solid #e2e2e2;}
+.camp1{ padding:15px 0;}
+.active_service strong{color:#198c88; text-align:center;}
+.active_service .active{background:#eee;}
+.active_service p{font-size:12px; text-align:center; margin-bottom:0px;}
+
+.activitycamp .form-group { margin-bottom: 35px; }
+.groupinput{margin-bottom:30px;}
+.timeinput{width:40%;}
+.selecttype{width:46%;}
+					
+					.form-group.clearfix > img {
+  padding-bottom: 30px;
+  padding-right: 30px;
+}
+
+.checkgroup{margin-bottom:10px !important;}
+
+.saveBtn1 {
+  background: none repeat scroll 0 0 #1cb9b4;
+  border: medium none;
+  box-shadow: 0 -4px 0 -0.5px #198c88 inset;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 8px 17px;
+}
+
+
+/*************End activity page css*******************/
+
+
+/*****************welcome page**************/
+
+.box{border:1px solid #e0e0e0; border-radius:4px; height:180px; width:265px; float:left; margin-bottom:57px;}
+.midbox{margin:0 57px;}
+.bussinesactivity{margin-top:60px;}
+.box .text{display:table; text-align:center; width:100%; height:100%;}
+.box .text img{margin-bottom:10px;}
+.box .text p{vertical-align:middle; display:table-cell; font-size:20px; color:#555555; }
+
+					@-moz-document url-prefix() { 
+ select{ 
+color:#999 !important;
+font-size:12px !important;
+ background: url(../images/select_arrow.png) no-repeat right white !important;
+   -moz-appearance: scrollbartrack-vertical;
+     -webkit-appearance: none;  /*Removes default chrome and safari style*/
+     -moz-appearance: none;  /*Removes default style Firefox*/}
+
+}
+
+
+/*********************End Welcome page css here***********/
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {select{ 
+
+color:#999 !important;
+font-size:12px !important;
+ background: url(../images/select_arrow.png) no-repeat right white !important;
+   -moz-appearance: scrollbartrack-vertical;
+     -webkit-appearance: none;  /*Removes default chrome and safari style*/
+     -moz-appearance: none;  /*Removes default style Firefox*/}}
+
+@media only screen and (max-width:1024px) {
+.main { height: auto; }
+}
+
+
+@media only screen and (min-width:768px) and (max-width:1024px) and (orientation:portrait) {.bussinesactivity{text-align:center; width:100%;}
+.box {
+  margin: 0 20px 40px;
+  width: 40%;
+		float:none; display:inline-block;
+}
+.midbox{margin:0 20px 40px;}}
+@media only screen and (max-width:768px) {
+.left-control { width: 100% !important; }
+.bussinessInfo .form-group { margin-bottom: 20px; }
+.right-control { width: 100% !important; }
+.rightForm { float: left; width: 100%; }
+.main { height: auto; margin-top: 15px; }
+
+.location_form{margin-bottom:50px;}
+.heading{font-size:30px;}
+h6{font-size:20px;}
+}
+
+@media only screen and (min-width:600px) and (max-width:800px) and (orientation:landscape) {
+.left-control { width: 100% !important; }
+.bussinessInfo .form-group { margin-bottom: 20px; }
+.right-control { width: 100% !important; }
+.rightForm { float: left; width: 100%; }
+.main { height: auto; margin-top: 15px; }
+
+.bussinesactivity{text-align:center; width:100%;}
+.box {
+  margin: 0 20px 40px;
+  width: 40%;
+		float:none; display:inline-block;
+}
+.midbox{margin:0 20px 40px;}
+}
+
+@media only screen and (max-width:990px) {.bussinesactivity{text-align:center; width:100%;}
+.box {
+  margin: 0 20px 40px;
+  width: 40%;
+		float:none; display:inline-block;
+}
+.midbox{margin:0 20px 40px;}}
+
+@media only screen and (max-width:767px) {
+.heading { font-size: 21px; }
+.bussinessInfo { margin-top: 30px; }
+h6 { font-size:16px; }
+.saveBtn { margin-top: 0px; }
+.entryInput { margin-right: 13px; width: 47.5%; }
+.entryInput1 { width: 47.5%; }
+.entryInput2 { width: 56%; }
+.entryInput3 { width: 38.3%; }
+
+.box{width:100%; margin:0 0 40px;}
+.midbox{margin:0 0 40px;}
+.camp{ border-right:none;}
+}
+
+@media only screen and (min-width:320px) and (max-width:480px) and (orientation:portrait) {
+.logo { float: left; padding-top: 27px; text-align: center; width: 100%; }
+.welcome { float: right; padding-right: 31px; padding-top: 29px; }
+.formlogin{padding:15px 25px;}
+
+
+.activitycamp .col-xs-3 {
+  padding-left: 4px;
+  padding-right: 6px;
+}
+
+.activitycamp .col-xs-6 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+}
+
+@media only screen and (min-width:320px) and (max-width:480px) and (orientation:landscape) {
+.entryInput { float: left; margin-right: 13px; width: 48.5%; }
+.entryInput1 { float: left; width: 48.5%; }
+}
+
+@media only screen and (min-width:320px) and (max-width:568px) and (orientation:landscape) {
+.entryInput2 { margin-right: 19px; }
+.entryInput3 { width: 40.3%; }
+}
