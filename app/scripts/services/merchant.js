@@ -7,7 +7,7 @@ angular.module("outingzApp")
 			var deferred = $q.defer();
 
 			//Calling Web API to fetch health data
-			$http.post("http://localhost:9000/#/login",merchantObj).success(function(data){
+			$http.post("https://api.outingz.com/outingz/merchants",merchantObj).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
 			  deferred.resolve(data);
 			}).error(function(){

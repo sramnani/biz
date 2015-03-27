@@ -8,22 +8,22 @@
             <h2 class="heading"><span>Step 1:</span> About Your Business</h2>
             <h6>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</h6>
             
-<form name="BussinessForm"  ng-submit="create_merchant(BussinessForm.$valid)" class="bussinessInfo" novalidate>
+<form name="BussinessForm"  ng-submit="create_merchant(merchant,BussinessForm.$valid)" class="bussinessInfo" novalidate>
             <div class="col-lg-5 col-md-5">
             <div class="row">
             
   <div class="form-group ">
     <label for="exampleInputEmail1">Business Name*</label>
-    <input type="text" name="name" class="form-control left-control" ng-model="name" placeholder="Enter Bussiness" required>
+    <input type="text" name="name" class="form-control left-control" ng-model="merchant.name" placeholder="Enter Bussiness" required>
     
     <p ng-show="BussinessForm.name.$invalid && !BussinessForm.name.$pristine" class="help-block">Bussiness name is required.</p>
   </div>
   <div class="form-group clearfix">
      <label for="exampleInputEmail1" class="bussinessContact clearfix">Business Contact*</label>
 
-    <input type="txet" class="form-control entryInput"  placeholder="Joe" name="firstname" ng-model="firstname" required>
+    <input type="txet" class="form-control entryInput"  placeholder="Joe" name="firstname" ng-model="merchant.shortName" required>
 
-        <input type="text" class="form-control entryInput1"  placeholder="Smith" ng-model="lastname">
+        <input type="text" class="form-control entryInput1"  placeholder="Smith" ng-model="merchant.primaryContactPerson.lastName">
 		<p ng-show="BussinessForm.firstname.$invalid && !BussinessForm.firstname.$pristine" class="help-block">first name is required.</p>
 
   </div>
@@ -34,7 +34,7 @@
 
  
     <label for="exampleInputPassword1">Website</label>
-    <input type="text" class="form-control  left-control" id="exampleInputPassword1" placeholder="www.bungee.com">
+    <input type="text" class="form-control  left-control" id="exampleInputPassword1" placeholder="www.bungee.com" name="companyUrl" ng-model="merchant.companyUrl" >
   </div>
   
     <div class="form-group clearfix">
@@ -44,11 +44,12 @@
     <span>If you have multiple addresses, just list the one you receive mail at.</span>
     </label>
 
-    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 1" name="line1" ng-model="line1" required>
-    		<p ng-show="BussinessForm.line1.$invalid && !BussinessForm.line1.$pristine" class="help-block">Address line 1 is required</p>
+    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 1" name="line1" name="line1" ng-model="merchant.primaryAddress.line1" required>
+	<p ng-show="BussinessForm.line1.$invalid && !BussinessForm.line1.$pristine" class="help-block">Address line 1 is required</p>
 
-    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line2" ng-model="line2">
-    <input type="text" class="form-control left-control addresec"  placeholder="City" name="line3" ng-model="line3">
+    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line2" ng-model="merchant.primaryAddress.line2">
+    
+    <input type="text" class="form-control left-control addresec"  placeholder="City" name="line3" ng-model="merchant.primaryAddress.city">
     <div class="clearfix"></div>
 
     
@@ -60,7 +61,7 @@
 		<option>4</option>
 		<option>5</option>
 	</select>
-        <input type="text" class="form-control  entryInput3"  placeholder="Zip">
+        <input type="text" class="form-control  entryInput3"  placeholder="Zip" ng-model="merchant.primaryAddress.zipCode">
   </div>
 
   
@@ -73,7 +74,7 @@
             
   <div class="form-group">
     <label for="exampleInputEmail1">Brief Description</label>
-    <textarea class="form-control" rows="12"></textarea>
+    <textarea class="form-control" rows="12" name="description" ng-model="merchant.description"></textarea>
   </div>
   
   
@@ -83,27 +84,24 @@
     <label for="exampleInputPassword1">Phone & E-mail*<br>
  <span>If you have multiple numbers & e-mails, include the admins.</span></label>
  
-     <input type="number" class="form-control right-control addresec"  placeholder="Phone Number" ng-model="number" name="number">
+     <input type="number" class="form-control right-control addresec"  placeholder="Phone Number" ng-model="merchant.primaryAddress.phone.number" name="number">
+     
 	 <!--<p ng-show="BussinessForm.number.$invalid && !BussinessForm.number.$pristine || BussinessForm.phone.$error.number" class="help-block">Valid Phone number is required</p>
 	 
 	 <p ng-show="(BussinessForm.number.$error.minlength || BussinessForm.number.$error.maxlength)|| BussinessForm.number.$dirty" class="help-block">phone number should be 10 digits</p>
 	 -->
-	 
-	 
-	 
-	 
+	 	 
 	<!--<input type="number" class="form-control" ng-minlength="10" ng-maxlength="10"  id="inputPhone" name="phone" placeholder="Phone" ng-model="user.phone" ng-required="true">
 	<span class="help-block" ng-show="registration.phone.$error.required || registration.phone.$error.number">Valid phone number is required</span>
 	<span class="help-block" ng-show="((registration.phone.$error.minlength || registration.phone.$error.maxlength) && registration.phone.$dirty) ">phone number should be 10 digits</span>
 	 -->
-	 
-	 
-	 
-	 
+	 	 
 
-      <input type="email" class="form-control  right-control addresec"  placeholder="you@yourdomain.com" ng-model="emailId" name="emailId" required>
-		<p ng-show="BussinessForm.emailId.$error.required && !BussinessForm.emailId.$pristine" class="help-block">Address line 1 is required</p>
-        <p ng-show="BussinessForm.emailId.$invalid && !BussinessForm.emailId.$pristine" class="help-block">Enter a valid email.</p>
+	<input type="email" class="form-control  right-control addresec"  placeholder="you@yourdomain.com" ng-model="merchant.primaryAddress.emailId" name="emailId" required>
+	
+	<p ng-show="BussinessForm.emailId.$error.required && !BussinessForm.emailId.$pristine" class="help-block">Address line 1 is required</p>
+	<p ng-show="BussinessForm.emailId.$invalid && !BussinessForm.emailId.$pristine" class="help-block">Enter a valid email.</p>
+
   </div>
 
   </div>

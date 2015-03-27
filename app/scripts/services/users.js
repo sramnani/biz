@@ -10,7 +10,7 @@ angular.module("outingzApp")
 
 			//Calling Web API to fetch health data					
 			
-			$http.post("https://api.outingz.com/outingz/authenticate/createLogin",reset_obj).success(function(data){
+			$http.post("https://api.outingz.com/outingz/authenticate/resetLogin",reset_obj).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
 			  deferred.resolve(data);
 			}).error(function(){
@@ -21,6 +21,24 @@ angular.module("outingzApp")
 			
 			return deferred.promise;
 		
+		},
+		login:function(loginObj){
+			
+			var deferred = $q.defer();
+
+			//Calling Web API to fetch health data					
+			
+			$http.post("https://api.outingz.com/outingz/authenticate",loginObj).success(function(data,status){
+			  //Passing data to deferred's resolve function on successful completion
+			  deferred.resolve({'data':data,'status':status});
+			}).error(function(){
+
+			//Sending a friendly error message in case of failure
+			deferred.reject("An error occured while fetching items");
+			});
+			
+			return deferred.promise;
+			
 		}
 	};
 	

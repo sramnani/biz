@@ -40,9 +40,15 @@ angular
 		  templateUrl:'views/reset-password.html',
 		  controller:'userCtrl'
 	  })
+	  .when('/login',{
+		  templateUrl:'views/login.html',
+		  controller:'userCtrl'
+	  })
       .otherwise({
         redirectTo: '/'
       });
+      
+      
   });
   
 //http://localhost:9000/#/reset_password/true/4deb6954-447a-4cab-8f10-c9e0b4c74e80/ian@outingz.com/$2a$04$LxKzLRWuOi3GTBWyOiHIPeduVzirWXTzhx0/hEu45Kp50bMHP7rZG

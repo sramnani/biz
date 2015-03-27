@@ -11,12 +11,20 @@ angular.module('outingzApp')
   .controller('MerchantCtrl', function ($scope,MerchantService,$q,$http,$routeParams,$location) {  
    
    
+    $scope.merchant={};
     
-    $scope.create_merchant = function(isValid){
+    $scope.create_merchant = function(merchant,isValid){
 		if (isValid) {
-                alert('our form is amazing');
+			
+			alert('our form is amazing');
+			MerchantService.add_merchant(merchant).then(function(data){
+				console.log("merchant added successfully");
+			},function(error){
+				console.log("There is an error occured");
+			});
+			
 		}
-		alert("HELO");
+		
 		
 		/*
 		var merchant = {
@@ -36,15 +44,8 @@ angular.module('outingzApp')
 		}
 
 		merchant.primaryAddress = primaryAddress;
-		
-		
-		MerchantService.add_merchant(merchant).then(function(data){
-			console.log("merchant added successfully");
-		},function(error){
-			
-		});
-		
 		*/
+		
 
 	}
 	

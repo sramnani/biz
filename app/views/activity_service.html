@@ -22,12 +22,14 @@
 </div>
 
 
-<form name="activity_service" ng-submit="register()">
+<!--<form name="activity_service" ng-submit="add_activity_service(activity_service)" >-->
+<form name="activity_service" ng-submit="register()" >
+	
 <div class="col-lg-5 col-md-5">
 <div class="row">
 <div class="form-group ">
 <label for="exampleInputEmail1">Title*</label>
-<input type="text" class="form-control left-control"  placeholder="Joe’s Bungee Jumping" ng-model="activity_service.offering.name">
+<input type="text" class="form-control left-control"  placeholder="Joe’s Bungee Jumping" ng-model="name">
 </div>
 <div class="form-group clearfix">
 <label for="exampleInputEmail1" class="bussinessContact clearfix">Location*</label>
@@ -46,7 +48,7 @@
 
   <div class="col-xs-6">
   <label for="exampleInputEmail1">Duration*</label>
-  <input type="number" class="form-control left-control"  placeholder="Joe’s Bungee Jumping" name="duration" ng-model="activity_service.offering.duration">
+  <input type="number" class="form-control left-control"  placeholder="Joe’s Bungee Jumping" name="duration" ng-model="duration">
 <!--
     <select class="form-control">
 		<option>Select Location</option>
@@ -59,7 +61,7 @@
   </div>
   <div class="col-xs-6">
   <label for="exampleInputEmail1">How Many Available?</label>
-    <input type="number" class="form-control timeinput" placeholder="i.e. 10, 12" name="unit" ng-model="activity_service.offering.unit">
+    <input type="number" class="form-control timeinput" placeholder="i.e. 10, 12" name="unit" ng-model="unit">
   </div>
 </div>
 
@@ -70,13 +72,13 @@
   </div>
   <div class="col-xs-3">
   <label for="exampleInputEmail1">Price*</label>
-    <input type="number" class="form-control" placeholder="$ 0.00" name="basePrice" ng-model="activity_service.offering.basePrice">
+    <input type="number" class="form-control" placeholder="$ 0.00" name="basePrice" ng-model="basePrice">
   </div>
   
 
   <div class="col-xs-5">
   <label for="exampleInputEmail1">What Service*</label>
-    <input type="text" class="form-control" placeholder="i.e. Bowling Lanes" name="type" ng-model="activity_service.offering.basePrice" >
+    <input type="text" class="form-control" placeholder="i.e. Bowling Lanes" name="type" ng-model="type" >
   </div>
 </div>
 
@@ -162,7 +164,7 @@
 <div class="row">
 <div class="form-group">
 <label for="exampleInputEmail1">Activity Description</label>
-<textarea class="form-control" rows="12" placeholder="Joe’s bungee jumping is the best ever. We are only open 2 days a week. We have been in business since 1982. We are amazing!"></textarea>
+<textarea class="form-control" rows="12" placeholder="Joe’s bungee jumping is the best ever. We are only open 2 days a week. We have been in business since 1982. We are amazing!"></textarea>
 </div>
 
 </div>

@@ -3,13 +3,13 @@ angular.module("outingzApp")
 	
 	return {
 
-		add_activity_service : function(merchantObj){
+		add_activity_service : function(activity_service){
 			
-			alert("HELO");
-			/*var deferred = $q.defer();
+			
+			var deferred = $q.defer();
 
 			//Calling Web API to fetch health data
-			$http.post("http://localhost:9000/#/login",merchantObj).success(function(data){
+			$http.post("https://api.outingz.com/outingz/merchants/098150df-d65f-4577-b4ce-474ecced5673/services",activity_service).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
 			  deferred.resolve(data);
 			}).error(function(){
@@ -18,18 +18,24 @@ angular.module("outingzApp")
 			deferred.reject("An error occured while fetching items");
 			});
 			
-			return deferred.promise; */
+			return deferred.promise; 
 		},
 		register:function(){
 			
 			//alert("HELO");
 			var deferred = $q.defer();
 
-			//Calling Web API to fetch health data
+			//Calling Web API to fetch health data			
+			
 			
 			obj = {};
-			obj.primaryUserName="itsvarunprashar@yahoo.com";			
-			obj.id="8898";			
+			obj.id="id5941";
+			obj.name="varun";
+			obj.shortName="vipy";	
+			obj.primaryUserName="varunprashar5@gmail.com";	
+			obj.dba="vhelo";			
+			obj.companyUrl="companyUrl";			
+						
 			
 			$http.post("https://api.outingz.com/outingz/registration",obj).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
