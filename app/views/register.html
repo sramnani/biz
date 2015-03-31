@@ -1,0 +1,28 @@
+
+<div id="login_sec">
+<section class="main">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div ng-if="error">{{error}}</div>
+<div ng-if="success">{{success}}</div>
+<div class="loginForm"> <a href="index.html"><img src="images/login_logo.png" class="login_logo" alt=""/></a>
+<form class="formlogin" name="loginForm" ng-submit="register()">
+<div class="form-group">
+<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="name" ng-model="name">
+</div>
+<div class="form-group">
+<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your E-mail" name="email" ng-model="primaryUserName">
+<p ng-show="loginForm.email.$error.required && loginForm.email.$dirty" class="error">Email is required</p>
+
+</div>
+
+<button type="submit" class="btn btn-default saveBtn">Register Now</button>
+<label for="" class="reset">Forgot your password? <a href="reset-password.html">Reset it here.</a></label>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>

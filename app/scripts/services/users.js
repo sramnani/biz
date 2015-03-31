@@ -1,5 +1,5 @@
 angular.module("outingzApp")
-.factory("UserService", function ($http,$q) {
+.factory("UserService", function ($http,$q,$window) {
 	
 	return {
 
@@ -39,6 +39,34 @@ angular.module("outingzApp")
 			
 			return deferred.promise;
 			
+		},
+		register:function(registerObj){
+			
+			var deferred = $q.defer();
+
+			//Calling Web API to fetch health data					
+			
+			$http.post("https://api.outingz.com/outingz/registration",registerObj).success(function(data){
+			  //Passing data to deferred's resolve function on successful completion
+			  deferred.resolve(data);
+			}).error(function(){
+
+			//Sending a friendly error message in case of failure
+			deferred.reject("An error occured while fetching items");
+			});
+			
+			return deferred.promise;			
+			
+		},
+		isAuthenticated:function(){
+			
+			var token = $window.localStorage['token'];
+			var key = $window.localStorage['key'];
+			if (token && key) {
+			  return true;
+			} else {
+			  return false;
+			}
 		}
 	};
 	

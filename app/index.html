@@ -8,20 +8,22 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
    <!-- <link rel="stylesheet" href="styles/main.css">-->
-       <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-
+   <link href="styles/bootstrap.css" rel="stylesheet">
 	<link href="styles/style.css" rel="stylesheet">
+	
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300' rel='stylesheet' type='text/css'>
 
     <!-- endbuild -->
   </head>
   <body ng-app="outingzApp" class="body">
-     <header>
-<div class="container">
+	  
+<header ng-controller="NavbarCtrl" ng-show="isAuthenticated()" >
+<div class="container"  id="cont">
 <div class="row">
 
 <div class="col-lg-3 col-md3">
@@ -32,16 +34,18 @@
 </div>
 <div class="col-lg-9 col-md9">
 
-<div class="welcome">
+<div class="welcome"  >
 
-<!--<p>Welcome, <strong>Ilana Eliran</strong></p>-->
-<a href="#/login">Login</a>
+<!--<a  href="#/login" ng-if="!isAuthenticated()">Login</a>-->
+
+<a ng-click="logout()" ng-if="isAuthenticated()">Logout</a>
+
 <button  class="menu-toggle" type="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+	<span class="sr-only">Toggle navigation</span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+	<span class="icon-bar"></span>
+</button>
 
 
 </div>
@@ -54,14 +58,12 @@
 
 
 </header>
-
-    <div class="container">
-
-		
-    <div ng-view=""></div>
     
+    <div class="container">
+    <div ng-view=""></div>
     </div>
-
+	
+	
     <div class="clearfix"></div>
     
    
