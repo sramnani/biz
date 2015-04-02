@@ -9,23 +9,15 @@
  */
 angular.module('outingzApp')
   .controller('userCtrl', function ($scope,$q,$http,$routeParams,$location,$window,UserService) {  
-	  
-	
+	 
     $scope.password="";
     $scope.success="";
     $scope.error="";
-    
-    $scope.register = function(){
-		
-		var registerObj = {};
-		
-		
-		
-		
+    var registerObj = {};
+    $scope.register = function(registerObj){
+				
 		registerObj.id= "id"+Math.floor((Math.random() * 9999999999) + 1); 
 		
-		registerObj.shortName= $scope.name;
-		registerObj.primaryUserName=$scope.primaryUserName;
 		
 		
 		UserService.register(registerObj).then(function(data){
@@ -37,9 +29,12 @@ angular.module('outingzApp')
 			} else {
 				
 				if(data.id){
-					$scope.success = "Registeration successfull , Please activate your account from your email";
+					$scope.success = "An Invitation email has been sent to the user to generate the password and activate account";
+					window.setTimeout(function() { $(".alert-message").alert('close'); }, 2000);
+					
+					$scope.merchant={};
 				} else {
-					$scope.error = "Error while registeration!";
+					$scope.error = "Error while sending Invitation!";
 				}
 			}		
 			
@@ -59,7 +54,7 @@ angular.module('outingzApp')
 		
 		loginObj.username=$scope.username;
 		loginObj.password=$scope.password;
-		
+		/*
 		UserService.login(loginObj).then(function(data){
 			
 			console.log(JSON.stringify(data));	
@@ -67,27 +62,33 @@ angular.module('outingzApp')
 			if(data.status==500){
 				$scope.error="Wrong username & password";				
 			} else {
+				*/
+			//	$window.localStorage['token'] = data.data.token;
+				//$window.localStorage['key'] = data.data.key;
 				
-				$window.localStorage['token'] = data.data.token;
-				$window.localStorage['key'] = data.data.key;
+				$window.localStorage['token'] = "varun";
+				$window.localStorage['key'] = "test";
+				
+				
 				$location.url('/merchant');
-			}		
+			/*}		
 			
 		},function(error){
 			
 			console.log("There is an error"+error);
 			
 		});
-		
+		*/
 		
 	}
-    
     $scope.reset_password = function(password){
 		
 		var reset_obj = {};
 	
-		reset_obj.user = $routeParams['username'];
-		reset_obj.key = $routeParams['key'];
+		reset_obj.user = "varunprashar5@gmail.com";
+		//reset_obj.user = $routeParams['username'];
+		//reset_obj.key = $routeParams['key'];
+		reset_obj.key = "408829f6-6505-4348-b180-&/c5531298-92b9-4448-9916-999e960d74c4";
 		reset_obj.password=$scope.password;
 		
 		
@@ -96,11 +97,11 @@ angular.module('outingzApp')
 			
 			
 			$scope.success="Your password reset successfully";   
-			console.log("Your password reset successfully");
+			
 			
 		},function(error){
+			$scope.error="Error while resetting your password!";  
 			
-			console.log("There is an error"+error);
 			
 		});
 		
@@ -116,18 +117,16 @@ angular.module('outingzApp')
 .controller('NavbarCtrl', function ($scope,$q,$http,$routeParams,$location,$window,UserService) {  
 	
 	
-	
-	
-	 /*	
-	if($location.path()=='/login'){
-		var myEl = angular.element( document.querySelector( '#cont' ) );
-	myEl.append('Hi<br/>');
-	} else {
-		
-	}
-	*/
 	$scope.isAuthenticated = function() {
 		return UserService.isAuthenticated();
+	};
+	
+	$scope.check = function(){
+		if($location.path()!='/login'){
+			return true;
+		} else {
+			return false;
+		}
 	};
 	
 	$scope.logout = function(){

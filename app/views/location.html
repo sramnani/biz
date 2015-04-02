@@ -38,7 +38,10 @@
 <input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="you@yourdomain.com" name="emailId" ng-model="location.contactPerson.emailId">
 </div>
 <!--<button type="submit" class="btn btn-default saveBtn">Continue</button>-->
-<button type="submit" class="btn btn-default saveBtn">Add Location</button>
+  <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
+  <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>
+
+<button id="reloader" type="submit" class="btn btn-default saveBtn" >Add Location</button>
 </form>
 
 

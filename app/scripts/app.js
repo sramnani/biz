@@ -10,6 +10,7 @@
  */
 angular
   .module('outingzApp', [
+    'chieffancypants.loadingBar',
     'ngAnimate',
     'ngCookies',
     'ngMessages',
@@ -18,13 +19,15 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider,$httpProvider) {
     $routeProvider
       .when('/', {
+		title: 'Dashboard here', 
         templateUrl: 'views/dashboard.html',
-        //controller: 'MainCtrl'
+        controller: 'MerchantCtrl'
       })
       .when('/merchant', {
+		title: 'Settings, Business Setup', 
         templateUrl: 'views/merchant.html',
         controller: 'MerchantCtrl',
         resolve: {
@@ -41,6 +44,7 @@ angular
         }
       })
       .when('/location', {
+		title: 'Settings, Business Setup', 
         templateUrl: 'views/location.html',
         controller: 'MerchantCtrl',
         resolve: {
@@ -57,6 +61,7 @@ angular
         }
       })
       .when('/activity_service', {
+		title: 'Add Activity',   
         templateUrl: 'views/activity_service.html',
         controller: 'ServiceCtrl',
         resolve: {
@@ -72,11 +77,14 @@ angular
           }
         }
       })
+
       .when('/reset_password/:resetPassword/:key/:username/:token*',{
+		  title: 'Reset your password',  
 		  templateUrl:'views/reset-password.html',
 		  controller:'userCtrl'
 	  })
 	  .when('/login',{
+		  title: 'Login',   
 		  templateUrl:'views/login.html',
 		  controller:'userCtrl'
 	  })
@@ -85,33 +93,65 @@ angular
 		  controller:'userCtrl'
 	  })
 	  .when('/register',{
+		  title: 'Invite Business',   
 		  templateUrl:'views/register.html',
 		  controller:'userCtrl'
+	  })
+	  .when('/buildInfo',{
+		  title: 'Your build info',   
+		  templateUrl:'views/build.html',
+		  controller:'buildCtrl'
 	  })
       .otherwise({
         redirectTo: '/'
       });
       
+	$httpProvider.interceptors.push(function($q,$window,$location) {
+		return {
+		'request': function(config) {	
+				
+			/*
+			var token = $window.localStorage['token'];
+
+			if (token) {
+			  config.headers['Authorization'] = token;
+			} else {
+			  alert("No header found");
+			}*/
+             
+			  return config;
+			},
+            responseError: function(response) {
+              return $q.reject(response);
+            },
+            'response':function(response){
+				
+				
+				return response;
+			}
+		};
+	});
+
+
       
-  }).controller('GreetingController', ['$scope', function($scope) {
-  $scope.greeting = 'Hola!';
-}]);;
-  
-//http://localhost:9000/#/reset_password/true/4deb6954-447a-4cab-8f10-c9e0b4c74e80/ian@outingz.com/$2a$04$LxKzLRWuOi3GTBWyOiHIPeduVzirWXTzhx0/hEu45Kp50bMHP7rZG
-
-
-
-//resetPassword=true&key=4deb6954-447a-4cab-8f10-c9e0b4c74e80&username=ian@outingz.com&token=$2a$04$LxKzLRWuOi3GTBWyOiHIPeduVzirWXTzhx0/hEu45Kp50bMHP7rZG
-
-
-
-///reset_password/:
-
-
-
-
-
-
+}).directive('hoverBgImage',function(){
+    return {
+        link: function(scope, elm, attrs){
+			
+            elm.bind('mouseenter',function(){
+                this.src = attrs.hoverBgImage;
+            });
+            elm.bind('mouseleave',function(){
+                this.src = attrs["data"];
+            })
+        }
+    };
+}).run(['$location', '$rootScope', function($location, $rootScope) {
+	
+    $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+        $rootScope.title = current.$$route.title;
+    });
+}]);
 
 
 

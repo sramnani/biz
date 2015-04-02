@@ -99,7 +99,7 @@
 
 	<input type="email" class="form-control  right-control addresec"  placeholder="you@yourdomain.com" ng-model="merchant.primaryAddress.emailId" name="emailId" required>
 	
-	<p ng-show="BussinessForm.emailId.$error.required && !BussinessForm.emailId.$pristine" class="help-block">Address line 1 is required</p>
+	<p ng-show="BussinessForm.emailId.$error.required && !BussinessForm.emailId.$pristine" class="help-block">Email is required</p>
 	<p ng-show="BussinessForm.emailId.$invalid && !BussinessForm.emailId.$pristine" class="help-block">Enter a valid email.</p>
 
   </div>
@@ -108,8 +108,10 @@
   </div>
   
   <div class="clearfix"></div>
-  
-    <button type="submit" class="btn btn-default saveBtn" ng-disabled="BussinessForm.$invalid">Save & Continue</button>
+  <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
+  <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>
+
+    <button type="submit" id="reloader" class="btn btn-default saveBtn" ng-disabled="BussinessForm.$invalid">Save & Continue</button>
   
 </form>
 

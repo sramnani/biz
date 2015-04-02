@@ -12,6 +12,50 @@ angular.module('outingzApp')
 	  
    $scope.activity_service={};
    
+   $scope.select_type = function(obj){
+	   if(obj=="camp"){
+		   
+		 //  document.getElementById(obj).classList.toggle('active', true);
+		   
+		   if(document.getElementById(obj).classList.contains("active")){
+			   
+			   document.getElementById(obj).classList.remove("active");
+			   
+			   if(!document.getElementById('service').classList.contains("active")){
+					document.getElementById('service').classList.add("active");
+			   }
+			   
+		   } else {
+			   
+			   document.getElementById(obj).classList.add("active");
+			   if(document.getElementById('service').classList.contains("active")){
+					document.getElementById('service').classList.remove("active");
+			   }
+		   }
+	   } else {
+		   
+		   if(document.getElementById(obj).classList.contains("active")){
+			   
+			   document.getElementById(obj).classList.remove("active");
+			   if(!document.getElementById('camp').classList.contains("active")){
+					document.getElementById('camp').classList.add("active");
+			   }
+			   
+			   
+		   } else {
+			   document.getElementById(obj).classList.add("active");
+			   if(document.getElementById('camp').classList.contains("active")){
+					document.getElementById('camp').classList.remove("active");
+			   }
+		   }
+		   
+		   
+		   
+	   }
+	  
+	  
+   }
+   
    $scope.add_activity_service = function(activity_service){
 	   
 	   
@@ -23,11 +67,11 @@ angular.module('outingzApp')
 	   activity_service.offering.duration=$scope.duration;
 	   activity_service.offering.unit=$scope.unit;
 	   activity_service.offering.basePrice=$scope.basePrice;
+	   
+       var activity_type =  document.querySelector('.active').id;
 	   activity_service.offering.type=$scope.type;
 	   
-	  // console.log(JSON.stringify(activity_service));
-	  // return;
-	   ActivityService.add_activity_service(activity_service).then(function(data){
+	   ActivityService.add_activity_service(activity_service,activity_type).then(function(data){
 		   
 			console.log("Activity service added successfully");
 			

@@ -1,8 +1,10 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="outingzApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    
+    <title  ng-bind="title"></title>
+    
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -14,15 +16,17 @@
     <!-- build:css(.tmp) styles/main.css -->
    <!-- <link rel="stylesheet" href="styles/main.css">-->
    <link href="styles/bootstrap.css" rel="stylesheet">
-	<link href="styles/style.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="styles/loading-bar.css"/>
+   <link href="styles/style.css" rel="stylesheet">
 	
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300' rel='stylesheet' type='text/css'>
 
     <!-- endbuild -->
+    
   </head>
-  <body ng-app="outingzApp" class="body">
+<body  class="body"  ng-controller="buildCtrl" ng-class="getImg() ? 'login_sec' : ''">
 	  
-<header ng-controller="NavbarCtrl" ng-show="isAuthenticated()" >
+<header ng-controller="NavbarCtrl" ng-show="check()" >
 <div class="container"  id="cont">
 <div class="row">
 
@@ -88,10 +92,13 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+		<script src="scripts/angular-loading-bar/loading-bar.js"></script>
+
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/merchant.js"></script>
         <script src="scripts/controllers/activity_service.js"></script>
         <script src="scripts/controllers/users.js"></script>
+        <script src="scripts/controllers/build.js"></script>
        <script src="scripts/services/merchant.js"></script>
        <script src="scripts/services/activity_services.js"></script>
        <script src="scripts/services/users.js"></script>

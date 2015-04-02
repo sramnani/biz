@@ -8,49 +8,42 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-  .controller('MerchantCtrl', function ($scope,MerchantService,$q,$http,$routeParams,$location) {  
-   
-   
+  .controller('MerchantCtrl', function ($scope,MerchantService,$q,$http,$routeParams,$location,UserService) {  
+	  
+	  
+	$scope.image_bussiness = "images/business_img.png";
+	$scope.image_activity = "images/activity_img.png";
+	$scope.image_membership = "images/membership_img.png";
+	$scope.image_social = "images/social_img.png";
+	$scope.image_payment = "images/payment_img.png";
+	$scope.image_staff = "images/staff_img.png";
+	 
+	   
     $scope.merchant={};
+    $scope.success="";
+    $scope.error="";
     
     $scope.create_merchant = function(merchant,isValid){
 		if (isValid) {
 			
-			alert('our form is amazing');
 			MerchantService.add_merchant(merchant).then(function(data){
-				console.log("merchant added successfully");
+				$scope.success="Your Business setup sucessfully";
 			},function(error){
-				console.log("There is an error occured");
+				$scope.error="Error in creating your bussiness!";
 			});
 			
+		} else {
+			$scope.error="Error in creating your bussiness!";
 		}
 		
 		
-		/*
-		var merchant = {
-			"name": $scope.name,
-			"description": $scope.description,
-			"status": $scope.status,						
-		};
-		
-
-		var primaryAddress = {
-			"line1": $scope.line1,
-			"line2": $scope.line2,
-			"line3": $scope.line3,
-			"city": $scope.city,
-			"state": $scope.state,
-			"country": $scope.country,
-		}
-
-		merchant.primaryAddress = primaryAddress;
-		*/
 		
 
 	}
 	
 	$scope.location = {};
 	$scope.locations=[];
+	
 	$scope.add_merchant_location = function(locations){
 		
 		locations.address.state="";
@@ -59,8 +52,9 @@ angular.module('outingzApp')
 		
 		MerchantService.add_merchant_location(locations).then(function(data){
 			$scope.locations.push(locations);
+			$scope.success="Your location added sucessfully";
 		},function(error){
-			console.log("There is an error"+error);
+			$scope.error="Error in saving your location!";
 		});
 	}
 	

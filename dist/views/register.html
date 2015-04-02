@@ -1,1 +1,29 @@
-<div id="login_sec"> <section class="main"> <div class="container"> <div class="row"> <div class="col-lg-12"> <div ng-if="error">{{error}}</div> <div ng-if="success">{{success}}</div> <div class="loginForm"> <a href="index.html"><img src="images/login_logo.c3a8eb7a.png" class="login_logo" alt=""></a> <form class="formlogin" name="loginForm" ng-submit="register()"> <div class="form-group"> <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="name" ng-model="name"> </div> <div class="form-group"> <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your E-mail" name="email" ng-model="primaryUserName"> <p ng-show="loginForm.email.$error.required && loginForm.email.$dirty" class="error">Email is required</p> </div> <button type="submit" class="btn btn-default saveBtn">Register Now</button> <label for="" class="reset">Forgot your password? <a href="reset-password.html">Reset it here.</a></label> </form> </div> </div> </div> </div> </section> </div>
+<!--
+<div id="login_sec">
+<section class="main">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div ng-if="error">{{error}}</div>
+<div ng-if="success">{{success}}</div>
+<div class="loginForm"> <a href="index.html"><img src="images/login_logo.png" class="login_logo" alt=""/></a>
+<form class="formlogin" name="loginForm" ng-submit="register()">
+<div class="form-group">
+<input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="name" ng-model="name">
+</div>
+<div class="form-group">
+<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Your E-mail" name="email" ng-model="primaryUserName">
+<p ng-show="loginForm.email.$error.required && loginForm.email.$dirty" class="error">Email is required</p>
+
+</div>
+
+<button type="submit" class="btn btn-default saveBtn">Register Now</button>
+<label for="" class="reset">Forgot your password? <a href="reset-password.html">Reset it here.</a></label>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>--> <section class="main"> <div class="container"> <div class="row"> <div class="col-lg-12"> <h2 class="heading"><span>Invite:</span> New Business</h2> <h6>Send email to new business setup Outingz account</h6> <form name="loginForm" ng-submit="register(merchant,loginForm.$valid)" class="bussinessInfo" novalidate> <div class="col-lg-5 col-md-5"> <div class="row"> <div class="form-group"> <label for="exampleInputEmail1">Business Name</label> <input type="text" class="form-control left-control" placeholder="Name" name="name" ng-model="merchant.shortName" required> <p ng-show="loginForm.name.$invalid && !loginForm.name.$pristine" class="help-block">Bussiness name is required.</p> </div> <div class="form-group clearfix"> <label for="exampleInputEmail1" class="bussinessContact clearfix">Business Contact</label> <input type="text" class="form-control entryInput" placeholder="Joe" name="firstname" ng-model="merchant.primaryContactPerson.name.firstName" required> <input type="text" class="form-control entryInput1" placeholder="Smith" ng-model="merchant.primaryContactPerson.name.lastName"> <!--	<p ng-show="BussinessForm.firstname.$invalid && !BussinessForm.firstname.$pristine" class="help-block">first name is required.</p>
+  --> </div> <div class="form-group clearfix"> <div class="form-group"> <label for="exampleInputEmail1">Email</label> <input type="email" class="form-control left-control" placeholder="Your E-mail" name="email" ng-model="merchant.primaryUserName" required> <p ng-show="loginForm.email.$error.required && !loginForm.email.$pristine" class="help-block">Email is required</p> <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block">Enter a valid email.</p> </div> <div class="clearfix"></div> <div ng-if="error">{{error}}</div> <div ng-if="success" class="alert alert-success alert-dismissable"><button class="close" data-dismiss="alert">&times;</button>{{success}}</div> <button type="submit" id="reloader" ng-disabled="loginForm.$invalid" class="btn btn-default saveBtn">Save Invite</button> </div></div></div></form> </div> </div> </div> </section>

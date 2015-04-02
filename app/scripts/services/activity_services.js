@@ -3,13 +3,21 @@ angular.module("outingzApp")
 	
 	return {
 
-		add_activity_service : function(activity_service){
+		add_activity_service : function(activity_service,activity_type){
 			
 			
 			var deferred = $q.defer();
+			
+			var link="";
+			
+			if(activity_type=="service"){
+				link = "https://api.outingz.com/outingz/merchants/098150df-d65f-4577-b4ce-474ecced5673/services";
+			} else {
+				link = "https://api.outingz.com/outingz/merchants/098150df-d65f-4577-b4ce-474ecced5673/classes";
+			}
 
 			//Calling Web API to fetch health data
-			$http.post("https://api.outingz.com/outingz/merchants/098150df-d65f-4577-b4ce-474ecced5673/services",activity_service).success(function(data){
+			$http.post(link,activity_service).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
 			  deferred.resolve(data);
 			}).error(function(){

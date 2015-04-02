@@ -1,5 +1,5 @@
 angular.module("outingzApp")
-.factory("UserService", function ($http,$q,$window) {
+.factory("UserService", function ($http,$q,$window,$location) {
 	
 	return {
 
@@ -66,6 +66,17 @@ angular.module("outingzApp")
 			  return true;
 			} else {
 			  return false;
+			}
+		},
+		bg:function(){
+			if($location.path()=='/login'){
+				
+				var myEl = angular.element( document.querySelector( '#contt' ) );
+				myEl.wrap('<div id="login_sec"></div>');
+			} else {
+				//alert("ELSE");
+				var myEl = angular.element( document.querySelector( '#login_sec' ) );
+				myEl.unwrap();
 			}
 		}
 	};
