@@ -31,7 +31,7 @@ select { color: #999; font-size: 12px; }
 
 
 
-body { font-family: "proxima_novaregular", sans-serif; font-style: normal; font-weight: 300; font-size: 14px; color: #999; }
+body {font-style: normal; font-weight: 300; font-size: 14px; color: #999; }
 .form-control::-moz-placeholder {
 font-size:12px;
 }
@@ -291,4 +291,17 @@ h6 { font-size:16px; }
 @media only screen and (min-width:320px) and (max-width:568px) and (orientation:landscape) {
 .entryInput2 { margin-right: 19px; }
 .entryInput3 { width: 40.3%; }
+}
+
+
+.activitycamp .checkbox{display:inline-block !important;}
+.form-group p{color:#198c88; font-size:12px;}
+.form-group label span{font-size:12px; font-weight:normal;}
+.user_name{font-size:16px !important;}
+
+.reset-psw input{width:295px !important;}
+.welcome a{float:left; color:#fff; padding-right:15px;}
+a{cursor:pointer;}
+.error_img {
+  background: url("../images/invalid.png") no-repeat scroll right 41px top 48px rgba(0, 0, 0, 0);
 }

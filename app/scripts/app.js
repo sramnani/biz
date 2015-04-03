@@ -17,7 +17,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.utils'
   ])
   .config(function ($routeProvider,$httpProvider) {
     $routeProvider
@@ -77,7 +78,23 @@ angular
           }
         }
       })
+      .when('/activity_class', {
+		title: 'Add Activity',   
+        templateUrl: 'views/activity_class.html',
+        controller: 'ServiceCtrl',
+        resolve: {
+          authenticated: function($q, $location,UserService) {
+            var deferred = $q.defer();
+            if (!UserService.isAuthenticated()) {
+              $location.path('/login');
+            } else {
+              deferred.resolve();
+            }
 
+            return deferred.promise;
+          }
+        }
+      })
       .when('/reset_password/:resetPassword/:key/:username/:token*',{
 		  title: 'Reset your password',  
 		  templateUrl:'views/reset-password.html',
@@ -144,6 +161,22 @@ angular
             elm.bind('mouseleave',function(){
                 this.src = attrs["data"];
             })
+        }
+    };
+}).directive('onlyDigits', function () {
+
+    return {
+        restrict: 'A',
+        require: '?ngModel',
+        link: function (scope, element, attrs, ngModel) {
+            if (!ngModel) return;
+            ngModel.$parsers.unshift(function (inputValue) {
+              //  var digits = inputValue.split('').filter(function (s) { return (!isNaN(s) && s != ' '); }).join('');
+                var digits = inputValue.replace(/\D/g, "");
+                ngModel.$viewValue = digits;
+                ngModel.$render();
+                return digits;
+            });
         }
     };
 }).run(['$location', '$rootScope', function($location, $rootScope) {

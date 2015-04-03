@@ -8,12 +8,21 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-  .controller('ServiceCtrl', function ($scope,ActivityService,$q,$http) {  
+  .controller('ServiceCtrl', function ($scope,ActivityService,$q,$http,$location) {  
 	  
    $scope.activity_service={};
    
    $scope.select_type = function(obj){
-	   if(obj=="camp"){
+	   
+	   
+	   
+	   if(obj=="service"){
+		   $location.url('/activity_service');
+	   } else {
+		   $location.url('/activity_class');
+	   }
+	   
+	/*   if(obj=="camp"){
 		   
 		 //  document.getElementById(obj).classList.toggle('active', true);
 		   
@@ -51,7 +60,7 @@ angular.module('outingzApp')
 		   
 		   
 		   
-	   }
+	   }*/
 	  
 	  
    }

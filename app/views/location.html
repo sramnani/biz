@@ -11,37 +11,30 @@
 <form name="location_form" ng-submit="add_merchant_location(location)" novalidate>
 <div class="form-group clearfix">
 <label for="exampleInputPassword1">Add Location*</label>
-<input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName"  placeholder="Location Name, i.e. Sunnyvale Location">
+<!--<input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName"  placeholder="Location Name, i.e. Sunnyvale Location" required>-->
+<p ng-show="location_form.locationName.$invalid && !location_form.locationName.$pristine" class="help-block">Location name is required.</p>
 
-<input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line1" ng-model="location.address.line1">
+<input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line1" ng-model="location.address.line2">
 <input type="text" class="form-control left-control addresec"  placeholder="City" name="city" ng-model="location.address.city">
 <div class="clearfix"></div>
 <select class="form-control  entryInput2"  ng-model="location.address.state">
 	 <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
 </select>
-<!--
-<select class="form-control  entryInput2">
-<option>Select Your State</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-</select>-->
 
-<input type="text" class="form-control  entryInput3"  placeholder="Zip" name="zipCode" ng-model="location.address.zipCode">
+<input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode">
 </div>
+<p ng-show="(location_form.zipCode.$error.minlength || location_form.zipCode.$error.minlength) && !location_form.zipCode.$pristine" class="help-block">Zip must be of 5 digits</p>
+
 <div class="form-group ">
 <label for="exampleInputEmail1">Contact Info, Phone E-mail*</label>
-<input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Contact Name i/e/ Joe Smith" name="firstName" ng-model="location.contactPerson.name.firstName">
+<input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Contact Name i/e/ Joe Smith" name="firstName" ng-model="location.locationName">
 <input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Phone Number" name="number" ng-model="location.contactPerson.phone.number">
 <input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="you@yourdomain.com" name="emailId" ng-model="location.contactPerson.emailId">
 </div>
-<!--<button type="submit" class="btn btn-default saveBtn">Continue</button>-->
   <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
   <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>
 
-<button id="reloader" type="submit" class="btn btn-default saveBtn" >Add Location</button>
+<button id="reloader" type="submit" ng-disabled="location_form.$invalid" class="btn btn-default saveBtn" >Add it</button>
 </form>
 
 
@@ -72,80 +65,6 @@
 </div>
 </div>
 </div>
-
-<!--
-
-<div class="col-lg-7 col-md-7">
-<div class="row">
-<div class="add_location" id="locations">
-<h5>Your Locations</h5>
-
-<div class="col-lg-6 col-sm-6 location_text">
-<div class="row">
-<h4>Sunnyvale Location (Default)</h4>
-<p>554 El Camino Real E
-Sunnyvale, CA 94086</p>
-
-<p>Joe Smith
-408-987-9283
-sunnyvale@bungeejumpers.com</p>
-
-<p>Open Mon, Tue 9AM - 5PM</p>
-
-<p><a href="javascript;:">Edit</a>   |   <a href="javascript;:">Delete</a></p>
-</div>
-</div>
-
-<div class="col-lg-6 col-sm-6 location_text">
-<div class="row">
-<h4>Mountain View Location</h4>
-<p>554 El Camino Real E
-Sunnyvale, CA 94086</p>
-
-<p>Joe Smith
-408-987-9283
-sunnyvale@bungeejumpers.com</p>
-
-<p>Open Mon, Tue 9AM - 5PM</p>
-
-<p><a href="javascript;:">Edit</a>   |   <a href="javascript;:">Delete</a>   |   <a href="javascript;:">Set As Default</a></p>
-</div>
-</div>
-
-
-<div class="col-lg-6 col-sm-6 location_text">
-<div class="row">
-<h4>Sunnyvale Location (Default)</h4>
-<p>554 El Camino Real E
-Sunnyvale, CA 94086</p>
-
-<p>Joe Smith
-408-987-9283
-sunnyvale@bungeejumpers.com</p>
-
-<p>Open Mon, Tue 9AM - 5PM</p>
-
-<p><a href="javascript;:">Edit</a>   |   <a href="javascript;:">Delete</a></p>
-</div>
-</div>
-
-<div class="col-lg-6 col-sm-6 location_text">
-<div class="row">
-<h4>Mountain View Location</h4>
-<p>554 El Camino Real E
-Sunnyvale, CA 94086</p>
-
-<p>Joe Smith
-408-987-9283
-sunnyvale@bungeejumpers.com</p>
-
-<p>Open Mon, Tue 9AM - 5PM</p>
-
-<p><a href="javascript;:">Edit</a>   |   <a href="javascript;:">Delete</a>   |   <a href="javascript;:">Set As Default</a></p>
-</div>
-</div>
--->
-
 
 
 

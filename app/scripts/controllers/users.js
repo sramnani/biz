@@ -54,7 +54,7 @@ angular.module('outingzApp')
 		
 		loginObj.username=$scope.username;
 		loginObj.password=$scope.password;
-		/*
+		
 		UserService.login(loginObj).then(function(data){
 			
 			console.log(JSON.stringify(data));	
@@ -62,33 +62,37 @@ angular.module('outingzApp')
 			if(data.status==500){
 				$scope.error="Wrong username & password";				
 			} else {
-				*/
-			//	$window.localStorage['token'] = data.data.token;
-				//$window.localStorage['key'] = data.data.key;
 				
-				$window.localStorage['token'] = "varun";
-				$window.localStorage['key'] = "test";
+				$window.localStorage['token'] = data.data.token;
+				$window.localStorage['key'] = data.data.key;
+				
+				//$window.localStorage['token'] = "varun";
+				//$window.localStorage['key'] = "test";
 				
 				
 				$location.url('/merchant');
-			/*}		
+			}		
 			
 		},function(error){
 			
 			console.log("There is an error"+error);
 			
 		});
-		*/
+		
 		
 	}
+	
+	$scope.username="";
+	$scope.username = $routeParams['username'];
+	
     $scope.reset_password = function(password){
 		
 		var reset_obj = {};
 	
-		reset_obj.user = "varunprashar5@gmail.com";
-		//reset_obj.user = $routeParams['username'];
-		//reset_obj.key = $routeParams['key'];
-		reset_obj.key = "408829f6-6505-4348-b180-&/c5531298-92b9-4448-9916-999e960d74c4";
+		//reset_obj.user = "varunprashar5@gmail.com";
+		reset_obj.user = $routeParams['username'];
+		reset_obj.key = $routeParams['key'];
+		//reset_obj.key = "408829f6-6505-4348-b180-&/c5531298-92b9-4448-9916-999e960d74c4";
 		reset_obj.password=$scope.password;
 		
 		
@@ -97,7 +101,8 @@ angular.module('outingzApp')
 			
 			
 			$scope.success="Your password reset successfully";   
-			
+			$scope.password="";
+			$scope.confirmPassword="";
 			
 		},function(error){
 			$scope.error="Error while resetting your password!";  
