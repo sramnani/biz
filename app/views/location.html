@@ -21,15 +21,17 @@
 	 <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
 </select>
 
-<input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode">
+<input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits>
 </div>
-<p ng-show="(location_form.zipCode.$error.minlength || location_form.zipCode.$error.minlength) && !location_form.zipCode.$pristine" class="help-block">Zip must be of 5 digits</p>
+<p ng-show="(location_form.zipCode.$error.minlength && location_form.zipCode.$error.minlength) && !location_form.zipCode.$pristine" class="help-block error">Zip must be of 5 digits</p>
 
 <div class="form-group ">
 <label for="exampleInputEmail1">Contact Info, Phone E-mail*</label>
 <input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Contact Name i/e/ Joe Smith" name="firstName" ng-model="location.locationName">
-<input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Phone Number" name="number" ng-model="location.contactPerson.phone.number">
-<input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="you@yourdomain.com" name="emailId" ng-model="location.contactPerson.emailId">
+<input ui-mask="(999) 999-9999" class="form-control left-control addresec" id="exampleInputEmail1"  name="number" ng-model="location.contactPerson.phone.number" >
+<input type="email" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="you@yourdomain.com" name="emailId" ng-model="location.contactPerson.emailId" required>
+<p ng-show="location_form.emailId.$error.required && !location_form.emailId.$pristine" class="help-block error">Email is required</p>
+<p ng-show="location_form.emailId.$invalid && !location_form.emailId.$pristine" class="help-block error">Enter a valid email.</p>
 </div>
   <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
   <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>

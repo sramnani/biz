@@ -1,3 +1,4 @@
+// Directive to check if confirm password matches with password.
 angular.module('outingzApp').directive('validPasswordC', function () {
     return {
         require: "ngModel",

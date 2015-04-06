@@ -1,14 +1,13 @@
+//User service to interact with user Controller.
 angular.module("outingzApp")
 .factory("UserService", function ($http,$q,$window,$location) {
-	
 	return {
-
-		
+		// Service to reset user's password
 		reset_password:function(reset_obj){
 			
 			var deferred = $q.defer();
 
-			//Calling Web API to fetch health data					
+			//Calling Web API to reset password
 			
 			$http.post("https://api.outingz.com/outingz/authenticate/resetLogin",reset_obj).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
@@ -22,11 +21,12 @@ angular.module("outingzApp")
 			return deferred.promise;
 		
 		},
+		//login the user 
 		login:function(loginObj){
 			
 			var deferred = $q.defer();
 
-			//Calling Web API to fetch health data					
+			//Calling Web API to authenticate user
 			
 			$http.post("https://api.outingz.com/outingz/authenticate",loginObj).success(function(data,status){
 			  //Passing data to deferred's resolve function on successful completion
@@ -40,11 +40,12 @@ angular.module("outingzApp")
 			return deferred.promise;
 			
 		},
+		//service to register the user
 		register:function(registerObj){
 			
 			var deferred = $q.defer();
 
-			//Calling Web API to fetch health data					
+			//Calling Web API to Invite a business		
 			
 			$http.post("https://api.outingz.com/outingz/registration",registerObj).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
@@ -58,6 +59,7 @@ angular.module("outingzApp")
 			return deferred.promise;			
 			
 		},
+		// helper function to check if user is authenticated or not.
 		isAuthenticated:function(){
 			
 			var token = $window.localStorage['token'];
@@ -67,32 +69,6 @@ angular.module("outingzApp")
 			} else {
 			  return false;
 			}
-		},
-		bg:function(){
-			if($location.path()=='/login'){
-				
-				var myEl = angular.element( document.querySelector( '#contt' ) );
-				myEl.wrap('<div id="login_sec"></div>');
-			} else {
-				//alert("ELSE");
-				var myEl = angular.element( document.querySelector( '#login_sec' ) );
-				myEl.unwrap();
-			}
 		}
 	};
-	
-	
-	
-	
 });
-
-
-
-//http://localhost:9000/#/reset_password/:resetPassword/:key/:username/:token
-
-
-
-//http://localhost:9000/#/reset_password/resetPassword=true&key=4deb6954-447a-4cab-8f10-c9e0b4c74e80&username=ian@outingz.com&token=$2a$04$LxKzLRWuOi3GTBWyOiHIPeduVzirWXTzhx0/hEu45Kp50bMHP7rZG
-
-
-//http://localhost:8090/merchant/index.html?resetPassword=true&key=4deb6954-447a-4cab-8f10-c9e0b4c74e80&username=ian@outingz.com&token=$2a$04$LxKzLRWuOi3GTBWyOiHIPeduVzirWXTzhx0/hEu45Kp50bMHP7rZG

@@ -18,10 +18,19 @@ angular.module('outingzApp')
 	$scope.image_payment = "images/payment_img.png";
 	$scope.image_staff = "images/staff_img.png";
 	 
-	   
+   $scope.msg=false;
+    if($routeParams['resetMessage']){
+		$scope.msg=true;
+	    $scope.Reset_message = "Password reset successfully";
+	} else {
+		$scope.msg=false;
+		$scope.Reset_message = $routeParams['resetMessage'];
+	}
     $scope.merchant={};
     $scope.success="";
     $scope.error="";
+    
+    // Used to setup the business for first time (Creates merchant)
     $scope.create_merchant = function(merchant,isValid){
 		if (isValid) {
 			
@@ -43,6 +52,8 @@ angular.module('outingzApp')
 	$scope.location = {};
 	$scope.locations=[];
 	
+	
+	// Used to add locations for the merchant.
 	$scope.add_merchant_location = function(locations){
 		
 		locations.address.state="";
@@ -67,14 +78,16 @@ angular.module('outingzApp')
 				console.log("There is an error"+error);
 		});
 	}
+	
+	//dummy list of US 50 states.
 
 	$scope.states = ['Select Your State','Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','Florida','Georgia',
 					 'Hawaii','Idaho','Illinois','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts',
 					 'Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico',
 					 'New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota',
 					 'Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
-		$scope.merchant.primaryAddress={};
-	    $scope.merchant.primaryAddress.state = $scope.states[0];
+	$scope.merchant.primaryAddress={};
+	$scope.merchant.primaryAddress.state = $scope.states[0];
 
 
     

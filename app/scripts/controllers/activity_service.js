@@ -12,6 +12,8 @@ angular.module('outingzApp')
 	  
    $scope.activity_service={};
    
+   
+   //function to make the Tabs on single page.
    $scope.select_type = function(obj){
 	   
 	   
@@ -21,50 +23,10 @@ angular.module('outingzApp')
 	   } else {
 		   $location.url('/activity_class');
 	   }
-	   
-	/*   if(obj=="camp"){
-		   
-		 //  document.getElementById(obj).classList.toggle('active', true);
-		   
-		   if(document.getElementById(obj).classList.contains("active")){
-			   
-			   document.getElementById(obj).classList.remove("active");
-			   
-			   if(!document.getElementById('service').classList.contains("active")){
-					document.getElementById('service').classList.add("active");
-			   }
-			   
-		   } else {
-			   
-			   document.getElementById(obj).classList.add("active");
-			   if(document.getElementById('service').classList.contains("active")){
-					document.getElementById('service').classList.remove("active");
-			   }
-		   }
-	   } else {
-		   
-		   if(document.getElementById(obj).classList.contains("active")){
-			   
-			   document.getElementById(obj).classList.remove("active");
-			   if(!document.getElementById('camp').classList.contains("active")){
-					document.getElementById('camp').classList.add("active");
-			   }
-			   
-			   
-		   } else {
-			   document.getElementById(obj).classList.add("active");
-			   if(document.getElementById('camp').classList.contains("active")){
-					document.getElementById('camp').classList.remove("active");
-			   }
-		   }
-		   
-		   
-		   
-	   }*/
-	  
-	  
+	 
    }
    
+   // Used to add activity of type Service.
    $scope.add_activity_service = function(activity_service){
 	   
 	   
@@ -92,7 +54,7 @@ angular.module('outingzApp')
 	   
 	   
    }
-    
+    /*
     $scope.register = function(){
 		
 		ActivityService.register().then(function(data){
@@ -105,7 +67,7 @@ angular.module('outingzApp')
 			
 		});
 		
-	}
+	}*/
     
 
 

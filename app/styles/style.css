@@ -305,3 +305,6 @@ a{cursor:pointer;}
 .error_img {
   background: url("../images/invalid.png") no-repeat scroll right 41px top 48px rgba(0, 0, 0, 0);
 }
+.error {
+    color: red !important;
+}

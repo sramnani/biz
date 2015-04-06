@@ -10,6 +10,7 @@
 angular.module('outingzApp')
   .controller('buildCtrl', function ($scope,$q,$http,$routeParams,$location,$window,UserService) { 
 	  
+	  // fetch data from json and display the current git build.
 	  $http.get('views/build.json').success(function(data) {
 		$scope.build = data;
 		

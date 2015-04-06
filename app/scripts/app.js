@@ -27,6 +27,23 @@ angular
         templateUrl: 'views/dashboard.html',
         controller: 'MerchantCtrl'
       })
+       .when('/merchant/:resetMessage', {
+		title: 'Settings, Business Setup', 
+        templateUrl: 'views/merchant.html',
+        controller: 'MerchantCtrl',
+        resolve: {
+          authenticated: function($q, $location,UserService) {
+            var deferred = $q.defer();
+            if (!UserService.isAuthenticated()) {
+              $location.path('/login');
+            } else {
+              deferred.resolve();
+            }
+
+            return deferred.promise;
+          }
+        }
+      })
       .when('/merchant', {
 		title: 'Settings, Business Setup', 
         templateUrl: 'views/merchant.html',
