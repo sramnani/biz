@@ -45,21 +45,20 @@
     <span>If you have multiple addresses, just list the one you receive mail at.</span>
     </label>
 
-    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 1" name="line1" name="line1" ng-model="merchant.primaryAddress.line1" required>
+    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 1" name="line1" name="line1" ng-model="location.address.line1" required>
 	<p ng-show="BussinessForm.line1.$invalid && !BussinessForm.line1.$pristine" class="help-block error">Address line 1 is required</p>
 
-    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line2" ng-model="merchant.primaryAddress.line2">
+    <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line2" ng-model="location.address.line2">
     
-    <input type="text" class="form-control left-control addresec"  placeholder="City" name="line3" ng-model="merchant.primaryAddress.city">
+    <input type="text" class="form-control left-control addresec"  placeholder="City" name="line3" ng-model="location.address.city">
     <div class="clearfix"></div>
-	
-	
-	<select class="form-control  entryInput2"  ng-model="merchant.primaryAddress.state">
+
+	<select class="form-control  entryInput2"  ng-model="location.address.state">
 	 <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
 	</select>
     
     
-        <input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" ng-model="merchant.primaryAddress.zipCode" name="zipCode" only-digits>
+        <input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" ng-model="zipCode" name="location.address.zipCode" only-digits>
 
   </div>
         <p ng-show="(BussinessForm.zipCode.$error.minlength && BussinessForm.zipCode.$error.minlength) && !BussinessForm.zipCode.$pristine" class="help-block error">Zip must be of 5 digits</p>
@@ -84,7 +83,7 @@
     <label for="exampleInputPassword1">Phone & E-mail*<br>
  <span>If you have multiple numbers & e-mails, include the admins.</span></label>
  
-     <input ui-mask="(999) 999-9999" class="form-control right-control addresec"   ng-model="merchant.primaryContactPerson.phone.number" name="number">
+     <input ui-mask="(999) 999-9999" class="form-control right-control addresec"   ng-model="merchant.primaryContactPerson.person.phone" name="number">
 	 <!--<p ng-show="BussinessForm.number.$invalid && !BussinessForm.number.$pristine || BussinessForm.phone.$error.number" class="help-block">Valid Phone number is required</p>
 	 
 	 <p ng-show="(BussinessForm.number.$error.minlength || BussinessForm.number.$error.maxlength)|| BussinessForm.number.$dirty" class="help-block">phone number should be 10 digits</p>
@@ -96,7 +95,7 @@
 	 -->
 	 	 
 
-	<input type="email" class="form-control  right-control addresec"  placeholder="you@yourdomain.com" ng-model="merchant.primaryContactPerson.emailId" name="emailId" required>
+	<input type="email" class="form-control  right-control addresec"  placeholder="you@yourdomain.com" ng-model="merchant.primaryContactPerson.person.emailId" name="emailId" required>
 	
 	<p ng-show="BussinessForm.emailId.$error.required && !BussinessForm.emailId.$pristine" class="help-block error">Email is required</p>
 	<p ng-show="BussinessForm.emailId.$invalid && !BussinessForm.emailId.$pristine" class="help-block error">Enter a valid email.</p>

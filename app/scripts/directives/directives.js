@@ -17,3 +17,36 @@ angular.module('outingzApp').directive('validPasswordC', function () {
         }
     };
 });
+// Directive to check if confirm password matches with password.
+angular.module('outingzApp').directive('timePick', function () {
+    return {
+        restrict: 'E',
+        templateUrl: '../../views/timePicker.html',
+        link: function(scope, element, attributes) {
+            
+            scope.time={
+               
+            };
+            
+                        
+            scope.showPopover = false;
+            
+            scope.showPop = function(){
+                if(scope.showPopover){
+                    scope.showPopover=false;
+                } else {
+                    scope.showPopover=true;
+                }
+            };
+            
+            scope.closePop = function(){
+                scope.showPopover=false;
+            }
+            
+            scope.save_time = function(){
+                
+                scope.showPopover=false;
+            }
+        }
+    };
+});

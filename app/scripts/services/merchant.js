@@ -23,7 +23,7 @@ angular.module("outingzApp")
 			var deferred = $q.defer();
 
 			//Calling Web API to add merchat location
-			$http.post("https://api.outingz.com/outingz/merchants/098150df-d65f-4577-b4ce-474ecced5673/locations",locationObj).success(function(data){
+			$http.post("https://api.outingz.com/outingz/merchants/cfc78469-69d9-4004-9377-e9310ee053df/locations",locationObj).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
 			  deferred.resolve(data);
 			}).error(function(){
@@ -39,7 +39,7 @@ angular.module("outingzApp")
 			var deferred = $q.defer();
 
 			//Calling Web API to fetch merchant locations
-			$http.get("https://api.outingz.com/outingz/merchants/098150df-d65f-4577-b4ce-474ecced5673/locations").success(function(data){
+			$http.get("https://api.outingz.com/outingz/merchants/cfc78469-69d9-4004-9377-e9310ee053df/locations").success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
 			  deferred.resolve(data);
 			}).error(function(){
