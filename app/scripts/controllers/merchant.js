@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('MerchantCtrl', function ($scope, MerchantService, $q, $http, $routeParams, $location, UserService) {
+        .controller('MerchantCtrl', function ($scope, MerchantService, $q, $http, $routeParams, $location,$timeout, UserService) {
 
 
             $scope.image_bussiness = "images/business_img.png";
@@ -58,6 +58,10 @@ angular.module('outingzApp')
 
                     MerchantService.add_merchant(merchant).then(function (data) {
                         $scope.success = "Your Business setup sucessfully";
+                        
+                        $timeout(function () {
+                            $location.url('/location');
+                        }, 2000);
                     }, function (error) {
                         $scope.error = "Error in creating your bussiness!";
                     });

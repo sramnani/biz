@@ -1,1 +1,59 @@
-<section class="main"> <div class="container"> <div class="row"> <div class="col-lg-12"> <h2 class="heading"><span>Step 2:</span> Your Business Locations</h2> <h6>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</h6> <div class="location"> <div class="col-lg-5 col-md-5 location_form"> <div class="row"> <form name="location_form" ng-submit="add_merchant_location(location)" novalidate> <div class="form-group clearfix"> <label for="exampleInputPassword1">Add Location*</label> <input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName" placeholder="Location Name, i.e. Sunnyvale Location" required> <p ng-show="location_form.locationName.$invalid && !location_form.locationName.$pristine" class="help-block">Location name is required.</p> <input type="text" class="form-control left-control addresec" placeholder="Address Line 2" name="line1" ng-model="location.address.line1"> <input type="text" class="form-control left-control addresec" placeholder="City" name="city" ng-model="location.address.city"> <div class="clearfix"></div> <select class="form-control entryInput2" ng-model="location.address.state"> <option ng-repeat="item in states" value="{{item}}">{{item}} </select> <input type="text" class="form-control entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits> </div> <p ng-show="(location_form.zipCode.$error.minlength && location_form.zipCode.$error.minlength) && !location_form.zipCode.$pristine" class="help-block error">Zip must be of 5 digits</p> <div class="form-group"> <label for="exampleInputEmail1">Contact Info, Phone E-mail*</label> <input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Contact Name i/e/ Joe Smith" name="firstName" ng-model="location.contactPerson.name.firstName"> <input ui-mask="(999) 999-9999" class="form-control left-control addresec" id="exampleInputEmail1" name="number" ng-model="location.contactPerson.phone.number"> <input type="email" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="you@yourdomain.com" name="emailId" ng-model="location.contactPerson.emailId" required> <p ng-show="location_form.emailId.$error.required && !location_form.emailId.$pristine" class="help-block error">Email is required</p> <p ng-show="location_form.emailId.$invalid && !location_form.emailId.$pristine" class="help-block error">Enter a valid email.</p> </div> <div class="form-group checkgroup clearfix"> <label for="exampleInputPassword1">Location Schedule*</label> <div class="clearfix"></div> <div class="checkbox checkbox-primary"> <input type="checkbox" checked id="checkbox2"> <label> Mon </label> </div> <div class="checkbox checkbox-primary"> <input type="checkbox"> <label> Tue </label> </div> <div class="checkbox checkbox-primary"> <input type="checkbox"> <label> Wed </label> </div> <div class="checkbox checkbox-primary"> <input type="checkbox"> <label> The </label> </div> <div class="checkbox checkbox-primary"> <input type="checkbox"> <label> Fri </label> </div> <div class="checkbox checkbox-primary"> <input type="checkbox"> <label> Sat </label> </div> <div class="checkbox checkbox-primary"> <input type="checkbox"> <label> Sun </label> </div> </div> <div class="timeTitle"> Select Time </div> <div class="form-group timeGroup"> <div class="timeInfo even"> <div class="time-cell"> <input type="number" class="form-control entryInput3" only-digits> <select class="form-control entryInput2"> <option value="AM" selected>AM <option value="PM">PM </select> </div> </div> <div class="timeTo">TO </div> <div class="timeInfo"> <div class="time-cell"> <input type="number" class="form-control entryInput3" only-digits> <select class="form-control entryInput2"> <option value="AM" selected>AM <option value="PM">PM </select> </div> </div> </div> <br><br> <time-pick></time-pick> <br><br> <button id="reloader" type="submit" ng-disabled="location_form.$invalid" class="btn btn-default saveBtn">Add it</button> </form> <div ng-if="success" class="alert alert-success alert-dismissable"><button class="close" data-dismiss="alert">&times;</button>{{success}}</div> <div ng-if="error" class="alert alert-danger alert-dismissable"><button class="close" data-dismiss="alert">&times;</button>{{error}}</div> </div> </div> <div class="col-lg-7 col-md-7"> <div class="row"> <div class="add_location" id="locations"> <h5>Your Locations</h5> <div class="col-lg-6 col-sm-6 location_text" ng-repeat="location in locations_data"> <div class="row"> <h4>{{location.locationName}}</h4> <p>{{location.address.line1}}</p> <p>{{location.address.line2}}</p> <p>{{location.address.line3}}</p> <p>{{location.address.city}}</p> <p>{{location.address.state}}</p> <p>{{location.address.zipCode}}</p> <p>{{location.address.country}}</p> <p><a href="javascript;:">Edit</a> | <a href="javascript;:">Delete</a></p> </div> </div> </div> </div> </div> </div> </div> </div> </div>    </section>
+<section class="main"> <div class="container"> <div class="row"> <div class="col-lg-12"> <h2 class="heading"><span>Step 2:</span> Your Business Locations</h2> <h6>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</h6> <div class="location"> <div class="col-lg-5 col-md-5 location_form"> <div class="row"> <form name="location_form" ng-submit="add_merchant_location(location)" novalidate> <div class="form-group clearfix"> <label for="exampleInputPassword1">Add Location*</label> <input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName" placeholder="Location Name, i.e. Sunnyvale Location" required> <p ng-show="location_form.locationName.$invalid && !location_form.locationName.$pristine" class="help-block">Location name is required.</p> <input type="text" class="form-control left-control addresec" placeholder="Address Line 2" name="line1" ng-model="location.address.line1"> <input type="text" class="form-control left-control addresec" placeholder="City" name="city" ng-model="location.address.city"> <div class="clearfix"></div> <select class="form-control entryInput2" ng-model="location.address.state"> <option ng-repeat="item in states" value="{{item}}">{{item}} </select> <input type="text" class="form-control entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits> </div> <p ng-show="(location_form.zipCode.$error.minlength && location_form.zipCode.$error.minlength) && !location_form.zipCode.$pristine" class="help-block error">Zip must be of 5 digits</p> <div class="form-group"> <label for="exampleInputEmail1">Contact Info, Phone E-mail*</label> <input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Contact Name i/e/ Joe Smith" name="firstName" ng-model="location.contactPerson.name.firstName"> <input ui-mask="(999) 999-9999" class="form-control left-control addresec" id="exampleInputEmail1" name="number" ng-model="location.contactPerson.phone.number"> <input type="email" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="you@yourdomain.com" name="emailId" ng-model="location.contactPerson.emailId" required> <p ng-show="location_form.emailId.$error.required && !location_form.emailId.$pristine" class="help-block error">Email is required</p> <p ng-show="location_form.emailId.$invalid && !location_form.emailId.$pristine" class="help-block error">Enter a valid email.</p> </div> <!--
+<div class="form-group checkgroup clearfix">
+<label for="exampleInputPassword1">Location Schedule*</label>
+<div class="clearfix"></div>
+
+
+<div class="checkbox checkbox-primary">
+   <input type="checkbox"  checked="" id="checkbox2" />
+   <label>
+       Mon
+   </label>
+      
+   
+</div>
+
+<div class="checkbox checkbox-primary">
+   <input type="checkbox" />
+   <label>
+       Tue
+   </label>
+</div>
+
+<div class="checkbox checkbox-primary">
+   <input type="checkbox" >
+   <label>
+       Wed
+   </label>
+</div>
+
+<div class="checkbox checkbox-primary">
+   <input type="checkbox" />
+   <label>
+       The
+   </label>
+</div>  
+
+<div class="checkbox checkbox-primary">
+   <input type="checkbox" >
+   <label >
+       Fri
+   </label>
+</div>
+
+<div class="checkbox checkbox-primary">
+   <input type="checkbox">
+   <label >
+       Sat
+   </label>
+</div>
+
+<div class="checkbox checkbox-primary">
+   <input type="checkbox" >
+   <label >
+       Sun
+   </label>
+</div>
+                                   
+
+</div>--> <div class="timeTitle"> Select Time </div> <div class="form-group timeGroup"> <div class="timeInfo even"> <div class="time-cell"> <input type="number" class="form-control entryInput3"> <select class="form-control entryInput2"> <option value="AM" selected>AM <option value="PM">PM </select> </div> </div> <div class="timeTo">TO </div> <div class="timeInfo"> <div class="time-cell"> <input type="number" class="form-control entryInput3"> <select class="form-control entryInput2"> <option value="AM" selected>AM <option value="PM">PM </select> </div> </div> </div> <br><br> <time-pick></time-pick> <br><br> <div ng-repeat="schedule in locationSchedule"> {{schedule.day}} | {{schedule.startTime}} | {{schedule.endTime}} </div> <button id="reloader" type="submit" ng-disabled="location_form.$invalid" class="btn btn-default saveBtn">Add it</button> </form> <div ng-if="success" class="alert alert-success alert-dismissable"><button class="close" data-dismiss="alert">&times;</button>{{success}}</div> <div ng-if="error" class="alert alert-danger alert-dismissable"><button class="close" data-dismiss="alert">&times;</button>{{error}}</div> </div> </div> <div class="col-lg-7 col-md-7"> <div class="row"> <div class="add_location" id="locations"> <h5>Your Locations</h5> <div class="col-lg-6 col-sm-6 location_text" ng-repeat="location in locations_data"> <div class="row"> <h4>{{location.locationName}}</h4> <p>{{location.address.line1}}</p> <p>{{location.address.line2}}</p> <p>{{location.address.line3}}</p> <p>{{location.address.city}}</p> <p>{{location.address.state}}</p> <p>{{location.address.zipCode}}</p> <p>{{location.address.country}}</p> <p><a href="javascript;:">Edit</a> | <a href="javascript;:">Delete</a></p> </div> </div> </div> </div> </div> </div> </div> </div> </div>    </section>

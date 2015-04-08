@@ -25,7 +25,19 @@ angular
       .when('/', {
 		title: 'Dashboard here', 
         templateUrl: 'views/dashboard.html',
-        controller: 'MerchantCtrl'
+        controller: 'MerchantCtrl',
+        resolve: {
+          authenticated: function($q, $location,UserService) {
+            var deferred = $q.defer();
+            if (!UserService.isAuthenticated()) {
+              $location.path('/login');
+            } else {
+              deferred.resolve();
+            }
+
+            return deferred.promise;
+          }
+        }
       })
        .when('/merchant/:resetMessage', {
 		title: 'Settings, Business Setup', 
@@ -135,6 +147,11 @@ angular
 		  title: 'Your build info',   
 		  templateUrl:'views/build.html',
 		  controller:'buildCtrl'
+	  })
+	  .when('/test',{
+		  title: 'Test here',   
+		  templateUrl:'views/test.html',
+		  controller:'simpleCtrl'
 	  })
       .otherwise({
         redirectTo: '/'
