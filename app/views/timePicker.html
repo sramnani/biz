@@ -21,49 +21,49 @@ and open the template in the editor.
 
 
 <div class="checkbox checkbox-primary">
-   <input type="checkbox" id="checkbox2" ng-mouseenter="showPop($event,132)"  ng-click="showPop($event,132,'mon')"  ng-mouseleave="closePop()"/>
+   <input type="checkbox" id="checkbox2" ng-mouseenter="showHover($event,132,'mon')" ng-model="mon" ng-click="showPop($event,132,'mon')" ng-disabled="disb('mon')" ng-mouseleave="closePop()"/>
    <label>
        Mon
    </label>   
 </div>
 
 <div class="checkbox checkbox-primary">
-    <input type="checkbox" ng-mouseenter="showPop($event,80)" ng-click="showPop($event,80,'tue')" ng-mouseleave="closePop()" ng-disabled="flag"/>
+    <input type="checkbox" ng-mouseenter="showHover($event,80,'tue')" ng-model="tue" ng-click="showPop($event,80,'tue')" ng-mouseleave="closePop()" ng-disabled="disb('tue')"/>
    <label>
        Tue
    </label>
 </div>
 
 <div class="checkbox checkbox-primary">
-   <input type="checkbox" ng-mouseenter="showPop(25,'wed')">
+   <input type="checkbox" ng-mouseenter="showHover($event,25,'wed')" ng-model='wed' ng-click="showPop($event,25,'wed')" ng-mouseleave="closePop()" ng-disabled="disb('wed')" />
    <label>
        Wed
    </label>
 </div>
 
 <div class="checkbox checkbox-primary">
-   <input type="checkbox" ng-mouseenter="showPop(-22,'thu')"/>
+   <input type="checkbox" ng-mouseenter="showHover($event,-22,'thu')" ng-model="thu" ng-click="showPop($event,-22,'thu')" ng-mouseleave="closePop()" ng-disabled="disb('thu')"/>
    <label>
        The
    </label>
 </div>  
 
 <div class="checkbox checkbox-primary">
-   <input type="checkbox" ng-mouseenter="showPop(-65,'fri')">
+   <input type="checkbox" ng-mouseenter="showHover($event,-65,'fri')" ng-model="fri" ng-click="showPop($event,-65,'fri')" ng-mouseleave="closePop()" ng-disabled="disb('fri')" />
    <label >
        Fri
    </label>
 </div>
 
 <div class="checkbox checkbox-primary">
-   <input type="checkbox" ng-mouseenter="showPop(-112,'sat')">
+   <input type="checkbox" ng-mouseenter="showHover($event,-112,'sat')" ng-model="sat" ng-click="showPop($event,-112,'sat')" ng-mouseleave="closePop()" ng-disabled="disb('sat')" />
    <label >
        Sat
    </label>
 </div>
 
 <div class="checkbox checkbox-primary">
-   <input type="checkbox" ng-mouseenter="showPop(-158,'sun')">
+   <input type="checkbox" ng-mouseenter="showHover($event,-158,'sun')" ng-model="sun" ng-click="showPop($event,-158,'sun')" ng-mouseleave="closePop()" ng-disabled="disb('sun')" />
    <label >
        Sun
    </label>
@@ -75,8 +75,8 @@ and open the template in the editor.
         <div class="timerpopup" ng-show="showPopover">    
             <div class="outertimeInfo" >    
         
-            <div class="closetime" ng-click="closePop()"> x </div>
-        <div class="timeTitle"> Select Time </div>	
+            <div class="closetime" ng-click="closePop('close')"> x </div>
+        <div class="timeTitle1"> Select Your Times for <strong>{{current_day}}</strong> </div>	
         <div class="form-group timeGroup">
             <div class="timeInfo even timepopup">
 
@@ -102,15 +102,16 @@ and open the template in the editor.
                     </select>
                 </div>	
             </div>   
-           
+            
         </div>
+        <div class="all_days"><input type="checkbox" ng-model='all' ng-click="all_days()"> Apply to all days</div>
         <div class="submittimebtn"> <button type="button" class="btn btn-default saveBtn" ng-click="save_time()">Save & Close </button> </div>
         </div>
             <div class="timerarrow-down">&nbsp;</div>
         </div>
         </div>        
         
-        <button type="button" ng-click="showPop()" >Time Picker</button>
+        
 
 
 

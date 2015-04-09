@@ -43,12 +43,15 @@ angular.module('outingzApp')
                 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
             $scope.location.address.state = $scope.states[0];
-
+            
+            $scope.countries = ['Select Country', 'USA'];
             // Used to setup the business for first time (Creates merchant)
-            $scope.create_merchant = function (merchant, isValid) {
-                if (isValid) {
-
-                    $scope.location.address.country = "USA";
+            $scope.create_merchant = function (merchant,isvalid) {
+               // if (isValid) {
+               
+                  if(isvalid){
+                     
+                   // $scope.location.address.country = "USA";
                     $scope.location.locationName = 'Primary';
 
                     merchant.locations = {};
@@ -67,14 +70,22 @@ angular.module('outingzApp')
                     });
 
                 } else {
+                    alert("invalid");
+                    $scope.showValidation = true;
                     $scope.error = "Error in creating your bussiness!";
+                     $timeout(function () {
+                            $scope.error=false;
+                            $scope.success=false;
+                    }, 3000);
                 }
             }
             $scope.location = {};
             $scope.locations_data = [];
             $scope.location.address = {};
-
+            $scope.location.locationSchedule = [];
             $scope.location.address.state = $scope.states[0];
+            $scope.location.address.country = $scope.countries[0];
+            
             // Used to add locations for the merchant.
             $scope.add_merchant_location = function (locations) {
                 
@@ -83,7 +94,11 @@ angular.module('outingzApp')
                 //locations.address.state="";
                 locations.address.country = "Secondary";
                 locations.address.line2 = "";
-
+                
+                angular.forEach($scope.locationSchedule, function(value, key) {
+                          $scope.location.locationSchedule.push(value);
+                });
+                
                 MerchantService.add_merchant_location(locations).then(function (data) {
                     $scope.locations_data.push(locations);
                     $scope.location = {};
