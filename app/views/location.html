@@ -8,30 +8,33 @@
 <div class="col-lg-5 col-md-5 location_form">
 <div class="row">
 	
-<form name="location_form" ng-submit="add_merchant_location(location)" novalidate>
+<form name="location_form" ng-submit="add_merchant_location(location,location_form.$valid)" novalidate>
 <div class="form-group clearfix">
 <label for="exampleInputPassword1">Add Location*</label>
 <input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName"  placeholder="Location Name, i.e. Sunnyvale Location" required>
-<p ng-show="location_form.locationName.$invalid && !location_form.locationName.$pristine" class="help-block">Location name is required.</p>
+<p ng-show="location_form.locationName.$invalid && showValidation" class="help-block error">Location name is required.</p>
 
 <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line1" ng-model="location.address.line1">
 <input type="text" class="form-control left-control addresec"  placeholder="City" name="city" ng-model="location.address.city">
 <div class="clearfix"></div>
-<select class="form-control  entryInput2"  ng-model="location.address.state">
-	 <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
+
+<select class="form-control  entryInput2" name="state" ng-model="location.address.state" ng-options="c as c for c in states" required>
+         <option value="">Select your State</option>
 </select>
 
-<input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits>
+<input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits required>
 </div>
-<p ng-show="(location_form.zipCode.$error.minlength && location_form.zipCode.$error.minlength) && !location_form.zipCode.$pristine" class="help-block error">Zip must be of 5 digits</p>
+<p  style="clear: both; margin-top: 0px;" ng-show="location_form.state.$invalid && showValidation" class="help-block error" >Please select a state</p>
+<p ng-show="location_form.zipCode.$error.required && showValidation" class="help-block error">Zip code is required</p>
+    <p ng-show="(location_form.zipCode.$error.minlength && location_form.zipCode.$error.minlength) && showValidation" class="help-block error">Zip must be of 5 digits</p>
 
 <div class="form-group ">
 <label for="exampleInputEmail1">Contact Info, Phone E-mail*</label>
 <input type="text" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="Contact Name i/e/ Joe Smith" name="firstName" ng-model="location.contactPerson.name.firstName">
 <input ui-mask="(999) 999-9999" class="form-control left-control addresec" id="exampleInputEmail1"  name="number" ng-model="location.contactPerson.phone.number" >
 <input type="email" class="form-control left-control addresec" id="exampleInputEmail1" placeholder="you@yourdomain.com" name="emailId" ng-model="location.contactPerson.emailId" required>
-<p ng-show="location_form.emailId.$error.required && !location_form.emailId.$pristine" class="help-block error">Email is required</p>
-<p ng-show="location_form.emailId.$invalid && !location_form.emailId.$pristine" class="help-block error">Enter a valid email.</p>
+<p ng-show="location_form.emailId.$error.required  && showValidation" class="help-block error">Email is required</p>
+<p ng-show="location_form.emailId.$invalid && showValidation" class="help-block error">Enter a valid email.</p>
 
 
 </div>
@@ -40,7 +43,7 @@
 <div ng-repeat="schedule in locationSchedule">
     {{schedule.day}} | {{schedule.startTime}} | {{schedule.endTime}}
 </div>
-<button id="reloader" type="submit" ng-disabled="location_form.$invalid" class="btn btn-default saveBtn" >Add it</button>
+<button id="reloader" type="submit"  class="btn btn-default saveBtn" >Add it</button>
 </form>
     
   <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>

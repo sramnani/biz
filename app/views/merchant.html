@@ -9,7 +9,7 @@
                 <h2 class="heading"><span>Step 1:</span> About Your Business</h2>
                 <h6>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</h6>
 
-                <form name="BussinessForm"  ng-submit="create_merchant(merchant,BussinessForm.$valid)" class="bussinessInfo"  novalidate>
+                <form name="BussinessForm"  ng-submit="create_merchant(merchant, BussinessForm.$valid)" class="bussinessInfo"  novalidate>
                     <div class="col-lg-5 col-md-5">
                         <div class="row">
 
@@ -25,7 +25,7 @@
                                 <input type="text" class="form-control entryInput"  placeholder="Joe" name="firstname" ng-model="merchant.primaryContactPerson.name.firstName" required>
 
                                 <input type="text" class="form-control entryInput1"  placeholder="Smith" ng-model="merchant.primaryContactPerson.name.lastName">
-                                <p ng-show="BussinessForm.firstname.$invalid && showValidation" class="help-block error">first name is required.</p>
+                                <p ng-show="BussinessForm.firstname.$invalid && showValidation" class="help-block error" style="clear:both;margin-top:35px;">First name is required.</p>
 
                             </div>
 
@@ -51,18 +51,22 @@
                                 <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line2" ng-model="location.address.line2">
 
                                 <input type="text" class="form-control entryInput3"  placeholder="City" name="line3" ng-model="location.address.city">
-                                <select class="form-control  entryInput2"  ng-model="location.address.state" style="margin-bottom:16px;margin-left:14px;">
-                                    <option ng-repeat="item in states" value="{{item}}">{{item}}</option>
+                                <select class="form-control  entryInput2" name="state"  ng-model="location.address.state" ng-options="c as c for c in states" style="margin-bottom:16px;margin-left:14px;" required>
+                                    <option value="">Select your State</option>
                                 </select>
+                                <p  style="clear: both; margin-top: 0px;" ng-show="BussinessForm.state.$invalid && showValidation" class="help-block error" >Please select a state</p>
                                 <div class="clearfix"></div>
 
-                                <input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" ng-model="zipCode" name="location.address.zipCode" only-digits>
+                                <input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" ng-model="location.address.zipCode" name="zipCode" only-digits required>
 
-                                <select class="form-control  entryInput2"  ng-model="location.address.country" style="margin-bottom:16px;margin-left:14px;">
-                                    <option ng-repeat="item in countries" value="{{item}}">{{item}}</option>
+                                <select name="country" class="form-control  entryInput2"  ng-model="location.address.country" ng-options="c as c for c in countries" style="margin-bottom:16px;margin-left:14px;" required>
+                                    <option value="">Select Country</option>
                                 </select>
+                                <p style="clear:both;margin-top:35px;" ng-show="(BussinessForm.zipCode.$error.required && showValidation)" class="help-block error">Zip code is required</p>
+                            <p  style="clear:both;margin-top:35px;" ng-show="(BussinessForm.zipCode.$error.minlength && BussinessForm.zipCode.$error.minlength && showValidation)" class="help-block error">Zip must be of 5 digits</p>
+                                <p style="clear: both; margin-top: 0px;" ng-show="BussinessForm.country.$invalid && showValidation" class="help-block error" >Please select your country</p>
                             </div>
-                            <p ng-show="(BussinessForm.zipCode.$error.minlength && BussinessForm.zipCode.$error.minlength) && showValidation" class="help-block error">Zip must be of 5 digits</p>
+                            
 
 
                         </div>

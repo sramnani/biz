@@ -23,13 +23,18 @@ angular.module('outingzApp').directive('timePick', function () {
         restrict: 'E',
         templateUrl: '../../views/timePicker.html',
         link: function(scope, element, attributes) {
-            
+            scope.error_directive="";
             scope.locationSchedule=[];
             var locations=[]; 
             var myEl = angular.element( document.querySelector( '.timerpopup' ) );
                         
             scope.showPopover = false;
             scope.flag=false;
+            
+            scope.period = [
+                {code: "AM", name: "AM"},
+                {code: "PM", name: "PM"}
+            ];
             
             scope.disb = function(day){
                 var myEl = angular.element(document.querySelector('.timerpopup'));
@@ -47,9 +52,10 @@ angular.module('outingzApp').directive('timePick', function () {
                    // alert('false');
                 }
             }
-             scope.current_day="";
+            scope.current_day="";
+            
             scope.showPop = function($event,pos,day){
-                
+                scope.error_directive="";
                var checkbox = $event.target;
                
                 switch(day){
@@ -109,7 +115,7 @@ angular.module('outingzApp').directive('timePick', function () {
             };
            
             scope.showHover = function($event,pos,day){
-                
+                scope.error_directive="";
                 switch(day){
                             case 'mon':
                             scope.current_day = "Monday";
@@ -164,7 +170,7 @@ angular.module('outingzApp').directive('timePick', function () {
             }
             
             scope.closePop = function(obj){
-              
+              scope.error_directive="";
                 var myEl = angular.element( document.querySelector( '.timerpopup' ) );
                 if(myEl.attr('day')){
                     if(obj && obj=='close'){
@@ -203,12 +209,36 @@ angular.module('outingzApp').directive('timePick', function () {
             }
             
             scope.save_time = function(){
+                
                 var myEl = angular.element( document.querySelector( '.timerpopup' ) );
                 var data = {
                     "endTime": scope.to+scope.to_type,
                     "startTime": scope.from+scope.from_type,
                     "day": myEl.attr('day')
                 }
+                
+                if(scope.to==""){
+                    scope.error_directive = "Please select to & from time";
+                    return;
+                } else if(scope.from==""){
+                    scope.error_directive = "Please select to & from time";
+                    return;
+                } else if(scope.from==undefined){
+                    scope.error_directive = "Time should be between 1 to 12";
+                    return;
+                } else if(scope.to==undefined){
+                    scope.error_directive = "Time should be between 1 to 12";
+                    return;
+                } else if(scope.from_type==""){
+                    scope.error_directive="Please select AM or PM for FROM";
+                    return;
+                } else if(scope.to_type==""){
+                    scope.error_directive="Please select AM or PM for TO";
+                    return;
+                } else {
+                    scope.error_directive="";
+                }
+                
                 
                 if(scope.all){
                     scope.locationSchedule = [];

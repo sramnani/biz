@@ -280,6 +280,24 @@ h6 { font-size:16px; }
   padding-right: 5px;
 }
 
+.timeInfo input {
+  width: 100% !important;
+}
+
+
+.timeInfo select {
+  float: left;
+  margin-right: 0 !important;
+  margin-top: 10px;
+  width: 100% !important;
+}
+
+
+.entryInput2 {
+  width: 55%;
+}
+.outertimeInfo{width:277px !important; top:-334px !important}
+
 
 }
 
@@ -328,6 +346,7 @@ display: table-cell;float: none;
   float: left;
   margin: 0 10px 0 0;
   width: 56px;
+  text-align: center;
 }
 .timeInfo select {
   float: left;
@@ -344,20 +363,17 @@ display: table-cell;float: none;
 
 .location .checkbox {display: inline-block !important;}
 
-
 .outertimeInfo {
   background: none repeat scroll 0 0 #ededed;
   border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  float: left;
-  padding: 10px;
-  width: 350px;
-  top: 0;
-  left: 0;
   display: block !important;
+  float: left;
+  left: 0;
   margin-bottom: 25px;
   padding: 20px 10px;
+  top: -256px;
+  width: 350px;
+  position: absolute;
 }
 
 .outertimeInfo .closetime {
@@ -365,7 +381,8 @@ display: table-cell;float: none;
   font-size: 12px;
   font-weight: bold;
   position: absolute;
-  right:40px;
+  right: 12px;
+  top: 5px;
 }
 
 .outertimeInfo .timeInfo {
@@ -376,6 +393,7 @@ display: table-cell;float: none;
  text-align: center;
   padding: 10px 10px;
   font-size: 13px;
+		margin-top:10px;
 }
 
 .submittimebtn {
@@ -411,7 +429,21 @@ display: table-cell;float: none;
   width: 100%;
 }
 
-.timeGroup{margin-bottom:15px !important}
+.timeGroup {
+  margin-bottom: 1px !important;
+  padding-bottom: 15px !important;
+  position: relative;
+}
 
 .all_days{padding:0px; clear:both; width:100%; text-align:center;}
 
+.error_dir {
+  bottom: 0;
+  color: red;
+  font-size: 12px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 0;
+}
+.timeGroup .form-control{padding:6px 2px;}

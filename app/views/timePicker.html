@@ -20,6 +20,7 @@ and open the template in the editor.
 <div class="clearfix"></div>
 
 
+
 <div class="checkbox checkbox-primary">
    <input type="checkbox" id="checkbox2" ng-mouseenter="showHover($event,132,'mon')" ng-model="mon" ng-click="showPop($event,132,'mon')" ng-disabled="disb('mon')" ng-mouseleave="closePop()"/>
    <label>
@@ -72,19 +73,18 @@ and open the template in the editor.
 
 </div>
         
-        <div class="timerpopup" ng-show="showPopover">    
-            <div class="outertimeInfo" >    
+    <div class="timerpopup" >    
+            <div class="outertimeInfo" ng-show="showPopover" >    
         
-            <div class="closetime" ng-click="closePop('close')"> x </div>
+            <div class="closetime" > <img src="../images/cross_img.png" alt="close" ng-click="closePop('close')"/> </div>
         <div class="timeTitle1"> Select Your Times for <strong>{{current_day}}</strong> </div>	
         <div class="form-group timeGroup">
             <div class="timeInfo even timepopup">
 
                 <div class="time-cell">
-                    <input type="number" class="form-control entryInput3" ng-model="from">
-                    <select class="form-control  entryInput2" ng-model="from_type">
-                        <option  value="AM" selected>AM</option>
-                        <option  value="PM">PM</option>
+                    <input type="number"  min="1" max="12" class="form-control entryInput3" ng-model="from">
+                    <select class="form-control  entryInput2" ng-model="from_type" ng-options="c.code as c.name for c in period">
+                        <option value=''>AM/PM</option>                        
                     </select>
                 </div>		
             </div>    
@@ -94,21 +94,23 @@ and open the template in the editor.
             <div class="timeInfo">
 
                 <div class="time-cell">        
-                    <input type="number" class="form-control entryInput3" ng-model="to">
+                    <input type="number"  min="1" max="12" class="form-control entryInput3" ng-model="to">
                     <input type="hidden" ng-model="day">
-                    <select class="form-control  entryInput2" ng-model="to_type" >
-                        <option  value="AM" selected>AM</option>
-                        <option  value="PM">PM</option>
+                    <select class="form-control  entryInput2" ng-model="to_type" ng-options="c.code as c.name for c in period" >
+                        <option value=''>AM/PM</option> 
                     </select>
                 </div>	
-            </div>   
+            </div> 
+             <span class="error_dir">{{error_directive}}</span>
             
         </div>
+       
         <div class="all_days"><input type="checkbox" ng-model='all' ng-click="all_days()"> Apply to all days</div>
+        
         <div class="submittimebtn"> <button type="button" class="btn btn-default saveBtn" ng-click="save_time()">Save & Close </button> </div>
         </div>
             <div class="timerarrow-down">&nbsp;</div>
-        </div>
+        </div>   
         </div>        
         
         
