@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <!--
+Advance time picker for service
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-       
+
         
         <div class="timerGroupInfo">
         
@@ -21,7 +15,7 @@ and open the template in the editor.
 
 
 
-<div class="checkbox checkbox-primary">
+<!--<div class="checkbox checkbox-primary">
    <input type="checkbox" id="checkbox2" ng-mouseenter="showHover($event,132,'mon')" ng-model="mon" ng-click="showPop($event,132,'mon')" ng-disabled="disb('mon')" ng-mouseleave="closePop()"/>
    <label>
        Mon
@@ -69,6 +63,63 @@ and open the template in the editor.
        Sun
    </label>
 </div>
+-->
+
+
+
+
+
+  <div class="checkbox checkbox-primary" ng-mouseenter="showHover($event,132,'mon')" ng-mouseleave="closePop()" >
+      <input id="checkbox2" type="checkbox"  ng-model="mon" ng-click="showPop($event,132,'mon')" ng-disabled="disb('mon')"  />
+      <label for="checkbox2">
+          Mon
+      </label>
+  </div>
+  
+  <div class="checkbox checkbox-primary" ng-mouseenter="showHover($event,80,'tue')" ng-mouseleave="closePop()">
+      <input id="checkbox3" type="checkbox"  ng-model="tue" ng-click="showPop($event,80,'tue')"  ng-disabled="disb('tue')"/>
+      <label for="checkbox3">
+          Tue
+      </label>
+  </div>
+  
+  <div class="checkbox checkbox-primary" ng-mouseenter="showHover($event,25,'wed')" ng-mouseleave="closePop()">
+      <input id="checkbox4" type="checkbox"  ng-model='wed' ng-click="showPop($event,25,'wed')"  ng-disabled="disb('wed')" />
+      <label for="checkbox4">
+          Wed
+      </label>
+  </div>
+  
+  <div class="checkbox checkbox-primary" ng-mouseenter="showHover($event,-22,'thu')" ng-mouseleave="closePop()">
+      <input id="checkbox5" type="checkbox"  ng-model="thu" ng-click="showPop($event,-22,'thu')"  ng-disabled="disb('thu')"/>
+      <label for="checkbox5">
+          Thu
+      </label>
+  </div>
+  
+  <div class="checkbox checkbox-primary" ng-mouseenter="showHover($event,-65,'fri')" ng-mouseleave="closePop()">
+      <input id="checkbox6" type="checkbox"  ng-model="fri" ng-click="showPop($event,-65,'fri')"  ng-disabled="disb('fri')" />
+      <label for="checkbox6">         Fri
+      </label>
+  </div>
+  
+  <div class="checkbox checkbox-primary" ng-mouseenter="showHover($event,-112,'sat')" ng-mouseleave="closePop()">
+      <input id="checkbox7" type="checkbox"  ng-model="sat" ng-click="showPop($event,-112,'sat')"  ng-disabled="disb('sat')" />
+      <label for="checkbox7">
+        Sat
+      </label>
+  </div>
+  
+  <div class="checkbox checkbox-primary" ng-mouseenter="showHover($event,-158,'sun')" ng-mouseleave="closePop()">
+      <input id="checkbox8" type="checkbox"  ng-model="sun" ng-click="showPop($event,-158,'sun')"  ng-disabled="disb('sun')" />
+      <label for="checkbox8">
+        Sun
+      </label>
+  </div>
+
+
+
+
                                    
 
 </div>
@@ -82,9 +133,9 @@ and open the template in the editor.
             <div class="timeInfo even timepopup">
 
                 <div class="time-cell">
-                    <input type="number"  min="1" max="12" class="form-control entryInput3" ng-model="from">
-                    <select class="form-control  entryInput2" ng-model="from_type" ng-options="c.code as c.name for c in period">
-                        <option value=''>AM/PM</option>                        
+                    <input type="text"   class="form-control entryInput3" ng-model="from" time="1" only-digits>
+                    <select class="form-control  entryInput2" ng-model="from_type" >
+                         <option ng-repeat="item in period" value="{{item}}">{{item}}</option>                        
                     </select>
                 </div>		
             </div>    
@@ -94,10 +145,10 @@ and open the template in the editor.
             <div class="timeInfo">
 
                 <div class="time-cell">        
-                    <input type="number"  min="1" max="12" class="form-control entryInput3" ng-model="to">
+                    <input type="text"  min="1" max="12" class="form-control entryInput3" ng-model="to" time="1" only-digits>
                     <input type="hidden" ng-model="day">
-                    <select class="form-control  entryInput2" ng-model="to_type" ng-options="c.code as c.name for c in period" >
-                        <option value=''>AM/PM</option> 
+                    <select class="form-control  entryInput2" ng-model="to_type">
+                        <option ng-repeat="item in period" value="{{item}}">{{item}}</option>    
                     </select>
                 </div>	
             </div> 
@@ -109,13 +160,7 @@ and open the template in the editor.
         
         <div class="submittimebtn"> <button type="button" class="btn btn-default saveBtn" ng-click="save_time()">Save & Close </button> </div>
         </div>
-            <div class="timerarrow-down">&nbsp;</div>
+            
         </div>   
         </div>        
-        
-        
-
-
-
-    </body>
-</html>
+      

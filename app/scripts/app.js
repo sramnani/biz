@@ -206,8 +206,16 @@ angular
             if (!ngModel) return;
             ngModel.$parsers.unshift(function (inputValue) {
               //  var digits = inputValue.split('').filter(function (s) { return (!isNaN(s) && s != ' '); }).join('');
+              
                 var digits = inputValue.replace(/\D/g, "");
+                if(attrs['time']){
+                    if(digits<1 || digits>12){
+                        digits=1;
+                    }
+                    ngModel.$viewValue = digits;
+                } else {
                 ngModel.$viewValue = digits;
+                }
                 ngModel.$render();
                 return digits;
             });
