@@ -212,6 +212,9 @@ angular
                     if(digits<1 || digits>12){
                         digits=1;
                     }
+                    if(digits==""){
+                        digits=1;
+                    }
                     ngModel.$viewValue = digits;
                 } else {
                 ngModel.$viewValue = digits;

@@ -75,6 +75,8 @@ footer { margin-top: 30px; }
   padding: 14px 24px;
 }
 
+.timeInfo select {padding: 0 0 0 13px !important;}
+.timeInfo select option {text-align: center !important;}
 .saveBtn:hover { background-color: #1ac5c0 !important; color:#fff; }
 
 /***************login page css**********************/
@@ -635,3 +637,19 @@ display: table-cell;float: none;
   border-color: #5cb85c; }
 .radio-success input[type="radio"]:checked + label::after {
   background-color: #5cb85c; }
+
+
+
+select:focus, option:focus, select::-moz-focus-inner, option::-moz-focus-inner {
+    outline: none !important;
+   
+}
+
+a {
+   outline: 0 !important;
+}
+
+select:-moz-focusring {
+    color: transparent !important;
+    text-shadow: 0 0 0 #000 !important;
+}
