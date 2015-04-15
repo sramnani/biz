@@ -76,7 +76,6 @@ footer { margin-top: 30px; }
 }
 
 .timeInfo select {padding: 0 0 0 13px !important;}
-.timeInfo select option {text-align: center !important;}
 .saveBtn:hover { background-color: #1ac5c0 !important; color:#fff; }
 
 /***************login page css**********************/
