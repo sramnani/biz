@@ -49,7 +49,24 @@ angular.module("outingzApp")
 			});
 			
 			return deferred.promise;
-		}
+		},
+                get_merchat:function(){
+                    
+                    var deferred = $q.defer();
+
+			//Calling Web API to fetch merchant locations
+			$http.get("https://api.outingz.com/outingz/merchants/e76a871c-8dde-4981-9105-5f4096eb3ab8").success(function(data){
+			  //Passing data to deferred's resolve function on successful completion
+			  deferred.resolve(data);
+			}).error(function(){
+
+			//Sending a friendly error message in case of failure
+			deferred.reject("An error occured while fetching items");
+			});
+			
+			return deferred.promise;
+                    
+                }
 	};
 	
 });

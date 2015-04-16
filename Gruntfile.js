@@ -222,6 +222,7 @@ module.exports = function (grunt) {
           html: {
             steps: {
               js: ['concat', 'uglifyjs'],
+            //  js: ['concat'],
               css: ['cssmin']
             },
             post: {}
@@ -241,6 +242,12 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/styles'
         ]
       }
+    },
+     uglify: {
+        options: {
+            report: 'min',
+            mangle: false
+        }
     },
 
     // The following *-min tasks will produce minified files in the dist folder

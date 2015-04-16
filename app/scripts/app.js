@@ -18,7 +18,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.utils'
+    'ui.utils',
+    'ui.bootstrap',
+    'ngAside'   
   ])
   .config(function ($routeProvider,$httpProvider) {
     $routeProvider
@@ -110,7 +112,24 @@ angular
       .when('/activity_class', {
 		title: 'Add Activity',   
         templateUrl: 'views/activity_class.html',
-        controller: 'ServiceCtrl',
+        controller: 'ClassCtrl',
+        resolve: {
+          authenticated: function($q, $location,UserService) {
+            var deferred = $q.defer();
+            if (!UserService.isAuthenticated()) {
+              $location.path('/login');
+            } else {
+              deferred.resolve();
+            }
+
+            return deferred.promise;
+          }
+        }
+      })
+      .when('/customer', {
+        title: 'Add Customer',   
+        templateUrl: 'views/customer.html',
+        controller: 'CustomerCtrl',
         resolve: {
           authenticated: function($q, $location,UserService) {
             var deferred = $q.defer();
@@ -161,13 +180,18 @@ angular
 		return {
 		'request': function(config) {	
 				
-			/*
+			
 			var token = $window.localStorage['token'];
-
-			if (token) {
-			  config.headers['Authorization'] = token;
+                        var key = $window.localStorage['key'];
+                        var header = {
+                            'key':key,
+                            'token':token
+                        };
+                      //  config.headers['test'] = 'authentication';
+			/*if (token) {                            
+			  config.headers['Authorization'] = header;
 			} else {
-			  alert("No header found");
+			  console.log("No header found");
 			}*/
              
 			  return config;

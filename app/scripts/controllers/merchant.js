@@ -45,10 +45,24 @@ angular.module('outingzApp')
             //  $scope.location.address.state = $scope.states[0];
 
             $scope.countries = ['USA'];
+            
+            
+            
+            MerchantService.get_merchat().then(function (data) {
+                   
+                   $scope.merchant=data;
+                  // $scope.merchant.description=data.description;
+                }, function (error) {
+                    $scope.error = "Error in creating your bussiness!";
+                });
+                
+            
+            
             // Used to setup the business for first time (Creates merchant)
             $scope.create_merchant = function (merchant, isvalid) {
-                // if (isValid) {
-
+                
+                
+                
                 if (isvalid) {
 
                     // $scope.location.address.country = "USA";
@@ -58,7 +72,7 @@ angular.module('outingzApp')
                     merchant.locations.location = [];
 
                     merchant.locations.location.push($scope.location);
-
+                    $scope.merchant.id="e76a871c-8dde-4981-9105-5f4096eb3ab8";
                     MerchantService.add_merchant(merchant).then(function (data) {
                         $scope.success = "Your Business setup sucessfully";
 

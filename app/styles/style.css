@@ -29,7 +29,31 @@ select { color: #999; font-size: 12px; }
 
 }
 
+@font-face {
+    font-family: 'proxima_novaregular';
+    src: url('../fonts/proxima_nova_regular-webfont.eot');
+    src: url('../fonts/proxima_nova_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proxima_nova_regular-webfont.woff2') format('woff2'),
+         url('../fonts/proxima_nova_regular-webfont.woff') format('woff'),
+         url('../fonts/proxima_nova_regular-webfont.ttf') format('truetype'),
+         url('../fonts/proxima_nova_regular-webfont.svg#proxima_novaregular') format('svg');
+    font-weight: 300;
+    font-style: normal;
 
+}
+
+@font-face {
+    font-family: 'proximanova-bold';
+    src: url('../fonts/proximanova-bold.eot');
+    src: url('../fonts/proximanova-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/proximanova-bold.woff2') format('woff2'),
+         url('../fonts/proximanova-bold.woff') format('woff'),
+         url('../fonts/proximanova-bold.ttf') format('truetype'),
+         url('../fonts/proximanova-bold.svg#proxima_novaregular') format('svg');
+    font-weight: 300;
+    font-style: normal;
+
+}
 
 body {font-style: normal; font-weight: 300; font-size: 14px; color: #999; font-family:"proxima_novaregular",sans-serif;}
 .form-control::-moz-placeholder {
@@ -71,7 +95,7 @@ footer { margin-top: 30px; }
   color: #fff;
   font-size: 16px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 298px;
   padding: 14px 24px;
 }
 
@@ -376,7 +400,7 @@ display: table-cell;float: none;
   margin-bottom: 25px;
   padding: 20px;
   position: absolute;
-  top: -256px;
+  top: 0px;
   width: auto;
 }
 .outertimeInfo .closetime {
@@ -652,3 +676,121 @@ select:-moz-focusring {
     color: transparent !important;
     text-shadow: 0 0 0 #000 !important;
 }
+
+
+
+/** 14-04-2015  Vikas**/
+.pageTitle {display:table;width:100%;}
+h2.headingPlus {margin:0 !important; display:table-cell; float:none;font-family:'proximanova-bold'; font-weight:normal;}
+.plusSign {text-align:right; display:table-cell; float:none; vertical-align:middle}
+.searchMonthInfo {width:100%; padding:20px 0; border-top:1px solid #e5e5e5; border-bottom:1px solid #e5e5e5; margin-top:30px; float:left}
+.plusSign .navbar {margin-bottom:0 !important; min-height:inherit !important; cursor:pointer}
+.plusSign .navbar-default {background-color:transparent !important; border:none !important}
+.plusSign .navmenu {text-align:left !important}
+.navbar-toggle {float: left; margin-left: 15px;}
+@media (min-width: 0) { .navbar-toggle {  display: block; /* force showing the toggle */}}
+@media (min-width: 992px) {body {  padding: 0; }.navbar {right: auto;background: none;border: none;}}
+.customerInfo{width:100%; float:left}
+.customerInfo table tr th {padding: 20px !important;background:#f7f7f7;font-weight:bold;color:#198c88;text-transform:uppercase;font-family:'proxima_novaregular';}
+.customerInfo .table > thead > tr > th {border:none !important}
+.customerInfo .table tr:nth-child(1) td {border:none !important;padding-top:43px !important}
+.customerInfo .table tr td {padding:27px 20px !important;color:#999999;font-size:18px;font-weight:normal;font-family:'proxima_novaregular'}
+.customerInfo table .caret {margin-left:10px !important;  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;  border-top: 5px solid;}
+.add-on input[type="text"]{width:237px;border:1px solid #e3e3e3;border-right:none !important;}
+.add-on .input-group-btn > .btn {border-left-width:0;left:-2px;color:#999999;font-weight:normal; padding:8px 13px 7px !important; border:1px solid #e3e3e3;border-left:0px; outline:none;}
+.add-on .input-group-btn > i {color:#c6c6c6}
+.add-on .form-control:focus {box-shadow:none;-webkit-box-shadow:none;border-color:#cccccc;}
+.add-on input[type="text"] {padding:9px 13px 6px !important; height:auto !important;box-shadow:none !important}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td  {border-bottom:1px solid #e5e5e5 !important}
+.searchBar{width:273px; float:left}
+.searchBar form.navbar-form {padding:0 !important;}
+.customerMemberInfo{ float:right}
+.add-on .btn-default:hover, .add-on .btn-default:focus, .add-on .btn-default:active, .add-on .btn-default.active {background-color:transparent !important; border-color:#e3e3e3!important;border-left-width:0 !important; box-shadow:none;-webkit-box-shadow:none;}
+.customerMemberInfo ul {list-style:none; margin:0; padding:0;}
+.customerMemberInfo ul li {color:#cccccc; font-size:12px;font-family:'proxima_novaregular';float:left; border-right:1px solid #e5e5e5; padding-right:39px; padding-left:39px;}
+.customerMemberInfo ul li span {color:#999999;font-size:24px;font-family:'proxima_novaregular';}
+.customerMemberInfo ul li+li+li,.customerMemberInfo ul li:last-child{border-right:none; padding-right:0 !important}
+@media only screen and (min-width:768px) and (max-width:1024px) {
+	.customerMemberInfo ul li {padding-left:34px; padding-right:34px;}
+	.customerInfo table tr th {padding:20px 6px !important;}
+}
+@media only screen and (max-width:767px) {
+	.customerMemberInfo {float:left}.customerMemberInfo ul li {padding-left:5px; padding-right:5px;}.searchBar .navbar-form {margin:0 !important; margin-bottom:15px !important}
+}
+@media only screen and (min-width:481px) and (max-width:640px) {.customerMemberInfo {float:right}}
+.customer_photoInfo {width:100%;float:left;}
+.customerNameInfo{margin-bottom:29px;}
+.customerNameInfo h2 {color:#198c88; font-size:26px;font-family:'proxima_novaregular';font-weight:bold;margin:0 0 4px 0;line-height:21px;}
+.customerNameInfo span {color:#999999; font-size:14px;font-family:'proxima_novaregular';}
+button.greenBtn {background: none repeat scroll 0 0 #1cb9b4;border: medium none;border-radius: 4px;color: #fff;font-family: "proxima_novaregular";font-weight: 600;line-height: 19px !important;padding: 8px 31px !important;}
+.customer_photoInfo .col-md-7,.customer_photoInfo .col-md-12, .customer_photoInfo .col-md-5 {padding:0;}
+.plusSign hr{width:100%; float:left;border-color:#e1e1e1; margin-bottom:19px;margin-top:21px;}
+.cus_headingbox {margin-bottom:4px;}
+.cus_headingbox h3{color:#198c88;font-size:16px;font-family:'proximanova-bold'; margin:0;line-height:16px;}
+.cus_headingbox h4 {margin:0;padding:0;color:#999999;font-size:12px;font-family:'proxima_novaregular';text-transform:uppercase;}
+.cus_headingbox h4 a{color:#999999;font-size:12px;font-family:'proxima_novaregular';text-transform:uppercase;}
+.box_cus{float:left; width:100%;margin-top:20px;}
+.box_value,.box_label {width:100%;float:left;}
+.box_label{color:#cccccc; font-size:12px;font-family:'proxima_novaregular';text-transform:uppercase; margin-bottom:7px;}
+.box_value{color:#999999;font-size:16px;font-family:'proxima_novaregular';}
+.mB20 {margin-bottom:20px !important}
+.add_membership{color:#198c88;font-size:14px;font-family:'proxima_novaregular';text-transform:inherit;}
+.close_customer_toggle {position: absolute;right: 23px;top: 20px;}
+.close_customer_toggle a {cursor:pointer;outline:none; border:none;}
+.customer_photoInfo .col-md-7 input[type="text"], .customer_photoInfo .col-md-7 input[type="tel"], .customer_photoInfo .col-md-7 input[type="date"] {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:7px;width:85% !important; line-height:inherit !important}
+.customer_photoInfo .col-md-7 textarea {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:11px;width:85% !important;max-width:85%;min-width:85%;}
+.customer_photoInfo .col-md-5 input[type="text"], .customer_photoInfo .col-md-5 input[type="tel"], .customer_photoInfo .col-md-5 input[type="date"] {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:7px;width:100% !important; line-height:inherit !important}
+.customer_photoInfo .col-md-5 textarea {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:11px;width:85% !important;max-width:85%;min-width:100%;}
+
+@media only screen and (max-width:767px) {
+	.customer_photoInfo input[type="text"], .customer_photoInfo input[type="tel"], .customer_photoInfo input[type="date"],.customer_photoInfo textarea {width:100% !important;max-width:100% !important;min-width:100% !important;}
+	/*.customer_photoInfo .col-lg-7, .customer_photoInfo .col-md-7, .customer_photoInfo .col-sm-7 {margin-top:20px;}*/
+}
+@media only screen and (min-width:767px) and (max-width:1024px) and (orientation:Portrait) {
+ .customer_photoInfo input[type="text"], .customer_photoInfo input[type="tel"], .customer_photoInfo input[type="date"],.customer_photoInfo textarea {width:100% !important;max-width:100% !important;min-width:100% !important;}
+}
+
+.modal-dialog {width: 478px !important;}
+.offcanvas {
+  background-color: #f7f7f7 !important;
+  border: medium none !important;
+  padding: 45px !important;
+  overflow: hidden !important;
+  -webkit-transition:all .5s, -webkit-transform .5s;
+  transition:all .5s ease-out, -webkit-transform .5s
+}
+.modal-backdrop.in {opacity: 1 !important;}
+.modal-backdrop {background:none !important;}
+.modal-content {box-shadow: none !important;}
+
+@media only screen and (max-width:600px)
+{
+ .modal-dialog {width: 100% !important;}
+}
+
+ body.modal-open {padding-right: 320px;} 
+body {
+  -webkit-transition:all .2s, -webkit-transform .2s;
+  transition:all .2s ease-out, -webkit-transform .2s
+}
+
+ @media only screen and (max-width:600px) and (orientation:Portrait)
+{
+ .customer_img_name_info .col-xs-7{width: 100% !important;}
+ .customerNameInfo h2 {margin-top: 20px;}
+}
+ 
+ .plusSign img {cursor: pointer;}
+ 
+ @media only screen and (min-width:768px) and (max-width:1024px) and (orientation:Portrait)
+ {
+   body.modal-open {position: relative; left: -480px !important;padding-right: 0 !important;} 
+ }
+ @media only screen and (min-width:768px) and (max-width:1024px) and (orientation:Landscape)
+ {
+   body.modal-open {position: relative; left: -460px !important;padding-right: 0 !important;} 
+ }
+
+ 
+ .outerTimerSec {width: 100% !important; float: left !important;}
