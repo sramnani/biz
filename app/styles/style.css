@@ -402,6 +402,7 @@ display: table-cell;float: none;
   position: absolute;
   top: 0px;
   width: auto;
+  min-height:143px;
 }
 .outertimeInfo .closetime {
   cursor: pointer;
@@ -796,3 +797,19 @@ body {
  .outerTimerSec {width: 100% !important; float: left !important;}
  
  .mT0 {margin-top:0 !important;}
+/*payPal Info*/
+.paypalInfo {margin-top:52px; padding:0;width:100%; float:left}
+.paypalInfo .paypalImg {float:left;padding-right:16px; margin-top:5px;}
+.paypalInfo .paypalText {margin:0;padding:0;float:left;}
+.paypalInfo .paypalText h4 {color:#999999;font-size:16px;font-family:'proximanova-bold';margin:0;padding:0;}
+.paypalInfo .paypalText p {color:#999999;font-size:12px;font-family:'proxima_novaregular';margin:0;}
+.paypalInfo .paypalText a {color:#198c88;font-size:12px;font-family:'proxima_novaregular';}
+@media only screen and (max-width:568px){.paypalInfo .paypalImg {margin-bottom:15px;}}
+.heading {font-family:'proximanova-bold';}
+.paypalSuccess {margin:0 !important; padding:0 !important;}
+.paypalSuccess h4{color:#198c88;font-size:16px;font-family:'proximanova-bold';margin:0;padding:0;}
+.paypalSuccess p{color:#999999;font-size:16px;font-family:'proximanova-bold';margin:0;padding:0;}
+.paypalSuccess a{color:#198c88;font-size:12px;font-family:'proxima_novaregular';margin:0;padding:0;}
+.paypalBtn { background: #1cb9b4;border: medium none;box-shadow: 0 -4px 0 -0.5px #198c88 inset;color: #fff;font-size: 18px;margin-top: 10px;padding: 14px 24px;font-family:'proximanova-bold';}
+.mT36 {margin-top:36px;}
+/* end of paypal info */

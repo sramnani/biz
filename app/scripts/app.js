@@ -116,6 +116,7 @@ angular
                         resolve: {
                             authenticated: function ($q, $location, UserService) {
                                 var deferred = $q.defer();
+                                
                                 if (!UserService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
@@ -177,6 +178,11 @@ angular
                         templateUrl: 'views/test.html',
                         controller: 'userCtrl'
                     })
+                    .when('/paypal', {
+                        title: 'Paypal Payment',
+                        templateUrl: 'views/paypal.html',
+                        controller: 'userCtrl'
+                    })
                     .otherwise({
                         redirectTo: '/'
                     });
@@ -199,7 +205,7 @@ angular
                         };
                         
                         if (token) {
-                                 config.headers['Authorization'] = header;
+                                // config.headers['Authorization'] = header;
                         } else {
                             console.log("No header found");
                         }
@@ -266,8 +272,9 @@ angular
         $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
             $rootScope.title = current.$$route.title;
         });
+        
 
 
 
-    }]);
+}]);
 

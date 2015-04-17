@@ -328,11 +328,13 @@ angular.module('outingzApp').directive('timePick', function () {
         }
     };
 });
-angular.module('outingzApp').directive('timePickAdvance', function ($compile,$timeout) {
+angular.module('outingzApp').directive('timePickAdvance', function ($compile, $timeout) {
     return {
         restrict: 'E',
-        templateUrl: '../../views/timePickerAdvance.html?'+Math.random(),
+        templateUrl: '../../views/timePickerAdvance.html?' + Math.random(),
         link: function (scope, element, attributes) {
+            console.log("link here");
+           // scope.$emit('outingzApp');
             scope.error_directive = "";
             scope.locationSchedule = [];
             var locations = [];
@@ -347,12 +349,13 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile,$ti
 
 
             scope.current_slot = [];
+            
             var days_pos = angular.element(document.querySelector('#days_group'));
-            var time_pos = angular.element(document.querySelector('.outertimeInfo'));
             
             var offset = days_pos.offset();
-            
+
             var offset_time = days_pos.offset();
+
 
             var offset = days_pos.offset();
             scope.disb = function (day) {
@@ -417,7 +420,7 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile,$ti
 
                     myEl.attr('day', day);
                     scope.showPopover = true;
-                    
+
                     if (!checkbox.checked) {
 
 
@@ -432,17 +435,19 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile,$ti
                         locations = [];
                         myEl.removeAttr('day');
                     } else {
-                        
+
                         if (scope.current_slot.length < 1) {
                             scope.current_slot.push({from: 9, from_type: 'AM', to: 5, to_type: 'PM'});
-                           
+
                         }
-                         $timeout(function () {
-                                
-                                console.log(offset.top);
-                                console.log(offset.top-time_pos.outerHeight());
-                                myEl.css('top',-(time_pos.outerHeight()+100)+'px');
-                            }, 0); 
+                        $timeout(function () {
+
+                            //  console.log(offset.top);
+                            //  console.log(offset.top-time_pos.outerHeight());
+                            var time_pos = angular.element(document.querySelector('.outertimeInfo'));
+                            console.log(time_pos.outerHeight());
+                           scope.$apply(myEl.css('top', -(time_pos.outerHeight() + 100) + 'px'));
+                        }, 0);
                     }
 
                 }
@@ -494,10 +499,12 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile,$ti
                                 scope.current_slot.push({from: value.startTime.slice(0, -2), from_type: value.startTime.slice(-2), to: value.endTime.slice(0, -2), to_type: value.endTime.slice(-2)});
                                 $timeout(function () {
 
-                                    console.log(offset.top);
-                                    console.log(offset.top - time_pos.outerHeight());
-                                    myEl.css('top', -(time_pos.outerHeight() + 100) + 'px');
-                                }, 0); 
+                                    //   console.log(offset.top);
+                                    //  console.log(offset.top - time_pos.outerHeight());
+                                    var time_pos = angular.element(document.querySelector('.outertimeInfo'));
+                                    console.log(time_pos.outerHeight());
+                                    scope.$apply(myEl.css('top', -(time_pos.outerHeight() + 100) + 'px'));
+                                }, 0);
                             });
 
                         }
@@ -508,11 +515,13 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile,$ti
                         if (scope.current_slot.length < 1) {
                             scope.current_slot.push({from: 9, from_type: 'AM', to: 5, to_type: 'PM'});
                             $timeout(function () {
-                                
-                                console.log(offset.top);
-                                console.log(offset.top-time_pos.outerHeight());
-                                myEl.css('top',-(time_pos.outerHeight()+100)+'px');
-                            }, 0);    
+
+                                // console.log(offset.top);
+                                //console.log(offset.top-time_pos.outerHeight());
+                                var time_pos = angular.element(document.querySelector('.outertimeInfo'));
+                                console.log(time_pos.outerHeight());
+                               scope.$apply(myEl.css('top', -(time_pos.outerHeight() + 100) + 'px'));
+                            }, 0);
                         }
 
                     }
@@ -728,9 +737,9 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile,$ti
                 console.log(JSON.stringify(scope.locationSchedule));
                 myEl.removeAttr('day');
                 $timeout(function () {
-                    
-                    myEl.css('top','0px');
-                }, 0); 
+
+                   // myEl.css('top', '0px');
+                }, 0);
                 scope.flag = false;
                 scope.showPopover = false;
                 //  scope.from="";
@@ -739,17 +748,14 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile,$ti
                 scope.to_type = "";
             }
 
-            scope.test = function () {
-                alert("inside test");
-            }
-
             scope.add_slot = function () {
+                var myEl = angular.element(document.querySelector('.timerpopup'));
                 scope.current_slot.push({from: 9, from_type: 'AM', to: 5, to_type: 'PM'});
                 $timeout(function () {
-                    console.log(offset.top);
-                    console.log(offset.top - time_pos.outerHeight());
-                    myEl.css('top', -(time_pos.outerHeight() + 100) + 'px');
-                }, 0); 
+                    var time_pos = angular.element(document.querySelector('.outertimeInfo'));
+                    console.log(time_pos.outerHeight());
+                    scope.$apply(myEl.css('top', -(time_pos.outerHeight() + 100) + 'px'));
+                }, 0);
             }
         }
     };

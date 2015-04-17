@@ -8,15 +8,19 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-  .controller('ClassCtrl', function ($scope,ActivityService,$q,$http,$location) {  
-	  
+  .controller('ClassCtrl', function ($scope,ActivityService,$q,$http,$location,$window,$route) {  
+   console.log("class");
+  
    //function to make the Tabs on single page.
    $scope.select_type = function(obj){
 	   
 	   if(obj=="service"){
-		   $location.url('/activity_service');
+             //  $window.location.href='#/activity_service';
+		   $location.path('/activity_service');
+                 // $route.reload();
+                  
 	   } else {
-		   $location.url('/activity_class');
+		   $location.path('/activity_class');
 	   }
 	 
    }
