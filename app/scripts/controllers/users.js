@@ -65,7 +65,7 @@ angular.module('outingzApp')
 
                         $window.localStorage['token'] = data.data.token;
                         $window.localStorage['key'] = data.data.key;
-
+                            
                         $location.url('/merchant');
                     }
 
