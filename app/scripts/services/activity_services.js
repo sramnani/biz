@@ -1,5 +1,5 @@
 angular.module("outingzApp")
-.factory("ActivityService", function ($http,$q) {
+.factory("ActivityService", function ($http,$q,$window) {
 	
 	return {
 
@@ -9,15 +9,12 @@ angular.module("outingzApp")
 			var deferred = $q.defer();
 			
 			var link="";
+			var key = $window.localStorage['keyy'];
 			
-			if(activity_type=="service"){
-				link = "https://api.outingz.com/outingz/merchants/e76a871c-8dde-4981-9105-5f4096eb3ab8/services";
-			} else {
-				link = "https://api.outingz.com/outingz/merchants/e76a871c-8dde-4981-9105-5f4096eb3ab8/classes";
-			}
+                        link = "https://api.outingz.com/outingz/merchants/"+key+"/services";			
 
 			//Calling Web API to fetch health data
-			/*$http.post(link,activity_service).success(function(data){
+			$http.post(link,activity_service).success(function(data){
 			  //Passing data to deferred's resolve function on successful completion
 			  deferred.resolve(data);
 			}).error(function(){
@@ -25,7 +22,7 @@ angular.module("outingzApp")
 			//Sending a friendly error message in case of failure
 			deferred.reject("An error occured while fetching items");
 			});
-			*/
+			
 			return deferred.promise; 
 		},
                 add_activity_class : function(activity_class){
@@ -34,8 +31,8 @@ angular.module("outingzApp")
 			var deferred = $q.defer();
 			
 			var link="";			
-			
-                        link = "https://api.outingz.com/outingz/merchants/e76a871c-8dde-4981-9105-5f4096eb3ab8/classes";			
+			var key = $window.localStorage['keyy'];
+                        link = "https://api.outingz.com/outingz/merchants/"+key+"/classes";			
 
 			//Calling Web API to fetch health data
 			$http.post(link,activity_class).success(function(data){
@@ -54,9 +51,7 @@ angular.module("outingzApp")
 			//alert("HELO");
 			var deferred = $q.defer();
 
-			//Calling Web API to fetch health data			
-			
-			
+			//Calling Web API to fetch health data		
 			obj = {};
 			obj.id="id5941";
 			obj.name="varun";

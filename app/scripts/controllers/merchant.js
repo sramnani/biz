@@ -72,7 +72,8 @@ angular.module('outingzApp')
                     merchant.locations.location = [];
 
                     merchant.locations.location.push($scope.location);
-                    $scope.merchant.id="e76a871c-8dde-4981-9105-5f4096eb3ab8";
+                    var key = $window.localStorage['keyy'];
+                    $scope.merchant.id=key;
                     MerchantService.add_merchant(merchant).then(function (data) {
                         $scope.success = "Your Business setup sucessfully";
 
