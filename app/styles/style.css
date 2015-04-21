@@ -95,8 +95,8 @@ footer { margin-top: 30px; }
   color: #fff;
   font-size: 16px;
   font-weight: bold;
-  margin-top: 298px;
   padding: 14px 24px;
+  margin-top:0 !important;
 }
 
 .timeInfo select {padding: 0 0 0 13px !important;}
@@ -813,3 +813,18 @@ body {
 .paypalBtn { background: #1cb9b4;border: medium none;box-shadow: 0 -4px 0 -0.5px #198c88 inset;color: #fff;font-size: 18px;margin-top: 10px;padding: 14px 24px;font-family:'proximanova-bold';}
 .mT36 {margin-top:36px;}
 /* end of paypal info */
+.pos_pick{
+    top:-256px !important;    
+}
+.activity_btn{
+    margin-top:238px !important;
+}
+.class_btn{
+    margin-top:97px !important;
+}
+
+.marginTop13 {
+    margin-top: 20px !important;
+}
+
+.active_service .select_activity { cursor: pointer;}

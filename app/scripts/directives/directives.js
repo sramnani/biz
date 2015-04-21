@@ -23,6 +23,15 @@ angular.module('outingzApp').directive('timePick', function () {
         restrict: 'E',
         templateUrl: '../../views/timePicker.html',
         link: function (scope, element, attributes) {
+            
+            
+            function simpleKeys (original) {
+    return Object.keys(original).reduce(function (obj, key) {
+      obj[key] = typeof original[key] === 'object' ? '{ ... }' : original[key];
+      return obj;
+    }, {});
+  }
+            
             scope.error_directive = "";
             scope.locationSchedule = [];
             var locations = [];
@@ -116,7 +125,11 @@ angular.module('outingzApp').directive('timePick', function () {
             };
 
             scope.showHover = function ($event, pos, day) {
-
+              //  console.log(JSON.stringify($event.target));
+                var data  = simpleKeys($event);
+    console.log(data);
+                
+                
                 scope.error_directive = "";
                 switch (day) {
                     case 'mon':
@@ -143,30 +156,43 @@ angular.module('outingzApp').directive('timePick', function () {
                 }
 
 
-                var checkbox = $event.target;
+                
                 var myEl = angular.element(document.querySelector('.timerpopup'));
                 if (!myEl.attr('day')) {
-
-                    //  myEl.css('left', -pos + 'px');
-
+                        
                     scope.showPopover = true;
 
-
+                    console.log("ENTERING");
+                    var keepGoing = true;
                     angular.forEach(scope.locationSchedule, function (value, key) {
+                        if(keepGoing) {
                         if (value.day == day) {
+                            console.log("VALEU DAY: "+value.day);
                             scope.from = parseInt(value.startTime.slice(0, -2));
                             scope.from_type = value.startTime.slice(-2);
                             scope.to = parseInt(value.endTime.slice(0, -2));
                             scope.to_type = value.endTime.slice(-2);
+                            keepGoing = false;
+                        } else {
+                        
+                            scope.from = 9;
+                            scope.from_type = "AM";
+                            scope.to = 5;
+                            scope.to_type = "PM";
+                        
+                        }
                         }
                     });
-
+                    
+                    /*
+                    var checkbox = $event.target;
                     if (!checkbox.checked) {
+                        console.log("Not checked");
                         scope.from = 9;
                         scope.from_type = "AM";
                         scope.to = 5;
                         scope.to_type = "PM";
-                    }
+                    }*/
                 }
 
             }
@@ -456,7 +482,7 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile, $t
             };
 
             scope.showHover = function ($event, pos, day) {
-
+                console.log(JSON.stringify($event.target));
                 scope.error_directive = "";
                 switch (day) {
                     case 'mon':
@@ -511,7 +537,7 @@ angular.module('outingzApp').directive('timePickAdvance', function ($compile, $t
                     });
 
                     if (!checkbox.checked) {
-
+console.log("HELO");
                         if (scope.current_slot.length < 1) {
                             scope.current_slot.push({from: 9, from_type: 'AM', to: 5, to_type: 'PM'});
                             $timeout(function () {

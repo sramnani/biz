@@ -152,7 +152,21 @@ angular
                     .when('/login', {
                         title: 'Login',
                         templateUrl: 'views/login.html',
-                        controller: 'userCtrl'
+                        controller: 'userCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, UserService) {
+                                var deferred = $q.defer();
+                                if (!UserService.isAuthenticated()) {
+                                     deferred.resolve();
+                                } else {
+                                  //  alert("HEL");
+                                    $location.path('/');
+                                  
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
                     })
                     .when('/logout', {
                         templateUrl: 'views/login.html',
@@ -161,7 +175,19 @@ angular
                     .when('/register', {
                         title: 'Invite Business',
                         templateUrl: 'views/register.html',
-                        controller: 'userCtrl'
+                        controller: 'userCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, UserService) {
+                                var deferred = $q.defer();
+                                if (!UserService.isAuthenticated()) {
+                                    $location.path('/login');
+                                } else {
+                                    deferred.resolve();
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
                     })
                     .when('/buildInfo', {
                         title: 'Your build info',
@@ -198,14 +224,17 @@ angular
 
 
                         var token = $window.localStorage['token'];
-                        var key = 'e76a871c-8dde-4981-9105-5f4096eb3ab8';
+                        var key = $window.localStorage['keyy'];
                         var header = {
                             'key': key,
                             'token': token
                         };
                         
+                     //  console.log(JSON.stringify(header));
+                      var  header_string = JSON.stringify(header);
+                        //config.headers['test'] = 'test';
                         if (token) {
-                                // config.headers['Authorization'] = header;
+                                 config.headers['Authorization'] = header_string;                                 
                         } else {
                             console.log("No header found");
                         }

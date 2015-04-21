@@ -18,7 +18,7 @@ angular.module('outingzApp')
             $scope.register = function (registerObj) {
 
                 registerObj.id = "id" + Math.floor((Math.random() * 9999999999) + 1);
-
+                console.log(JSON.stringify(registerObj));
                 UserService.register(registerObj).then(function (data) {
                     console.log(JSON.stringify(data));
 
@@ -62,10 +62,10 @@ angular.module('outingzApp')
                     if (data.status == 500) {
                         $scope.error = "Wrong username & password";
                     } else {
-
+                        
                         $window.localStorage['token'] = data.data.token;
-                        $window.localStorage['key'] = data.data.key;
-                            
+                        $window.localStorage['keyy'] = data.data.key;
+                           
                         $location.url('/merchant');
                     }
 
@@ -154,7 +154,7 @@ angular.module('outingzApp')
             $scope.logout = function () {
 
                 delete $window.localStorage['token'];
-                delete $window.localStorage['key'];
+                delete $window.localStorage['keyy'];
                 $location.url('/login');
             }
         });

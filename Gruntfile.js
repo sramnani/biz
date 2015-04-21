@@ -352,7 +352,7 @@ module.exports = function (grunt) {
             'views/{,*/}*.html',
             'views/{,*/}*.json',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/*'
           ]
         }, {
           expand: true,
@@ -364,7 +364,14 @@ module.exports = function (grunt) {
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
-        }]
+        },
+        {
+          expand: true,
+          cwd: 'app',
+          src: 'fonts/*',
+          dest: '<%= yeoman.dist %>'
+        }
+    ]
       },
       styles: {
         expand: true,
