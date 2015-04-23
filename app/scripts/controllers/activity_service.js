@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('ServiceCtrl', function ($scope, ActivityService, $q, $http, $location, $window, $route,$timeout) {
+        .controller('ServiceCtrl', function ($scope, ActivityService, $q, $http, $location, $window, $route,$timeout,$cookies) {
 
             $scope.service = {};
             console.log("service");

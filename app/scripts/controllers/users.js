@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('userCtrl', function ($scope, $q, $http, $routeParams, $location, $window, UserService) {
+        .controller('userCtrl', function ($scope, $q, $http, $routeParams, $location, $window,$cookies,UserService) {
 
             $scope.password = "";
             $scope.success = "";
@@ -63,9 +63,10 @@ angular.module('outingzApp')
                         $scope.error = "Wrong username & password";
                     } else {
                         
-                        $window.localStorage['token'] = data.data.token;
-                        $window.localStorage['keyy'] = data.data.key;
-                           
+                      //  $window.localStorage['token'] = data.data.token;
+                       // $window.localStorage['keyy'] = data.data.key;
+                          $cookies.token = data.data.token;
+                          $cookies.keyy = data.data.key;
                         $location.url('/merchant');
                     }
 
@@ -108,8 +109,10 @@ angular.module('outingzApp')
                             $scope.error = "Wrong username & password";
                         } else {
 
-                            $window.localStorage['token'] = data.data.token;
-                            $window.localStorage['key'] = data.data.key;
+                           // $window.localStorage['token'] = data.data.token;
+                           // $window.localStorage['key'] = data.data.key;
+                           $cookies.token = data.data.token;
+                           $cookies.keyy = data.data.key;
 
                             $scope.password = "";
                             $scope.confirmPassword = "";
@@ -134,7 +137,7 @@ angular.module('outingzApp')
 
 
         })
-        .controller('NavbarCtrl', function ($scope, $q, $http, $routeParams, $location, $window, UserService) {
+        .controller('NavbarCtrl', function ($scope, $q, $http, $routeParams, $location, $window,$cookies, UserService) {
 
             // to check if user is authenticated or not
             $scope.isAuthenticated = function () {
@@ -153,8 +156,8 @@ angular.module('outingzApp')
 
             $scope.logout = function () {
 
-                delete $window.localStorage['token'];
-                delete $window.localStorage['keyy'];
+                $cookies.token='false';
+                $cookies.keyy = 'false';
                 $location.url('/login');
             }
         });

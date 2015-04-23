@@ -1,5 +1,5 @@
 angular.module("outingzApp")
-.factory("ActivityService", function ($http,$q,$window) {
+.factory("ActivityService", function ($http,$q,$window,$cookies) {
 	
 	return {
 
@@ -9,8 +9,8 @@ angular.module("outingzApp")
 			var deferred = $q.defer();
 			
 			var link="";
-			var key = $window.localStorage['keyy'];
-			
+			//var key = $window.localStorage['keyy'];
+			var key = $cookies.keyy;
                         link = "https://api.outingz.com/outingz/merchants/"+key+"/services";			
 
 			//Calling Web API to fetch health data
@@ -31,7 +31,8 @@ angular.module("outingzApp")
 			var deferred = $q.defer();
 			
 			var link="";			
-			var key = $window.localStorage['keyy'];
+			//var key = $window.localStorage['keyy'];
+                        var key = $cookies.keyy;
                         link = "https://api.outingz.com/outingz/merchants/"+key+"/classes";			
 
 			//Calling Web API to fetch health data

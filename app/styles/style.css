@@ -76,7 +76,7 @@ h6 { font-size: 24px; color: #999999; }
 .entryInput2 { float: left; width: 44%; margin-right: 15px; font-size: 12px; color: #999; }
 .entryInput3 { float: left; width: 33.3%; }
 .bussinessContact { width: 100%; }
-.addresec { margin-bottom: 18px; }
+/*.addresec { margin-bottom: 18px; }*/
 .rightForm { float: right; }
 .main { margin-top: 40px; }
 .form-group.clearfix span { font-size: 12px; font-weight: normal; }
@@ -712,6 +712,10 @@ h2.headingPlus {margin:0 !important; display:table-cell; float:none;font-family:
 .customerMemberInfo ul li {color:#cccccc; font-size:12px;font-family:'proxima_novaregular';float:left; border-right:1px solid #e5e5e5; padding-right:39px; padding-left:39px;}
 .customerMemberInfo ul li span {color:#999999;font-size:24px;font-family:'proxima_novaregular';}
 .customerMemberInfo ul li+li+li,.customerMemberInfo ul li:last-child{border-right:none; padding-right:0 !important}
+.customerNameInfo input[type="text"] {float: left;margin-bottom: 15px !important;}
+.customerNameInfo span.input-group-btn {position: relative;float: left}
+.customerNameInfo span.input-group-btn .btn {position: absolute;right: 0;top: -49px;}
+.customerNameInfo span {color:#999999; font-size:14px;font-family:'proxima_novaregular';width: 100%;}
 @media only screen and (min-width:768px) and (max-width:1024px) {
 	.customerMemberInfo ul li {padding-left:34px; padding-right:34px;}
 	.customerInfo table tr th {padding:20px 6px !important;}
@@ -739,7 +743,7 @@ button.greenBtn {background: none repeat scroll 0 0 #1cb9b4;border: medium none;
 .add_membership{color:#198c88;font-size:14px;font-family:'proxima_novaregular';text-transform:inherit;}
 .close_customer_toggle {position: absolute;right: 23px;top: 20px;}
 .close_customer_toggle a {cursor:pointer;outline:none; border:none;}
-.customer_photoInfo .col-md-7 input[type="text"], .customer_photoInfo .col-md-7 input[type="tel"], .customer_photoInfo .col-md-7 input[type="date"] {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:7px;width:85% !important; line-height:inherit !important}
+.customer_photoInfo .col-md-7 input[type="email"],.customer_photoInfo .col-md-7 input[type="text"], .customer_photoInfo .col-md-7 input[type="tel"], .customer_photoInfo .col-md-7 input[type="date"] {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:7px;width:85% !important; line-height:inherit !important}
 .customer_photoInfo .col-md-7 textarea {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:11px;width:85% !important;max-width:85%;min-width:85%;}
 .customer_photoInfo .col-md-5 input[type="text"], .customer_photoInfo .col-md-5 input[type="tel"], .customer_photoInfo .col-md-5 input[type="date"] {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:7px;width:100% !important; line-height:inherit !important}
 .customer_photoInfo .col-md-5 textarea {border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; -o-border-radius:4px; border:1px solid #cfcfcf; background:#ffffff; color:#666666;font-size:12px; padding:11px;width:85% !important;max-width:85%;min-width:100%;}

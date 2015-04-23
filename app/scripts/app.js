@@ -20,7 +20,8 @@ angular
             'ngTouch',
             'ui.utils',
             'ui.bootstrap',
-            'ngAside'
+            'ngAside',
+            'ngCookies'
         ])
         .config(function ($routeProvider, $httpProvider) {
             $routeProvider
@@ -295,6 +296,15 @@ angular
             });
         }
     };
+}).directive('datepickerPopup', function (){
+    return {
+        restrict: 'EAC',
+        require: 'ngModel',
+        link: function(scope, element, attr, controller) {
+      //remove the default formatter from the input directive to prevent conflict
+      controller.$formatters.shift();
+  }
+}
 }).run(['$location', '$rootScope', '$http', function ($location, $rootScope, $http) {
 
         //$http.defaults.headers.common.Authorization = 'Basic YmVlcDpib29w'

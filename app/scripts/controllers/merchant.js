@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('MerchantCtrl', function ($scope, MerchantService, $q, $http, $routeParams, $location, $timeout, UserService) {
+        .controller('MerchantCtrl', function ($scope, MerchantService, $q, $http, $routeParams, $location, $timeout, $cookies, UserService) {
 
 
             $scope.image_bussiness = "images/business_img.png";
@@ -36,33 +36,26 @@ angular.module('outingzApp')
             $scope.location.address = {};
 
             //dummy list of US 50 states.
-            $scope.states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
-                'Hawaii', 'Idaho', 'Illinois', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts',
-                'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
-                'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota',
-                'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
-
-            //  $scope.location.address.state = $scope.states[0];
-
+            $scope.states = MerchantService.get_states();
+            
             $scope.countries = ['USA'];
-            
-            
-            
-            MerchantService.get_merchat().then(function (data) {
-                   
-                   $scope.merchant=data;
-                  // $scope.merchant.description=data.description;
+            $scope.loader=false;
+            $scope.loader_img="images/ajax-loader.gif";
+            if ($location.url() === "/merchant") {
+                $scope.loader=true;
+                MerchantService.get_merchat().then(function (data) {
+                    $scope.loader=false;
+                    $scope.merchant = data;
+                    console.log(JSON.stringify($scope.merchant.primaryContactPerson));
+                    // $scope.merchant.description=data.description;
                 }, function (error) {
                     $scope.error = "Error in creating your bussiness!";
                 });
-                
-            
-            
+            }
+
             // Used to setup the business for first time (Creates merchant)
             $scope.create_merchant = function (merchant, isvalid) {
-                
-                
-                
+
                 if (isvalid) {
 
                     // $scope.location.address.country = "USA";
@@ -72,8 +65,11 @@ angular.module('outingzApp')
                     merchant.locations.location = [];
 
                     merchant.locations.location.push($scope.location);
-                    var key = $window.localStorage['keyy'];
-                    $scope.merchant.id=key;
+                    // var key = $window.localStorage['keyy'];
+                    var key = $cookies.keyy;
+                    $scope.merchant.id = key;
+                   // console.log(JSON.stringify(merchant));
+                   // return;
                     MerchantService.add_merchant(merchant).then(function (data) {
                         $scope.success = "Your Business setup sucessfully";
 
@@ -94,16 +90,17 @@ angular.module('outingzApp')
                     }, 3000);
                 }
             }
+
             $scope.location = {};
             $scope.locations_data = [];
             $scope.location.address = {};
             $scope.location.locationSchedule = [];
-            
+
 
             // Used to add locations for the merchant.
             $scope.add_merchant_location = function (locations, isvalid) {
 
-                
+
                 if (isvalid) {
                     locations.address.country = "Secondary";
                     locations.address.line2 = "";
@@ -116,7 +113,7 @@ angular.module('outingzApp')
                         $scope.locations_data.push(locations);
                         $scope.location = {};
                         $scope.location.address = {};
-                        
+
                         $scope.success = "Your location added sucessfully";
                     }, function (error) {
                         $scope.error = "Error in saving your location!";

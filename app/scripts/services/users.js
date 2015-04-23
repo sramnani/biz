@@ -1,6 +1,6 @@
 //User service to interact with user Controller.
 angular.module("outingzApp")
-.factory("UserService", function ($http,$q,$window,$location) {
+.factory("UserService", function ($http,$q,$window,$location,$cookies) {
 	return {
 		// Service to reset user's password
 		reset_password:function(reset_obj){
@@ -62,9 +62,15 @@ angular.module("outingzApp")
 		// helper function to check if user is authenticated or not.
 		isAuthenticated:function(){
 			
-			var token = $window.localStorage['token'];
-			var key = $window.localStorage['key'];
-			if (token && key) {
+			//var token = $window.localStorage['token'];
+			//var key = $window.localStorage['key'];
+                        var token = $cookies.token;
+                        var key = $cookies.keyy;
+                       
+                        if(token==undefined && key==undefined){
+                            return false;
+                        }
+			if (token!="false" && key!="false") {
 			  return true;
 			} else {
 			  return false;

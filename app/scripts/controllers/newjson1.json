@@ -1,0 +1,194 @@
+{
+   "id":"e76a871c-8dde-4981-9105-5f4096eb3ab8",
+   "name":"",
+   "shortName":"Nitin-bussiness1",
+   "dba":"",
+   "description":"Super duper awesome dance moves",
+   "primaryContactPerson":{
+      "name":{
+         "firstName":"varun",
+         "lastName":"test",
+         "middleInitial":null,
+         "suffix":null,
+         "givenName":null
+      },
+      "person":{
+         "phone":"4454554454",
+         "emailId":"varun@gmail.com"
+      }
+   },
+   "primaryAddress":{
+      "line1":"asdas",
+      "line2":"asddas",
+      "state":"Alabama",
+      "city":"asddas",
+      "zipCode":"23232",
+      "country":"USA"
+   },
+   "companyUrl":"www.freakyfreddancydance.com",
+   "services":{
+      "service":[
+         {
+            "id":"567f37e4-46b5-487a-b97a-0112bc0de6b7",
+            "offering":{
+               "name":"New test service",
+               "description":"This is the description",
+               "duration":3,
+               "basePrice":3,
+               "unit":"str1234",
+               "type":"str1234",
+               "entitlement":"str1234",
+               "tags":[
+
+               ]
+            },
+            "isWaiverRequired":false
+         },
+         {
+            "id":"6870717e-009c-43b4-8068-a476bfc3d59b",
+            "offering":{
+               "name":"New test serviceeeeee",
+               "description":"This is the description",
+               "duration":3,
+               "basePrice":3,
+               "unit":"str1234",
+               "tags":[
+
+               ]
+            },
+            "isWaiverRequired":false
+         },
+         {
+            "id":"9bcfb20c-36d0-48fa-ac24-e2449620333b",
+            "offering":{
+               "name":"test",
+               "description":"str1234",
+               "duration":3.1415926535,
+               "basePrice":3.1415926535,
+               "unit":"str1234",
+               "type":"str1234",
+               "entitlement":"str1234",
+               "tags":[
+
+               ]
+            },
+            "isWaiverRequired":false
+         },
+         {
+            "id":"be808c28-b6e8-48c0-8805-024c3cdaf89d",
+            "offering":{
+               "name":"test",
+               "description":"desc",
+               "duration":3,
+               "basePrice":33,
+               "unit":"asdd",
+               "tags":[
+
+               ]
+            },
+            "isWaiverRequired":false
+         },
+         {
+            "id":"c2ce5350-62da-4203-88a5-435168d80f3a",
+            "offering":{
+               "name":"asdasdasd",
+               "description":"asdadsads",
+               "duration":0,
+               "basePrice":2222,
+               "unit":"as",
+               "tags":[
+
+               ]
+            },
+            "isWaiverRequired":false
+         },
+         {
+            "id":"d2559667-aaba-458f-b914-7aca79715e99",
+            "offering":{
+               "name":"vipy test",
+               "description":"this is the description.",
+               "duration":0,
+               "basePrice":2223,
+               "unit":"test",
+               "tags":[
+
+               ]
+            },
+            "isWaiverRequired":false
+         }
+      ]
+   },
+   "clazzes":{
+      "clazz":[
+         {
+            "id":"1c12f036-497e-4966-b389-7be6902e9870",
+            "offering":{
+               "name":"kashkjasdhkjah",
+               "duration":0,
+               "basePrice":0,
+               "tags":[
+
+               ]
+            }
+         },
+         {
+            "id":"97a27186-7e3b-4827-894f-9e02b87e17c6",
+            "offering":{
+               "name":"varun test class",
+               "description":"str1234",
+               "duration":3.1415926535,
+               "basePrice":3.1415926535,
+               "unit":"str1234",
+               "type":"str1234",
+               "entitlement":"str1234",
+               "tags":[
+
+               ]
+            }
+         },
+         {
+            "id":"b135e3f3-50ec-4954-9f06-8e5fcd57e77b",
+            "offering":{
+               "name":"test",
+               "description":"desc",
+               "duration":0,
+               "basePrice":33,
+               "unit":"asdd",
+               "tags":[
+
+               ]
+            }
+         },
+         {
+            "id":"d5116b60-c41f-498b-8ca9-30a6404430fe",
+            "offering":{
+               "name":"varun again test class",
+               "description":"str1234",
+               "duration":3.1415926535,
+               "basePrice":3.1415926535,
+               "tags":[
+
+               ]
+            }
+         },
+         {
+            "id":"e4e9db9e-3b00-449e-bba8-d3af7d92b518",
+            "offering":{
+               "name":"testvar",
+               "description":"vdesc",
+               "duration":0,
+               "basePrice":2222,
+               "tags":[
+
+               ]
+            }
+         }
+      ]
+   },
+   "tags":[
+
+   ],
+   "suitableFor":[
+
+   ]
+}
