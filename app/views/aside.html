@@ -12,12 +12,12 @@
                         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                             <div class="customerNameInfo">
                                 
-                                <span ><input name="firstname" type="text" ng-model="customerr.firstName" placeholder="firstname" required/> </span>
+                                <span ><input class="form-control" name="firstname" type="text" ng-model="customerr.firstName" placeholder="firstname" required/> </span>
                                 <p ng-show="customer.firstname.$error.required && showValidation" class="help-block error">First is required</p>
-                                <span ><input type="text" name="lastname" ng-model="customerr.lastName" placeholder="lastname" required/> </span>
+                                <span ><input class="form-control" type="text" name="lastname" ng-model="customerr.lastName" placeholder="lastname" required/> </span>
                                 <p ng-show="customer.lastname.$error.required && showValidation" class="help-block error">Last Name is required</p>
                                 
-                                <span>
+                                <span class="member_since">
 <input placeholder="Member Since" type="text" name="member_since" readonly class="form-control" datepicker-popup="{{format}}" ng-model="customerr.startDate" is-open="opened_since"   datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required/>
                                     <p ng-show="customer.member_since.$error.required && showValidation" class="help-block error">Date is required</p>
                                     <span class="input-group-btn">
@@ -39,26 +39,33 @@
                     <div class="col-md-7">
                         <div class="box_cus">	
                             <span class="box_label">email</span>	
-                            <span class="box_value"> <input type="email" ng-model="customerr.emailId" name="emaill" required/> </span>	
+                            <span class="box_value"> <input class="form-control" type="email" ng-model="customerr.emailId" name="emaill" required/> </span>	
                             <p ng-show="customer.emaill.$error.required && showValidation" class="help-block error">Email is required</p>
                             <p ng-show="customer.emaill.$invalid && showValidation && !customer.emaill.$error.required" class="help-block error">Enter a valid email.</p>
                         </div> 
                         <div class="box_cus">	
                             <span class="box_label">Address</span>	
-                            <span class="box_value"><textarea cols="4"> </textarea></span>	
-                        </div> 
-                        <div class="box_cus">	
-                            <span class="box_label">notes</span>	
-                            <span class="box_value"><input type="text" /> </span>	
+                            <span class="box_value">
+                                
+                                
+                                <!--<textarea class="form-control" cols="4"> </textarea>-->
+                                <input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName"  placeholder="Location Name, i.e. Sunnyvale Location" required>
+                                <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line1" ng-model="location.address.line1">
+                                <input type="text" class="form-control left-control addresec"  placeholder="City" name="city" ng-model="location.address.city">                                
+                                <select class="form-control addresec entryInput2" name="state" ng-model="location.address.state" ng-options="c as c for c in states" required>
+                                <option value="">Select your State</option>
+                                </select>
+                                <input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits required>
+                            </span>	
                         </div> 
                     </div>
                     <div class="col-md-5">
                         <div class="box_cus">
                             <span class="box_label">Phone</span>	
-                            <span class="box_value"><input ui-mask="(999) 999-9999" class="form-control right-control addresec"   ng-model="customerr.phone.number" name="number" required> </span>	
+                            <span class="box_value"><input  ui-mask="(999) 999-9999" class="form-control right-control Inputwd100"   ng-model="customerr.phone.number" name="number" required> </span>	
                             <p ng-show="customer.number.$error.required && showValidation" class="help-block error">Phone number is required</p>
                         </div>
-                        <div class="box_cus">
+                        <div class="box_cus dob_cus">
                             <span class="box_label">Date of birth</span>	
                             <!-- <span class="box_value"><input type="date" /> </span>	-->
 
@@ -73,6 +80,12 @@
 
 
                         </div>
+                        
+                        <div class="box_cus">	
+                        <span class="box_label">notes</span>	
+                        <span class="box_value"><input class="form-control" type="text" /> </span>	
+                        </div> 
+
                     </div>
                 </div>
 
@@ -85,13 +98,13 @@
                     <div class="col-md-7">
                         <div class="box_cus">	
                             <span class="box_label">kind</span>	
-                            <span class="box_value"><input type="text" /></span>	
+                            <span class="box_value"><input class="form-control" type="text" /></span>	
                         </div> 
                     </div>
                     <div class="col-md-5">
                         <div class="box_cus">
                             <span class="box_label">billing zip</span>	
-                            <span class="box_value"><input type="text" /></span>	
+                            <span class="box_value"><input class="form-control" type="text" /></span>	
                         </div>
 
                     </div>
@@ -106,11 +119,11 @@
                     <div class="col-md-7">
                         <div class="box_cus">	
                             <span class="box_label">kind</span>	
-                            <span class="box_value"><input type="text" /></span>	
+                            <span class="box_value"><input class="form-control" type="text" /></span>	
                         </div> 
                         <div class="box_cus">	
                             <span class="box_label">End date</span>	
-                            <span class="box_value"><input type="date" /></span>	
+                            <span class="box_value"><input class="form-control" type="date" /></span>	
                         </div> 
                         <div class="box_cus">	
                             <span class="box_label add_membership">+ Add a membership</span>	
@@ -130,11 +143,11 @@
                     <div class="col-md-7">
                         <div class="box_cus">	
                             <span class="box_label">kind</span>	
-                            <span class="box_value"><input type="text" /></span>	
+                            <span class="box_value"><input class="form-control" type="text" /></span>	
                         </div> 
                         <div class="box_cus">	
                             <span class="box_label">remaining</span>	
-                            <span class="box_value"><input type="text" /></span>	
+                            <span class="box_value"><input class="form-control" type="text" /></span>	
                         </div> 
                         <div class="box_cus">	
                             <span class="box_label add_membership">+ Add Class Packs</span>

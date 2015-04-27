@@ -6,25 +6,40 @@
 
 
 angular.module('outingzApp')
-        .controller('CustomerCtrl', ['$scope', 'MerchantService', '$q', '$http', '$routeParams', '$location', '$timeout', '$aside', 'UserService','CustomerService','$filter', function ($scope, MerchantService, $q, $http, $routeParams, $location, $timeout, $aside, UserService) {
+        .controller('CustomerCtrl', ['$scope', 'MerchantService', '$q', '$http', '$routeParams', '$location', '$timeout', '$aside', 'UserService','CustomerService','$filter','$rootScope', function ($scope, MerchantService, $q, $http, $routeParams, $location, $timeout, $aside, UserService,$rootScope) {
 
+
+                
+                
+                $scope.$on("myEvent",function () {console.log('my event occurred'); });
+                
+                
+                
+                
                 $scope.openAside = function (position) {
-
 
                     $aside.open({
                         templateUrl: '../../views/aside.html',
                         placement: position,
                         backdrop: true,
-                        controller: function ($scope, $modalInstance,CustomerService,$filter) {
+                        controller: function ($scope, $modalInstance,CustomerService,$filter,$rootScope) {
 
-
+                            
                             $scope.ok = function (e) {
+//                                $scope.$emit('eventName',['asd']);
+                                $rootScope.$broadcast("myEvent");
+
+                                
+                                
+                                console.log("OK");
                                 $modalInstance.close();
                                 e.stopPropagation();
                             };
                             $scope.cancel = function (e) {
-
+                                
+                                    
                                 $modalInstance.dismiss();
+                                
                                 e.stopPropagation();
                             };
 
@@ -60,9 +75,9 @@ angular.module('outingzApp')
 
                                 if (isvalid) {
                                     
-                                    customer.startDate = $filter('date')(customer.startDate, 'MM/yy/dd');
-                                    customer.dob = $filter('date')(customer.dob, 'MM/yy/dd');
-                                    //console.log(JSON.stringify(customer));
+                                   // customer.startDate = $filter('date')(customer.startDate, 'MM/yy/dd');
+                                   // customer.dob = $filter('date')(customer.dob, 'MM/yy/dd');
+                                    console.log(JSON.stringify(customer.startDate));
                                     CustomerService.add_customer(customer).then(function (data) {
                                         $scope.success = "Your Customer added sucessfully";
                                         
@@ -87,10 +102,8 @@ angular.module('outingzApp')
                         }
                     });
                 }
-
-
-
-
+                
+                
 
 
             }]);

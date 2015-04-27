@@ -145,6 +145,23 @@ angular
                             }
                         }
                     })
+                    .when('/activity_test', {
+                        title: 'Add Activity',
+                        templateUrl: 'views/activity_class_test.html',
+                        controller: 'ServiceCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, UserService) {
+                                var deferred = $q.defer();
+                                if (!UserService.isAuthenticated()) {
+                                    $location.path('/login');
+                                } else {
+                                    deferred.resolve();
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
+                    })
                     .when('/reset_password/:resetPassword/:key/:username/:token*', {
                         title: 'Reset your password',
                         templateUrl: 'views/reset-password.html',

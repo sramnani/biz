@@ -13,7 +13,7 @@
 <label for="exampleInputPassword1">Add Location*</label>
 <input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName"  placeholder="Location Name, i.e. Sunnyvale Location" required>
 <p ng-show="location_form.locationName.$invalid && showValidation" class="help-block error">Location name is required.</p>
-
+{{location.locationName}}
 <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line1" ng-model="location.address.line1">
 <input type="text" class="form-control left-control addresec"  placeholder="City" name="city" ng-model="location.address.city">
 <div class="clearfix"></div>
