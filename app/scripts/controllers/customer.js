@@ -22,7 +22,7 @@ angular.module('outingzApp')
                         templateUrl: '../../views/aside.html',
                         placement: position,
                         backdrop: true,
-                        controller: function ($scope, $modalInstance,CustomerService,$filter,$rootScope) {
+                        controller: function ($scope, $modalInstance,CustomerService,$filter,$rootScope,MerchantService) {
 
                             
                             $scope.ok = function (e) {
@@ -42,7 +42,7 @@ angular.module('outingzApp')
                                 
                                 e.stopPropagation();
                             };
-
+                            
                            $scope.open_since = function($event){
                                $event.preventDefault();
                                $event.stopPropagation();
@@ -68,6 +68,8 @@ angular.module('outingzApp')
                             $scope.error="";
                             $scope.showValidation=false;
                             $scope.customer={};
+                            
+                            $scope.states = MerchantService.get_states();
 
                             // Used to setup the business for first time (Creates merchant)
                             $scope.create_customer = function (customer, isvalid) {
@@ -78,6 +80,7 @@ angular.module('outingzApp')
                                    // customer.startDate = $filter('date')(customer.startDate, 'MM/yy/dd');
                                    // customer.dob = $filter('date')(customer.dob, 'MM/yy/dd');
                                     console.log(JSON.stringify(customer.startDate));
+                                    customer.primaryAddress.country = "USA";
                                     CustomerService.add_customer(customer).then(function (data) {
                                         $scope.success = "Your Customer added sucessfully";
                                         
@@ -89,7 +92,8 @@ angular.module('outingzApp')
                                 } else {
 
                                     $scope.showValidation = true;
-                                    $scope.error = "Error in creating your bussiness!";
+                                 $scope.error = "Error in creating your customer!";
+                                 //$scope.error = $scope.customer.$error;
                                     $timeout(function () {
                                         $scope.error = false;
                                         $scope.success = false;

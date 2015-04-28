@@ -3,7 +3,7 @@
 
     <div class="plusSign"><div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
             <div class="close_customer_toggle"><a href="javascript:void(0);" ng-click="ok($event)"><img src="images/close_customer.png" /></a></div>
-            <form name="customer" ng-submit="create_customer(customerr, customer.$valid)"  novalidate>
+            <div class="customerForm"> <form name="customer" ng-submit="create_customer(customerr,customer.$valid)"  novalidate>
                 <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
                 <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>
                 <div class="customer_photoInfo">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <hr>
+                <hr class="marginT21">
                 <div class="customer_photoInfo">
                     <div class="col-md-12 cus_headingbox">
                         <h3 class="pull-left">Personal Info</h3>
@@ -49,13 +49,17 @@
                                 
                                 
                                 <!--<textarea class="form-control" cols="4"> </textarea>-->
-                                <input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName"  placeholder="Location Name, i.e. Sunnyvale Location" required>
-                                <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line1" ng-model="location.address.line1">
-                                <input type="text" class="form-control left-control addresec"  placeholder="City" name="city" ng-model="location.address.city">                                
-                                <select class="form-control addresec entryInput2" name="state" ng-model="location.address.state" ng-options="c as c for c in states" required>
+                                <input type="text" class="form-control left-control addresec"  placeholder="Address Line 1" name="line1" ng-model="customerr.primaryAddress.line1" required>
+                                <p ng-show="customer.line1.$error.required && showValidation" class="help-block error">Address line 1 is required</p>
+                                <input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line2" ng-model="customerr.primaryAddress.line2" required>
+                                <p ng-show="customer.line2.$error.required && showValidation" class="help-block error">Address line 2 is required</p>
+                                <input type="text" class="form-control left-control addresec"  placeholder="City" name="city" ng-model="customerr.primaryAddress.city" required>                        
+                                <p ng-show="customer.city.$error.required && showValidation" class="help-block error">City is required</p>
+                                <select class="form-control addresec entryInput2" name="state" ng-model="customerr.primaryAddress.state" ng-options="c as c for c in states" >
                                 <option value="">Select your State</option>
                                 </select>
-                                <input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits required>
+                                <input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="customerr.primaryAddress.zipCode" only-digits required>
+                                <p ng-show="customer.zipCode.$error.required && showValidation" class="help-block error">Zipcode is required</p>
                             </span>	
                         </div> 
                     </div>
@@ -70,7 +74,8 @@
                             <!-- <span class="box_value"><input type="date" /> </span>	-->
 
 
-                            <span class="box_value"><input type="text" name="dobb" readonly class="form-control" datepicker-popup="{{format}}" ng-model="customerr.dob" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required/>
+                            <span class="box_value member_since">
+                                <input type="text" name="dobb" readonly class="form-control" datepicker-popup="{{format}}" ng-model="customerr.dob" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" required/>
                                 <p ng-show="customer.dobb.$error.required && showValidation" class="help-block error">DOB is required</p>
                                 <span class="input-group-btn">
                                     <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -157,7 +162,7 @@
                         &nbsp;
                     </div>
                 </div>
-            </form>
+                </form> </div>
         </div>
     </div>
 </div> 

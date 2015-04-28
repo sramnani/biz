@@ -70,7 +70,9 @@
 <p>{{location.address.state}}</p>
 <p>{{location.address.zipCode}}</p>
 <p>{{location.address.country}}</p>
-
+<p ng-repeat="schedule in location.locationSchedules.locationSchedules">
+    {{schedule.day}}  {{schedule.startTime}} - {{schedule.endTime}}
+</p>
 <p><a href="javascript;:">Edit</a>   |   <a href="javascript;:">Delete</a></p>
 </div>
 </div>

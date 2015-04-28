@@ -73,8 +73,15 @@ header { background: #1cb9b4; min-height: 120px; }
 h6 { font-size: 24px; color: #999999; }
 .entryInput { float: left; width: 38.5%; margin-right: 15px; }
 .entryInput1 { float: left; width: 38.5%; }
-.entryInput2 { float: left; width: 48%; margin-right: 15px; font-size: 12px; color: #999; }
-.entryInput3 { float: left; width: 48%; }
+
+.entryInput2 { float: left; width: 44%; margin-right: 15px; font-size: 12px; color: #999; }
+.entryInput3 { float: left; width: 33.3%; }
+
+/*
+.location_form .entryInput2, .bussinessInfo .entryInput2 {width:44% !important}
+.location_form .entryInput3, .bussinessInfo .entryInput3 {width:33.3% !important}
+*/
+
 .bussinessContact { width: 100%; }
 .addresec { margin-bottom: 18px; }
 .rightForm { float: right; }
@@ -82,7 +89,10 @@ h6 { font-size: 24px; color: #999999; }
 .form-group.clearfix span { font-size: 12px; font-weight: normal; }
 .bussinessInfo { margin-top: 60px; }
 label { font-size: 15px; color: #999999; padding-bottom: 10px; }
-/*.left-control { width: 81% !important }*/
+.left-control { width: 81% !important }
+
+/*.location_form .left-control, .bussinessInfo .left-control{ width: 81% !important }*/
+
 .right-control { width: 73% !important }
 .bussinessInfo .form-group { margin-bottom: 35px; }
 footer { margin-top: 30px; }
@@ -713,7 +723,7 @@ h2.headingPlus {margin:0 !important; display:table-cell; float:none;font-family:
 .customerMemberInfo ul li span {color:#999999;font-size:24px;font-family:'proxima_novaregular';}
 .customerMemberInfo ul li+li+li,.customerMemberInfo ul li:last-child{border-right:none; padding-right:0 !important}
 
-.customerNameInfo input[type="text"] {float: left;margin-bottom: 15px !important;}
+.customerNameInfo input[type="text"] {float: left; margin-bottom: 15px !important;}
 /*.customerNameInfo span.input-group-btn .btn {position: absolute;right: 0;top: -49px;}*/
 .customerNameInfo span {color:#999999; font-size:14px;font-family:'proxima_novaregular';}
 
@@ -725,10 +735,22 @@ h2.headingPlus {margin:0 !important; display:table-cell; float:none;font-family:
   position: relative;
 }
 
-.dob_cus span.input-group-btn .btn {
+/*.dob_cus span.input-group-btn .btn {
   position: absolute;
   right: 0;
-  top: -34px;
+  top: -49px;
+}
+*/
+span.member_since {
+    float: left;
+    position: relative !important;
+    width: 100%;
+}
+
+span.member_since span.input-group-btn {
+    position: absolute;
+    right: 37px;
+    top: 0;
 }
 
 
@@ -744,7 +766,7 @@ h2.headingPlus {margin:0 !important; display:table-cell; float:none;font-family:
 
 @media only screen and (min-width:481px) and (max-width:640px) {.customerMemberInfo {float:right}}
 .customer_photoInfo {width:100%;float:left;}
-.customerNameInfo{margin-bottom:29px;}
+/*.customerNameInfo{margin-bottom:29px;}*/
 .customerNameInfo h2 {color:#198c88; font-size:26px;font-family:'proxima_novaregular';font-weight:bold;margin:0 0 4px 0;line-height:21px;}
 .customerNameInfo span {color:#999999; font-size:14px;font-family:'proxima_novaregular';}
 button.greenBtn {background: none repeat scroll 0 0 #1cb9b4;border: medium none;border-radius: 4px;color: #fff;font-family: "proxima_novaregular";font-weight: 600;line-height: 19px !important;padding: 8px 31px !important;}
@@ -754,7 +776,7 @@ button.greenBtn {background: none repeat scroll 0 0 #1cb9b4;border: medium none;
 .cus_headingbox h3{color:#198c88;font-size:16px;font-family:'proximanova-bold'; margin:0;line-height:16px;}
 .cus_headingbox h4 {margin:0;padding:0;color:#999999;font-size:12px;font-family:'proxima_novaregular';text-transform:uppercase;}
 .cus_headingbox h4 a{color:#999999;font-size:12px;font-family:'proxima_novaregular';text-transform:uppercase;}
-.box_cus{float:left; width:100%;margin-top:20px;}
+.box_cus{float:left; width:100%; /*margin-top:20px;*/}
 .box_value,.box_label {width:100%;float:left;}
 .box_label{color:#cccccc; font-size:12px;font-family:'proxima_novaregular';text-transform:uppercase; margin-bottom:7px;}
 .box_value{color:#999999;font-size:16px;font-family:'proxima_novaregular';}
@@ -887,3 +909,28 @@ body {
 .days_week .checkbox label:focus{color:#fff !important;border:1px solid red !important}
 .days_week .checkbox input[type="checkbox"]:checked + label::after {content: "" !important;background: rgba(28,185,180,0.1) !important; color:#fff !important; overflow: hidden !important; height: 20px !important;}
 .days_week .checkbox label{font-size: inherit !important;margin: 0 !important; padding: 0 !important;font-weight: normal !important; margin-bottom: 0 !important; padding-bottom: 0 !important;}
+
+.customerNameInfo p {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -9px;
+}
+
+.customer_photoInfo input {
+  margin-bottom: 15px;
+}
+
+.customer_photoInfo p {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: -9px;
+  clear: both;
+}
+
+.help-block.error {font-size: 12px !important;}
+.margin0{margin: 0 !important;}
+.customerForm hr {margin-top: 11px !important;}
+.customerForm hr.marginT21{margin-top: 21px !important;}
