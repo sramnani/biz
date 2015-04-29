@@ -193,19 +193,7 @@ angular
                     .when('/register', {
                         title: 'Invite Business',
                         templateUrl: 'views/register.html',
-                        controller: 'userCtrl',
-                        resolve: {
-                            authenticated: function ($q, $location, UserService) {
-                                var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
-                                    $location.path('/login');
-                                } else {
-                                    deferred.resolve();
-                                }
-
-                                return deferred.promise;
-                            }
-                        }
+                        controller: 'userCtrl'
                     })
                     .when('/buildInfo', {
                         title: 'Your build info',
