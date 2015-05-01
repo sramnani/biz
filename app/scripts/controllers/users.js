@@ -65,8 +65,10 @@ angular.module('outingzApp')
                         
                       //  $window.localStorage['token'] = data.data.token;
                        // $window.localStorage['keyy'] = data.data.key;
+                         
                           $cookies.token = data.data.token;
                           $cookies.keyy = data.data.key;
+                            
                         $location.url('/merchant');
                     }
 

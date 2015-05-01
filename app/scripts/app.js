@@ -224,13 +224,18 @@ angular
             //  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
 
-            $httpProvider.interceptors.push(function ($q, $window, $location) {
+            $httpProvider.interceptors.push(function ($q, $window, $location,$cookies) {
                 return {
                     'request': function (config) {
 
 
-                        var token = $window.localStorage['token'];
-                        var key = $window.localStorage['keyy'];
+                       // var token = $window.localStorage['token'];
+                       // var key = $window.localStorage['keyy'];
+                        
+                        
+                        var token = $cookies.token;
+                        var key = $cookies.keyy;
+                        
                         var header = {
                             'key': key,
                             'token': token

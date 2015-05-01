@@ -41,12 +41,20 @@ angular.module('outingzApp')
             $scope.countries = ['USA'];
             $scope.loader=false;
             $scope.loader_img="images/ajax-loader.gif";
-            if ($location.url() === "/merchant") {
+            
+            if ($location.url() === "/merchant" || $location.url() === "/location") {
                 $scope.loader=true;
                 MerchantService.get_merchat().then(function (data) {
                     $scope.loader=false;
                     $scope.merchant = data;
-                    console.log(JSON.stringify($scope.merchant.primaryContactPerson));
+                    if($location.url() === "/location"){
+                        
+                        $scope.location.locationName = $scope.merchant.primaryAddress.line2;
+                        $scope.location.address.line1 = $scope.merchant.primaryAddress.line1;
+                        $scope.location.address.state = $scope.merchant.primaryAddress.state;
+                        $scope.location.address.zipCode = $scope.merchant.primaryAddress.zip;
+                        $scope.location.address.city = $scope.merchant.primaryAddress.city;
+                    }                    
                     // $scope.merchant.description=data.description;
                 }, function (error) {
                     $scope.error = "Error in creating your bussiness!";
