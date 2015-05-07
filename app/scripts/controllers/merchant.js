@@ -48,7 +48,7 @@ angular.module('outingzApp')
                     $scope.loader=false;
                     $scope.merchant = data;
                     if($location.url() === "/location"){
-                        
+                        $scope.primaryLine = $scope.merchant.primaryAddress.line1;
                         $scope.location.locationName = $scope.merchant.primaryAddress.line2;
                         $scope.location.address.line1 = $scope.merchant.primaryAddress.line1;
                         $scope.location.address.line2 = $scope.merchant.primaryAddress.line2;
