@@ -13,8 +13,9 @@
 <label for="exampleInputPassword1">Add Location*</label>
 <input type="text" class="form-control left-control addresec" name="locationName" ng-model="location.locationName"  placeholder="Location Name, i.e. Sunnyvale Location" required>
 <p ng-show="location_form.locationName.$invalid && showValidation" class="help-block error">Location name is required.</p>
-{{location.locationName}}
-<input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line1" ng-model="location.address.line1">
+
+<input type="text" class="form-control left-control addresec"  placeholder="Address Line 1" name="line1" ng-model="location.address.line1">
+<input type="text" class="form-control left-control addresec"  placeholder="Address Line 2" name="line2" ng-model="location.address.line2">
 <input type="text" class="form-control left-control addresec"  placeholder="City" name="city" ng-model="location.address.city">
 <div class="clearfix"></div>
 
@@ -22,7 +23,7 @@
          <option value="">Select your State</option>
 </select>
 
-<input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zipCode" only-digits required>
+<input type="text" class="form-control  entryInput3" minlength="5" maxlength="5" placeholder="Zip" name="zipCode" ng-model="location.address.zip" only-digits required>
 </div>
 <p  style="clear: both; margin-top: 0px;" ng-show="location_form.state.$invalid && showValidation" class="help-block error" >Please select a state</p>
 <p ng-show="location_form.zipCode.$error.required && showValidation" class="help-block error">Zip code is required</p>
@@ -40,10 +41,14 @@
 </div>
 
 <time-pick></time-pick>
-<div ng-repeat="schedule in locationSchedule">
-    {{schedule.day}} | {{schedule.startTime}} | {{schedule.endTime}}
-</div>
+
+<!--<div ng-repeat="schedule in locationSchedule">
+    {{schedule.id}} | {{schedule.day}} | {{schedule.startTime}} | {{schedule.endTime}}  
+</div>-->
+
 <button id="reloader" type="submit"  class="btn btn-default saveBtn" >Add it</button>
+
+<button id="reloader" ng-click="link_it()"  class="btn btn-default saveBtn" >Save & Continue</button>
 </form>
     
   <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
@@ -62,14 +67,13 @@
 
 <div class="col-lg-6 col-sm-6 location_text" ng-repeat="location in locations_data">
 <div class="row">
-<h4>{{location.locationName}}</h4>
-<p>{{location.address.line1}}</p>
-<p>{{location.address.line2}}</p>
-<p>{{location.address.line3}}</p>
-<p>{{location.address.city}}</p>
-<p>{{location.address.state}}</p>
-<p>{{location.address.zipCode}}</p>
+<h4>{{location.locationName}} {{location.address.line1}}</h4>
+<p>{{location.address.line2}} {{location.address.city}}</p>
+<p>{{location.address.state}},{{location.address.zipCode}}</p>
 <p>{{location.address.country}}</p>
+<p>{{location.contactPerson.name.firstName}}</p>
+<p>{{location.contactPerson.phone.number}}</p>
+<p>{{location.contactPerson.emailId}}</p>
 <p ng-repeat="schedule in location.locationSchedules.locationSchedules">
     {{schedule.day}}  {{schedule.startTime}} - {{schedule.endTime}}
 </p>

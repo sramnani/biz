@@ -25,12 +25,12 @@ angular.module('outingzApp').directive('timePick', function () {
         link: function (scope, element, attributes) {
             
             
-            function simpleKeys (original) {
-    return Object.keys(original).reduce(function (obj, key) {
-      obj[key] = typeof original[key] === 'object' ? '{ ... }' : original[key];
-      return obj;
-    }, {});
-  }
+            function simpleKeys(original) {
+                return Object.keys(original).reduce(function (obj, key) {
+                    obj[key] = typeof original[key] === 'object' ? '{ ... }' : original[key];
+                    return obj;
+                }, {});
+            }
             
             scope.error_directive = "";
             scope.locationSchedule = [];
@@ -69,25 +69,25 @@ angular.module('outingzApp').directive('timePick', function () {
                 var checkbox = $event.target;
 
                 switch (day) {
-                    case 'mon':
+                    case 'MON':
                         scope.current_day = "Monday";
                         break;
-                    case 'tue':
+                    case 'TUE':
                         scope.current_day = "Tuesday";
                         break;
-                    case 'wed':
+                    case 'WED':
                         scope.current_day = "Wednesday";
                         break;
-                    case 'thu':
+                    case 'THU':
                         scope.current_day = "Thursday";
                         break;
-                    case 'fri':
+                    case 'FRI':
                         scope.current_day = "Friday";
                         break;
-                    case 'sat':
+                    case 'SAT':
                         scope.current_day = "Saturday";
                         break;
-                    case 'sun':
+                    case 'SUN':
                         scope.current_day = "Sunday";
                         break;
                 }
@@ -125,32 +125,30 @@ angular.module('outingzApp').directive('timePick', function () {
             };
 
             scope.showHover = function ($event, pos, day) {
-              //  console.log(JSON.stringify($event.target));
+              
                 var data  = simpleKeys($event);
-    console.log(data);
-                
                 
                 scope.error_directive = "";
                 switch (day) {
-                    case 'mon':
+                    case 'MON':
                         scope.current_day = "Monday";
                         break;
-                    case 'tue':
+                    case 'TUE':
                         scope.current_day = "Tuesday";
                         break;
-                    case 'wed':
+                    case 'WED':
                         scope.current_day = "Wednesday";
                         break;
-                    case 'thu':
+                    case 'THU':
                         scope.current_day = "Thursday";
                         break;
-                    case 'fri':
+                    case 'FRI':
                         scope.current_day = "Friday";
                         break;
-                    case 'sat':
+                    case 'SAT':
                         scope.current_day = "Saturday";
                         break;
-                    case 'sun':
+                    case 'SUN':
                         scope.current_day = "Sunday";
                         break;
                 }
@@ -162,12 +160,12 @@ angular.module('outingzApp').directive('timePick', function () {
                         
                     scope.showPopover = true;
 
-                    console.log("ENTERING");
+                    
                     var keepGoing = true;
                     angular.forEach(scope.locationSchedule, function (value, key) {
                         if(keepGoing) {
                         if (value.day == day) {
-                            console.log("VALEU DAY: "+value.day);
+                            
                             scope.from = parseInt(value.startTime.slice(0, -2));
                             scope.from_type = value.startTime.slice(-2);
                             scope.to = parseInt(value.endTime.slice(0, -2));
@@ -184,15 +182,7 @@ angular.module('outingzApp').directive('timePick', function () {
                         }
                     });
                     
-                    /*
-                    var checkbox = $event.target;
-                    if (!checkbox.checked) {
-                        console.log("Not checked");
-                        scope.from = 9;
-                        scope.from_type = "AM";
-                        scope.to = 5;
-                        scope.to_type = "PM";
-                    }*/
+                    
                 }
 
             }
@@ -204,25 +194,25 @@ angular.module('outingzApp').directive('timePick', function () {
                     if (obj && obj == 'close') {
                         scope.showPopover = false;
                         switch (myEl.attr('day')) {
-                            case 'mon':
+                            case 'MON':
                                 scope.mon = false;
                                 break;
-                            case 'tue':
+                            case 'TUE':
                                 scope.tue = false;
                                 break;
-                            case 'wed':
+                            case 'WED':
                                 scope.wed = false;
                                 break;
-                            case 'thu':
+                            case 'THU':
                                 scope.thu = false;
                                 break;
-                            case 'fri':
+                            case 'FRI':
                                 scope.fri = false;
                                 break;
-                            case 'sat':
+                            case 'SAT':
                                 scope.sat = false;
                                 break;
-                            case 'sun':
+                            case 'SUN':
                                 scope.sun = false;
                                 break;
                         }
@@ -235,15 +225,29 @@ angular.module('outingzApp').directive('timePick', function () {
                     myEl.removeAttr('day');
                 }
             }
+            
+            scope.generateUUID = function () {
+                var d = new Date().getTime();
+                var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                    var r = (d + Math.random() * 16) % 16 | 0;
+                    d = Math.floor(d / 16);
+                    return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+                });
+                return uuid;
+            };
 
             scope.save_time = function () {
 
                 var myEl = angular.element(document.querySelector('.timerpopup'));
+                var guid = scope.generateUUID();
                 var data = {
+                    "id":guid,
                     "endTime": scope.to + scope.to_type,
                     "startTime": scope.from + scope.from_type,
                     "day": myEl.attr('day')
                 }
+                
+                
 
                 if (scope.to == "") {
                     scope.error_directive = "Please select to & from time";
@@ -270,69 +274,79 @@ angular.module('outingzApp').directive('timePick', function () {
 
                 if (scope.all) {
                     scope.locationSchedule = [];
+                    
+                    var guid = scope.generateUUID();
 
                     scope.locationSchedule.push({
+                        "id":scope.generateUUID(),
                         "endTime": scope.to + scope.to_type,
                         "startTime": scope.from + scope.from_type,
                         "day": myEl.attr('day')
                     });
 
-                    if (myEl.attr('day') != 'mon') {
+                    if (myEl.attr('day') != 'MON') {
                         scope.locationSchedule.push({
+                            "id":scope.generateUUID(),
                             "endTime": scope.to + scope.to_type,
                             "startTime": scope.from + scope.from_type,
-                            "day": 'mon'
+                            "day": 'MON'
                         });
                         scope.mon = true;
                     }
 
-                    if (myEl.attr('day') != 'tue') {
+                    if (myEl.attr('day') != 'TUE') {
                         scope.locationSchedule.push({
+                            "id":scope.generateUUID(),
                             "endTime": scope.to + scope.to_type,
                             "startTime": scope.from + scope.from_type,
-                            "day": 'tue'
+                            "day": 'TUE'
                         });
                         scope.tue = true;
                     }
 
-                    if (myEl.attr('day') != 'wed') {
+                    if (myEl.attr('day') != 'WED') {
                         scope.locationSchedule.push({
+                            "id":scope.generateUUID(),
                             "endTime": scope.to + scope.to_type,
                             "startTime": scope.from + scope.from_type,
-                            "day": 'wed'
+                            "day": 'WED'
                         });
                         scope.wed = true;
                     }
 
-                    if (myEl.attr('day') != 'thu') {
+                    if (myEl.attr('day') != 'THU') {
                         scope.locationSchedule.push({
+                            "id":scope.generateUUID(),
                             "endTime": scope.to + scope.to_type,
                             "startTime": scope.from + scope.from_type,
-                            "day": 'thu'
+                            "day": 'THU'
                         });
                         scope.thu = true;
                     }
-                    if (myEl.attr('day') != 'fri') {
+                    if (myEl.attr('day') != 'FRI') {
                         scope.locationSchedule.push({
+                            "id":scope.generateUUID(),
                             "endTime": scope.to + scope.to_type,
                             "startTime": scope.from + scope.from_type,
-                            "day": 'fri'
+                            "day": 'FRI'
                         });
                         scope.fri = true;
                     }
-                    if (myEl.attr('day') != 'sat') {
+                    if (myEl.attr('day') != 'SAT') {
                         scope.locationSchedule.push({
+                            "id":scope.generateUUID(),
                             "endTime": scope.to + scope.to_type,
                             "startTime": scope.from + scope.from_type,
-                            "day": 'sat'
+                            "day": 'SAT'
                         });
                         scope.sat = true;
                     }
-                    if (myEl.attr('day') != 'sun') {
+                    if (myEl.attr('day') != 'SUN') {
                         scope.locationSchedule.push({
+                            "id":scope.generateUUID(),
                             "endTime": scope.to + scope.to_type,
                             "startTime": scope.from + scope.from_type,
-                            "day": 'sun'
+                            "day": 'SUN'
                         });
                         scope.sun = true;
                     }

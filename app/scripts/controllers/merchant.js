@@ -51,14 +51,26 @@ angular.module('outingzApp')
                         
                         $scope.location.locationName = $scope.merchant.primaryAddress.line2;
                         $scope.location.address.line1 = $scope.merchant.primaryAddress.line1;
+                        $scope.location.address.line2 = $scope.merchant.primaryAddress.line2;
                         $scope.location.address.state = $scope.merchant.primaryAddress.state;
-                        $scope.location.address.zipCode = $scope.merchant.primaryAddress.zip;
+                        $scope.location.address.zip = $scope.merchant.primaryAddress.zip;
                         $scope.location.address.city = $scope.merchant.primaryAddress.city;
+                        $scope.location.contactPerson={};
+                        $scope.location.contactPerson.name={};
+                        $scope.location.contactPerson.phone={};
+                        $scope.location.contactPerson.emailId={};
+                        $scope.location.contactPerson.name.firstName = $scope.merchant.primaryContactPerson.name.firstName;
+                        $scope.location.contactPerson.phone.number = $scope.merchant.primaryContactPerson.phone.number;
+                        $scope.location.contactPerson.emailId = $scope.merchant.primaryContactPerson.emailId;
                     }                    
                     // $scope.merchant.description=data.description;
                 }, function (error) {
                     $scope.error = "Error in creating your bussiness!";
                 });
+            }
+            
+            $scope.link_it = function(){
+                $location.url('/activity_service');
             }
 
             // Used to setup the business for first time (Creates merchant)
@@ -102,20 +114,22 @@ angular.module('outingzApp')
             $scope.location = {};
             $scope.locations_data = [];
             $scope.location.address = {};
-            $scope.location.locationSchedule = [];
-
-
+            $scope.location.locationSchedules={}
+            $scope.location.locationSchedules.locationSchedules  = [];
+            
             // Used to add locations for the merchant.
             $scope.add_merchant_location = function (locations, isvalid) {
 
 
                 if (isvalid) {
+                    
                     locations.address.country = "Secondary";
-                    locations.address.line2 = "";
+                    //locations.address.line2 = "";
 
                     angular.forEach($scope.locationSchedule, function (value, key) {
-                        $scope.location.locationSchedule.push(value);
+                        $scope.location.locationSchedules.locationSchedules.push(value);
                     });
+                   console.log(JSON.stringify($scope.location));
 
                     MerchantService.add_merchant_location(locations).then(function (data) {
                         $scope.locations_data.push(locations);
