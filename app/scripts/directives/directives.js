@@ -291,7 +291,7 @@ angular.module('outingzApp').directive('timePick', function () {
                             "startTime": scope.from + scope.from_type,
                             "day": 'MON'
                         });
-                        scope.mon = true;
+                        scope.MON = true;
                     }
 
                     if (myEl.attr('day') != 'TUE') {
@@ -301,7 +301,7 @@ angular.module('outingzApp').directive('timePick', function () {
                             "startTime": scope.from + scope.from_type,
                             "day": 'TUE'
                         });
-                        scope.tue = true;
+                        scope.TUE = true;
                     }
 
                     if (myEl.attr('day') != 'WED') {
@@ -311,7 +311,7 @@ angular.module('outingzApp').directive('timePick', function () {
                             "startTime": scope.from + scope.from_type,
                             "day": 'WED'
                         });
-                        scope.wed = true;
+                        scope.WED = true;
                     }
 
                     if (myEl.attr('day') != 'THU') {
@@ -321,7 +321,7 @@ angular.module('outingzApp').directive('timePick', function () {
                             "startTime": scope.from + scope.from_type,
                             "day": 'THU'
                         });
-                        scope.thu = true;
+                        scope.THU = true;
                     }
                     if (myEl.attr('day') != 'FRI') {
                         scope.locationSchedule.push({
@@ -330,7 +330,7 @@ angular.module('outingzApp').directive('timePick', function () {
                             "startTime": scope.from + scope.from_type,
                             "day": 'FRI'
                         });
-                        scope.fri = true;
+                        scope.FRI = true;
                     }
                     if (myEl.attr('day') != 'SAT') {
                         scope.locationSchedule.push({
@@ -339,7 +339,7 @@ angular.module('outingzApp').directive('timePick', function () {
                             "startTime": scope.from + scope.from_type,
                             "day": 'SAT'
                         });
-                        scope.sat = true;
+                        scope.SAT = true;
                     }
                     if (myEl.attr('day') != 'SUN') {
                         scope.locationSchedule.push({
@@ -348,7 +348,7 @@ angular.module('outingzApp').directive('timePick', function () {
                             "startTime": scope.from + scope.from_type,
                             "day": 'SUN'
                         });
-                        scope.sun = true;
+                        scope.SUN = true;
                     }
                     scope.all = false;
 
