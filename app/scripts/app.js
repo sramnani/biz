@@ -28,7 +28,7 @@ angular
                     .when('/', {
                         title: 'Dashboard here',
                         templateUrl: 'views/dashboard.html',
-                        controller: 'MerchantCtrl',
+                        controller: 'merchantCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -45,7 +45,7 @@ angular
                     .when('/merchant/:resetMessage', {
                         title: 'Settings, Business Setup',
                         templateUrl: 'views/merchant.html',
-                        controller: 'MerchantCtrl',
+                        controller: 'merchantCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -62,7 +62,7 @@ angular
                     .when('/merchant', {
                         title: 'Settings, Business Setup',
                         templateUrl: 'views/merchant.html',
-                        controller: 'MerchantCtrl',
+                        controller: 'merchantCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -79,7 +79,7 @@ angular
                     .when('/location', {
                         title: 'Settings, Business Setup',
                         templateUrl: 'views/location.html',
-                        controller: 'MerchantCtrl',
+                        controller: 'merchantCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -96,7 +96,7 @@ angular
                     .when('/activity_service', {
                         title: 'Add Activity',
                         templateUrl: 'views/activity_service.html',
-                        controller: 'ServiceCtrl',
+                        controller: 'activityServicesCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -113,7 +113,7 @@ angular
                     .when('/activity_class', {
                         title: 'Add Activity',
                         templateUrl: 'views/activity_class.html',
-                        controller: 'ClassCtrl',
+                        controller: 'activityClassCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -131,7 +131,7 @@ angular
                     .when('/customer', {
                         title: 'Add Customer',
                         templateUrl: 'views/customer.html',
-                        controller: 'CustomerCtrl',
+                        controller: 'customerCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();

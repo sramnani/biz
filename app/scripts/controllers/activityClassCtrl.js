@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('ClassCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies) {
+        .controller('activityClassCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies) {
             console.log("class");
 
 

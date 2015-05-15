@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('MerchantCtrl', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $cookies, userService) {
+        .controller('merchantCtrl', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $cookies, userService) {
 
 
             $scope.image_bussiness = "images/business_img.png";

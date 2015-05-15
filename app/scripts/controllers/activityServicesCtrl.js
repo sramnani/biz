@@ -1,28 +1,79 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+'use strict';
+
+/**
+ * @ngdoc function
+ * @name outingzApp.controller:MainCtrl
+ * @description
+ * # MainCtrl
+ * Controller of the outingzApp
  */
-
-
 angular.module('outingzApp')
-        .controller('CustomerCtrl', ['$scope', 'merchantService', '$q', '$http', '$routeParams', '$location', '$timeout', '$aside', 'userService','customerService','$filter','$rootScope', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $aside, userService,$rootScope) {
+        .controller('activityServicesCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies,$aside) {
+
+            $scope.service = {};
+            console.log("service");
+
+            //function to make the Tabs on single page.
+            $scope.select_type = function (obj) {
+
+                if (obj == "service") {
+                    $location.path('/activity_service');
+                } else {
+
+                    $location.path('/activity_class');
+                    // $route.reload();
+
+                }
+
+            }
+            $scope.error="";
+            $scope.success="";
+            
+            
+            $scope.service.offering={};
+            $scope.service.offering.duration="1 Hour";
+            // Used to add activity of type Service.
+            $scope.add_activity_service = function (activity_service,isvalid) {
+
+                if (isvalid) {
+
+                    activityService.add_activity_service(activity_service).then(function (data) {
+
+                        $scope.success="Activity service added successfully";
+                        $timeout(function () {
+                            $scope.error = false;
+                            $scope.success = false;
+                            $scope.showValidation = false;
+                        }, 3000);
+                        
+                    }, function (error) {
+
+                        console.log("There is an error" + error);
+
+                    });
+
+                } else {
+
+                    $scope.showValidation = true;
+                    $scope.error = "Error in creating your bussiness!";
+                    $timeout(function () {
+                        $scope.error = false;
+                        $scope.success = false;
+                       // $scope.showValidation = false;
+                    }, 3000);
+                }
 
 
-                
-                
-                $scope.$on("myEvent",function () {console.log('my event occurred'); });
-                
-                
-                
-                
-                $scope.openAside = function (position) {
+            };
+            
+            $scope.$on("myEvent",function () {console.log('my event occurred'); });
+             $scope.openAside = function (position) {
 
                     $aside.open({
-                        templateUrl: '../../views/aside.html',
+                        templateUrl: '../../views/activity_aside.html',
                         placement: position,
                         backdrop: true,
-                        controller: function ($scope, $modalInstance,customerService,$filter,$rootScope,merchantService) {
+                        controller: function ($scope, $modalInstance,customerService,$filter,$rootScope) {
 
                             
                             $scope.ok = function (e) {
@@ -42,7 +93,7 @@ angular.module('outingzApp')
                                 
                                 e.stopPropagation();
                             };
-                            
+
                            $scope.open_since = function($event){
                                $event.preventDefault();
                                $event.stopPropagation();
@@ -68,8 +119,6 @@ angular.module('outingzApp')
                             $scope.error="";
                             $scope.showValidation=false;
                             $scope.customer={};
-                            
-                            $scope.states = merchantService.get_states();
 
                             // Used to setup the business for first time (Creates merchant)
                             $scope.create_customer = function (customer, isvalid) {
@@ -80,7 +129,6 @@ angular.module('outingzApp')
                                    // customer.startDate = $filter('date')(customer.startDate, 'MM/yy/dd');
                                    // customer.dob = $filter('date')(customer.dob, 'MM/yy/dd');
                                     console.log(JSON.stringify(customer.startDate));
-                                    customer.primaryAddress.country = "USA";
                                     customerService.add_customer(customer).then(function (data) {
                                         $scope.success = "Your Customer added sucessfully";
                                         
@@ -92,8 +140,7 @@ angular.module('outingzApp')
                                 } else {
 
                                     $scope.showValidation = true;
-                                 $scope.error = "Error in creating your customer!";
-                                 //$scope.error = $scope.customer.$error;
+                                    $scope.error = "Error in creating your bussiness!";
                                     $timeout(function () {
                                         $scope.error = false;
                                         $scope.success = false;
@@ -106,10 +153,5 @@ angular.module('outingzApp')
                         }
                     });
                 }
-                
-                
 
-
-            }]);
-
-       
+        });
