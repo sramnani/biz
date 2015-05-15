@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('userCtrl', function ($scope, $q, $http, $routeParams, $location, $window,$cookies,UserService) {
+        .controller('userCtrl', function ($scope, $q, $http, $routeParams, $location, $window,$cookies,userService) {
 
             $scope.password = "";
             $scope.success = "";
@@ -19,7 +19,7 @@ angular.module('outingzApp')
 
                 registerObj.id = "id" + Math.floor((Math.random() * 9999999999) + 1);
                 console.log(JSON.stringify(registerObj));
-                UserService.register(registerObj).then(function (data) {
+                userService.register(registerObj).then(function (data) {
                     console.log(JSON.stringify(data));
 
                     if (data.status == 500) {
@@ -55,7 +55,7 @@ angular.module('outingzApp')
                 loginObj.username = $scope.username;
                 loginObj.password = $scope.password;
 
-                UserService.login(loginObj).then(function (data) {
+                userService.login(loginObj).then(function (data) {
 
                     console.log(JSON.stringify(data));
 
@@ -97,13 +97,13 @@ angular.module('outingzApp')
 
 
 
-                UserService.reset_password(reset_obj).then(function (data) {
+                userService.reset_password(reset_obj).then(function (data) {
 
                     var loginObj = {};
 
                     loginObj.username = $routeParams['username'];
                     loginObj.password = $scope.password;
-                    UserService.login(loginObj).then(function (data) {
+                    userService.login(loginObj).then(function (data) {
 
                         console.log(JSON.stringify(data));
 
@@ -139,11 +139,11 @@ angular.module('outingzApp')
 
 
         })
-        .controller('NavbarCtrl', function ($scope, $q, $http, $routeParams, $location, $window,$cookies, UserService) {
+        .controller('NavbarCtrl', function ($scope, $q, $http, $routeParams, $location, $window,$cookies, userService) {
 
             // to check if user is authenticated or not
             $scope.isAuthenticated = function () {
-                return UserService.isAuthenticated();
+                return userService.isAuthenticated();
             };
 
             $scope.check = function () {

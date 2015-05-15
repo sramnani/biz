@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('ServiceCtrl', function ($scope, ActivityService, $q, $http, $location, $window, $route,$timeout,$cookies,$aside) {
+        .controller('ServiceCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies,$aside) {
 
             $scope.service = {};
             console.log("service");
@@ -37,7 +37,7 @@ angular.module('outingzApp')
 
                 if (isvalid) {
 
-                    ActivityService.add_activity_service(activity_service).then(function (data) {
+                    activityService.add_activity_service(activity_service).then(function (data) {
 
                         $scope.success="Activity service added successfully";
                         $timeout(function () {
@@ -73,7 +73,7 @@ angular.module('outingzApp')
                         templateUrl: '../../views/activity_aside.html',
                         placement: position,
                         backdrop: true,
-                        controller: function ($scope, $modalInstance,CustomerService,$filter,$rootScope) {
+                        controller: function ($scope, $modalInstance,customerService,$filter,$rootScope) {
 
                             
                             $scope.ok = function (e) {
@@ -129,7 +129,7 @@ angular.module('outingzApp')
                                    // customer.startDate = $filter('date')(customer.startDate, 'MM/yy/dd');
                                    // customer.dob = $filter('date')(customer.dob, 'MM/yy/dd');
                                     console.log(JSON.stringify(customer.startDate));
-                                    CustomerService.add_customer(customer).then(function (data) {
+                                    customerService.add_customer(customer).then(function (data) {
                                         $scope.success = "Your Customer added sucessfully";
                                         
                                     }, function (error) {

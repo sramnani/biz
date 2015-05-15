@@ -6,7 +6,7 @@
 
 
 angular.module('outingzApp')
-        .controller('CustomerCtrl', ['$scope', 'MerchantService', '$q', '$http', '$routeParams', '$location', '$timeout', '$aside', 'UserService','CustomerService','$filter','$rootScope', function ($scope, MerchantService, $q, $http, $routeParams, $location, $timeout, $aside, UserService,$rootScope) {
+        .controller('CustomerCtrl', ['$scope', 'merchantService', '$q', '$http', '$routeParams', '$location', '$timeout', '$aside', 'userService','customerService','$filter','$rootScope', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $aside, userService,$rootScope) {
 
 
                 
@@ -22,7 +22,7 @@ angular.module('outingzApp')
                         templateUrl: '../../views/aside.html',
                         placement: position,
                         backdrop: true,
-                        controller: function ($scope, $modalInstance,CustomerService,$filter,$rootScope,MerchantService) {
+                        controller: function ($scope, $modalInstance,customerService,$filter,$rootScope,merchantService) {
 
                             
                             $scope.ok = function (e) {
@@ -69,7 +69,7 @@ angular.module('outingzApp')
                             $scope.showValidation=false;
                             $scope.customer={};
                             
-                            $scope.states = MerchantService.get_states();
+                            $scope.states = merchantService.get_states();
 
                             // Used to setup the business for first time (Creates merchant)
                             $scope.create_customer = function (customer, isvalid) {
@@ -81,7 +81,7 @@ angular.module('outingzApp')
                                    // customer.dob = $filter('date')(customer.dob, 'MM/yy/dd');
                                     console.log(JSON.stringify(customer.startDate));
                                     customer.primaryAddress.country = "USA";
-                                    CustomerService.add_customer(customer).then(function (data) {
+                                    customerService.add_customer(customer).then(function (data) {
                                         $scope.success = "Your Customer added sucessfully";
                                         
                                     }, function (error) {

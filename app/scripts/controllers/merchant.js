@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('MerchantCtrl', function ($scope, MerchantService, $q, $http, $routeParams, $location, $timeout, $cookies, UserService) {
+        .controller('MerchantCtrl', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $cookies, userService) {
 
 
             $scope.image_bussiness = "images/business_img.png";
@@ -36,7 +36,7 @@ angular.module('outingzApp')
             $scope.location.address = {};
 
             //dummy list of US 50 states.
-            $scope.states = MerchantService.get_states();
+            $scope.states = merchantService.get_states();
             
             $scope.countries = ['USA'];
             $scope.loader=false;
@@ -44,7 +44,7 @@ angular.module('outingzApp')
             
             if ($location.url() === "/merchant" || $location.url() === "/location") {
                 $scope.loader=true;
-                MerchantService.get_merchat().then(function (data) {
+                merchantService.get_merchat().then(function (data) {
                     $scope.loader=false;
                     $scope.merchant = data;
                     if($location.url() === "/location"){
@@ -90,7 +90,7 @@ angular.module('outingzApp')
                     $scope.merchant.id = key;
                    // console.log(JSON.stringify(merchant));
                    // return;
-                    MerchantService.add_merchant(merchant).then(function (data) {
+                    merchantService.add_merchant(merchant).then(function (data) {
                         $scope.success = "Your Business setup sucessfully";
 
                         $timeout(function () {
@@ -131,7 +131,7 @@ angular.module('outingzApp')
                     });
                    console.log(JSON.stringify($scope.location));
 
-                    MerchantService.add_merchant_location(locations).then(function (data) {
+                    merchantService.add_merchant_location(locations).then(function (data) {
                         $scope.locations_data.push(locations);
                         $scope.location = {};
                         $scope.location.address = {};
@@ -154,7 +154,7 @@ angular.module('outingzApp')
 
             //get locations when url is /location	
             if ($location.url() === "/location") {
-                MerchantService.get_merchant_locations().then(function (data) {
+                merchantService.get_merchant_locations().then(function (data) {
                     $scope.locations_data = data.location;
                 }, function (error) {
                     console.log("There is an error" + error);

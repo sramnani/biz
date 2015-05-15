@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('ClassCtrl', function ($scope, ActivityService, $q, $http, $location, $window, $route,$timeout,$cookies) {
+        .controller('ClassCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies) {
             console.log("class");
 
 
@@ -39,7 +39,7 @@ angular.module('outingzApp')
 
                 if (isvalid) {
 
-                    ActivityService.add_activity_class(activity_class).then(function (data) {
+                    activityService.add_activity_class(activity_class).then(function (data) {
 
                         $scope.success = "Activity Class added successfully";
                         $timeout(function () {

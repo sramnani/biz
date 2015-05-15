@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-  .controller('buildCtrl', function ($scope,$q,$http,$routeParams,$location,$window,UserService) { 
+  .controller('buildCtrl', function ($scope,$q,$http,$routeParams,$location,$window,userService) {
 	  
 	  // fetch data from json and display the current git build.
 	  $http.get('views/build.json').success(function(data) {

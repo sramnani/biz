@@ -30,9 +30,9 @@ angular
                         templateUrl: 'views/dashboard.html',
                         controller: 'MerchantCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -47,9 +47,9 @@ angular
                         templateUrl: 'views/merchant.html',
                         controller: 'MerchantCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -64,9 +64,9 @@ angular
                         templateUrl: 'views/merchant.html',
                         controller: 'MerchantCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -81,9 +81,9 @@ angular
                         templateUrl: 'views/location.html',
                         controller: 'MerchantCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -98,9 +98,9 @@ angular
                         templateUrl: 'views/activity_service.html',
                         controller: 'ServiceCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -115,10 +115,10 @@ angular
                         templateUrl: 'views/activity_class.html',
                         controller: 'ClassCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
                                 
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -133,9 +133,9 @@ angular
                         templateUrl: 'views/customer.html',
                         controller: 'CustomerCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -150,9 +150,9 @@ angular
                         templateUrl: 'views/activity_class_test.html',
                         controller: 'ServiceCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
                                     deferred.resolve();
@@ -172,9 +172,9 @@ angular
                         templateUrl: 'views/login.html',
                         controller: 'userCtrl',
                         resolve: {
-                            authenticated: function ($q, $location, UserService) {
+                            authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!UserService.isAuthenticated()) {
+                                if (!userService.isAuthenticated()) {
                                      deferred.resolve();
                                 } else {
                                   //  alert("HEL");
