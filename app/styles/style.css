@@ -98,7 +98,7 @@ label { font-size: 15px; color: #999999; padding-bottom: 10px; }
 footer { margin-top: 30px; }
 .footer_sec { border-top: 1px solid #e5e5e5; }
 .footer_sec p { padding: 25px 0; font-size: 14px; color: #999999; }
-.saveBtn {
+.btn-primary {
   background: none repeat scroll 0 0 #1cb9b4;
   border: medium none;
   box-shadow: 0 -4px 0 -0.5px #198c88 inset;
@@ -110,7 +110,7 @@ footer { margin-top: 30px; }
 }
 
 .timeInfo select {padding: 0 0 0 13px !important;}
-.saveBtn:hover { background-color: #1ac5c0 !important; color:#fff; }
+.btn-primary:hover { background-color: #1ac5c0 !important; color:#fff; }
 
 /***************login page css**********************/
 .login_sec{background:url(../images/login_bg.png) no-repeat; background-size:cover; max-height:790px; height:100%;}
@@ -134,11 +134,11 @@ footer { margin-top: 30px; }
   text-align: center;
 		overflow:hidden;}
 
-.loginForm input[type="email"]{border:none !important; box-shadow:none; border-bottom:1px solid #aeaeae !important; border-radius:0px;  background:url(../images/email_bg.png) no-repeat left center; padding-left:33px; height:65px;}
-.loginForm input[type="password"]{border:none !important; box-shadow:none; border-bottom:1px solid #aeaeae !important; border-radius:0px;  background:url(../images/password_bg.png) no-repeat left center; padding-left:33px;  height:65px;}
+.loginForm input[type="email"]{border:none !important; box-shadow:none; border-bottom:1px solid #aeaeae !important; border-radius:0px;padding-left:0px; height:65px;}
+.loginForm input[type="password"]{border:none !important; box-shadow:none; border-bottom:1px solid #aeaeae !important; border-radius:0px;padding-left:0px;  height:65px;}
 .loginForm .form-group{margin-bottom:30px;}
 
-.loginForm .saveBtn{margin-top:10px !important; float:left;}
+.loginForm .btn-primary{margin-top:10px !important; float:left;}
 .loginForm .form-control::-moz-placeholder{font-size:16px; color:#ccc;}
 .loginForm .reset{font-size:14px; font-weight:normal !important; float:left; padding-top:40px;}
 .loginForm .reset a{color:#1cb9b4;}
@@ -188,7 +188,7 @@ footer { margin-top: 30px; }
 
 .checkgroup{margin-bottom:10px !important;}
 
-.saveBtn1 {
+.btn-primary1 {
   background: none repeat scroll 0 0 #1cb9b4;
   border: medium none;
   box-shadow: 0 -4px 0 -0.5px #198c88 inset;
@@ -741,6 +741,17 @@ h2.headingPlus {margin:0 !important; display:table-cell; float:none;font-family:
   top: -49px;
 }
 */
+.input-group-addon {
+    border-left:none !important;
+    border-right:none !important;
+    border-top:none !important;
+    background-color: white !important;
+    border-radius: 0px !important;
+    border-bottom:1px solid #aeaeae !important;
+}
+.input-group-addon i {
+    color:#808080;
+}
 span.member_since {
     float: left;
     position: relative !important;
@@ -890,11 +901,7 @@ body {
 
 .active_service .select_activity { cursor: pointer;}
 
-.form-control:focus {
-  border-color: #66afe9 !important;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6) !important;
-  outline: 0 none !important;
-}
+
 
 .customerNameInfo .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {margin-left: 2px !important}
 
