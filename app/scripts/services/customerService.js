@@ -1,5 +1,5 @@
 angular.module("outingzApp")
-        .factory("CustomerService", function ($http, $q, $window, $cookies) {
+        .factory("customerService", function ($http, $q, $window, $cookies) {
 
             return {
                 add_customer: function (customerObj) {

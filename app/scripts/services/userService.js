@@ -1,6 +1,6 @@
 //User service to interact with user Controller.
 angular.module("outingzApp")
-.factory("UserService", function ($http,$q,$window,$location,$cookies) {
+.factory("userService", function ($http,$q,$window,$location,$cookies) {
 	return {
 		// Service to reset user's password
 		reset_password:function(reset_obj){

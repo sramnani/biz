@@ -1,5 +1,5 @@
 angular.module("outingzApp")
-.factory("MerchantService", function ($http,$q,$window,$cookies) {
+.factory("merchantService", function ($http,$q,$window,$cookies) {
 	
 	return {
 

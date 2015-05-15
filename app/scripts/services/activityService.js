@@ -1,5 +1,5 @@
 angular.module("outingzApp")
-.factory("ActivityService", function ($http,$q,$window,$cookies) {
+.factory("activityService", function ($http,$q,$window,$cookies) {
 	
 	return {
 
