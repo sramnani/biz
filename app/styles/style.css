@@ -941,3 +941,17 @@ body {
 .margin0{margin: 0 !important;}
 .customerForm hr {margin-top: 11px !important;}
 .customerForm hr.marginT21{margin-top: 21px !important;}
+
+
+.easypiechart .percent {
+  position: absolute;
+  width: 200px;
+  line-height: 196px;
+  font-size: 30px;
+  font-weight: 300;
+  color: #808080;
+  text-align: center;
+}
+.easypiechart .percent:after {
+  content: '%';
+}

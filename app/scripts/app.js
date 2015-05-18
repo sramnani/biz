@@ -21,7 +21,9 @@ angular
             'ui.utils',
             'ui.bootstrap',
             'ngAside',
-            'ngCookies'
+            'ngCookies',
+            'chart.js',
+            'easypiechart'
         ])
         .config(function ($routeProvider, $httpProvider) {
             $routeProvider
@@ -29,6 +31,23 @@ angular
                         title: 'Dashboard here',
                         templateUrl: 'views/dashboard.html',
                         controller: 'merchantCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, userService) {
+                                var deferred = $q.defer();
+                                if (!userService.isAuthenticated()) {
+                                    $location.path('/login');
+                                } else {
+                                    deferred.resolve();
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
+                    })
+                    .when('/mockdashboard', {
+                        title: 'Dashboard here',
+                        templateUrl: 'views/mockDashboard.html',
+                        controller: 'dashBoardCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -59,6 +78,7 @@ angular
                             }
                         }
                     })
+
                     .when('/merchant', {
                         title: 'Settings, Business Setup',
                         templateUrl: 'views/merchant.html',
