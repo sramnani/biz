@@ -2,79 +2,168 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-6">
-                    <canvas id="bar" class="chart chart-bar" data="data" options="options"
-                            labels="labels" colours="colours" on-click="onClick"></canvas>
+
+                <div class="col-md-3">
+                    <div class="dashboard-stat green-haze" href="javascript:;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                REVENUE
+                            </div>
+                            <div class="desc">
+                                $30,000
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <canvas id="doughnut" class="chart chart-doughnut" data="piedata"
-                            labels="pielabels"></canvas>
+                <div class="col-md-3">
+                    <div class="dashboard-stat green-haze" href="javascript:;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                NEW MEMBERS
+                            </div>
+                            <div class="desc">
+                                154
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-stat green-haze" href="javascript:;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                MEMBERS EXPIRING
+                            </div>
+                            <div class="desc">
+                                12
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dashboard-stat green-haze" href="javascript:;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="number">
+                                ACTIVITIES REGISTERED
+                            </div>
+                            <div class="desc">
+                                30
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4" style="margin-top:60px;">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="title">MEMBER ACTIVITY</div>
+                                </div>
+                                <div class="portlet-body">
+                                    <canvas id="bar" class="chart chart-bar" data="data" options="options"
+                                            labels="labels" colours="colours" on-click="onClick"></canvas>
+                                </div>
+                            </div>
 
-                        <div easypiechart data-options="easyoptions" data-percent="percent" class="easypiechart"><span
-                                class="percent">53</span></div>
-                    </div>
-                    <div class="col-md-4" style="margin-top:60px;">
-
-                        <div easypiechart data-options="easy2options" data-percent="percent" class="easypiechart"><span
-                                class="percent">23</span></div>
-                    </div>
-                    <div class="col-md-4" style="margin-top:60px;">
-
-                        <div easypiechart data-options="easy3options" data-percent="percent" class="easypiechart"><span
-                                class="percent">43</span></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="title">CLASS ATTENDANCE</div>
+                                </div>
+                                <div class="portlet-body">
+                                    <canvas id="doughnut" class="chart chart-doughnut" data="piedata"
+                                            labels="pielabels"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12" style="margin-top: 60px;">
-                 <div class="panel panel-default">
-        <div class="panel-heading">Chart Data</div>
-        <div class="panel-body">
-        <table class="table table-condensed">
-      <thead>
-        <tr>
-          <th>Name <span class="caret"></span></th>
-          <th>Account Status <span class="caret"></span></th>
-          <th>Membership <span class="caret"></span></th>
-          <th>Start <span class="caret"></span></th>
-          <th>Expiration <span class="caret"></span></th>
-        </tr>
-      </thead>
-      <tbody>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-12">
+                                            <div class="col-md-12">
 
-        <tr>
-          <td>Hello Kitty</th>
-          <td>on hold</td>
-          <td>monthly</td>
-          <td>1/11/2015</td>
-          <td>1 day</td>
-        </tr>
+                        <div class="portlet light">
+                            <div class="portlet-title"><div class="title">CUSTOMER SUMMARY</div></div>
+                            <div class="portlet-body">
+                                <table class="table table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>Name <span class="caret"></span></th>
+                                        <th>Account Status <span class="caret"></span></th>
+                                        <th>Membership <span class="caret"></span></th>
+                                        <th>Start <span class="caret"></span></th>
+                                        <th>Expiration <span class="caret"></span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-        <tr>
-          <td>Super Man</th>
-          <td>past due</td>
-          <td>3 month</td>
-          <td>2/1/2015</td>
-          <td>3 days</td>
-        </tr>
+                                    <tr>
+                                        <td>Hello Kitty
+                                        </th>
+                                        <td>on hold</td>
+                                        <td>monthly</td>
+                                        <td>1/11/2015</td>
+                                        <td>1 day</td>
+                                    </tr>
 
-        <tr>
-          <td>John Doe</th>
-          <td>payment expired</td>
-          <td>6 month</td>
-          <td>2/12/2014</td>
-          <td>1 week</td>
-        </tr>
+                                    <tr>
+                                        <td>Super Man
+                                        </th>
+                                        <td>past due</td>
+                                        <td>3 month</td>
+                                        <td>2/1/2015</td>
+                                        <td>3 days</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>John Doe
+                                        </th>
+                                        <td>payment expired</td>
+                                        <td>6 month</td>
+                                        <td>2/12/2014</td>
+                                        <td>1 week</td>
+                                    </tr>
 
 
-
-      </tbody>
-    </table></div></div>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                                                </div>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+
+                                <div class="col-md-4">
+                                    <div easypiechart data-options="easyoptions" data-percent="percent"
+                                         class="easypiechart"><span
+                                            class="percent">53</span></div>
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <div easypiechart data-options="easy2options" data-percent="percent"
+                                         class="easypiechart"><span
+                                            class="percent">23</span></div>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <div easypiechart data-options="easy3options" data-percent="percent"
+                                         class="easypiechart"><span
+                                            class="percent">43</span></div>
+                                </div>
+
+                    </div>
+                </div>
+
             </div>
-    </div>
 </section>

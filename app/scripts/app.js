@@ -29,8 +29,8 @@ angular
             $routeProvider
                     .when('/', {
                         title: 'Dashboard here',
-                        templateUrl: 'views/dashboard.html',
-                        controller: 'merchantCtrl',
+                        templateUrl: 'views/dashboardmain.html',
+                        controller: 'dashBoardCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
@@ -99,6 +99,23 @@ angular
                     .when('/location', {
                         title: 'Settings, Business Setup',
                         templateUrl: 'views/location.html',
+                        controller: 'merchantCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, userService) {
+                                var deferred = $q.defer();
+                                if (!userService.isAuthenticated()) {
+                                    $location.path('/login');
+                                } else {
+                                    deferred.resolve();
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
+                    })
+                    .when('/home', {
+                        title: 'Home',
+                        templateUrl: 'views/dashboard.html',
                         controller: 'merchantCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
