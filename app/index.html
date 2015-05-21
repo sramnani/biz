@@ -1,58 +1,60 @@
 <!doctype html>
 <html class="no-js" ng-app="outingzApp">
-    <head>
-        <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-        <title  ng-bind="title"></title>
+    <title ng-bind="title"></title>
 
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css(.) styles/vendor.css -->
-        <!-- bower:css -->
-        <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <!-- <link rel="stylesheet" href="styles/main.css">-->
-        <link href="styles/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="styles/loading-bar.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/animate.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/aside.css"/>
-        <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <!-- <link rel="stylesheet" href="styles/main.css">-->
+    <link href="styles/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/loading-bar.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/animate.css"/>
+    <link rel="stylesheet" href="bower_components/angular-aside/dist/css/angular-aside.css">
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
+    <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.css">
 
-        <link href="styles/style.css" rel="stylesheet">
-        <link href="styles/build.css" rel="stylesheet">
-        <link href="styles/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+    <link href="styles/build.css" rel="stylesheet">
+    <link href="styles/font-awesome.min.css" rel="stylesheet">
 
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300' rel='stylesheet' type='text/css'>
 
-        <!-- endbuild -->
+    <!-- endbuild -->
 
-    </head>
-    <body  class="body"  ng-controller="buildCtrl" ng-class="getImg() ? 'login_sec' : ''">
+</head>
+<body class="body" ng-controller="buildCtrl" ng-class="getImg() ? 'login_sec' : ''">
 
-        <header ng-controller="NavbarCtrl" ng-show="check()" >
-            <div class="container"  id="cont">
-                <div class="row">
+<header ng-controller="NavbarCtrl" ng-show="check()">
+    <div class="container" id="cont">
+        <div class="row">
 
-                    <div class="col-lg-3 col-md3">
+            <div class="col-lg-3 col-md3">
 
-                        <div class="logo"><a href="/#/"><img src="images/logo.png" width="140" height="19" alt=""/></a></div>
+                <div class="logo"><a href="/#/"><img src="images/logo.png" width="140" height="19" alt=""/></a></div>
 
 
-                    </div>
-                    <div class="col-lg-9 col-md9">
+            </div>
+            <div class="col-lg-9 col-md9">
 
-                        <div class="welcome"  >
+                <div class="welcome">
 
-                            <!--<a  href="#/login" ng-if="!isAuthenticated()">Login</a>-->
+                    <!--<a  href="#/login" ng-if="!isAuthenticated()">Login</a>-->
 
-                                                                                    <a ng-click="logout()" ng-if="isAuthenticated()">Logout</a>
+                    <a ng-click="logout()" ng-if="isAuthenticated()">Logout</a>
 
-                            <div class="dropdown pull-right">
+                    <div class="dropdown pull-right">
 
-                        <button class="btn btn-link dropdown-toggle" style="margin-top: -10px;" type="button" id="dropdownMenu1"
+                        <button class="btn btn-link dropdown-toggle" style="margin-top: -10px;" type="button"
+                                id="dropdownMenu1"
                                 style="border:none !important;"
                                 data-toggle="dropdown" aria-expanded="true">
 
@@ -65,66 +67,64 @@
                     </div>
 
 
-                        </div>
+                </div>
 
 
-                    </div>
+            </div>
 
-                </div></div>
-
-
-
-        </header>
-
-        <div class="container">
-            <div ng-view=""></div>
         </div>
+    </div>
 
 
-        <div class="clearfix"></div>
+</header>
+
+<div class="container">
+    <div ng-view=""></div>
+</div>
 
 
+<div class="clearfix"></div>
 
 
+<!-- build:js(.) scripts/vendor.js -->
 
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-loading-bar/loading-bar.js"></script>
+<script src="bower_components/Chart.js/Chart.min.js"></script>
+<script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
+<script src="bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.min.js"></script>
+<script src="bower_components/ui-utils/ui-utils.js"></script>
+<script src="bower_components/angular-aside/dist/js/angular-aside.js"></script>
+<script src="bower_components/ng-table/dist/ng-table.js"></script>
+<!-- endbuild -->
 
-        <!-- build:js(.) scripts/vendor.js -->
-
-        <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="bower_components/angular-animate/angular-animate.js"></script>
-        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script src="bower_components/angular-messages/angular-messages.js"></script>
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-route/angular-route.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <script src="bower_components/angular-touch/angular-touch.js"></script>
-        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script src="bower_components/angular-loading-bar/loading-bar.js"></script>
-        <script src="bower_components/Chart.js/Chart.min.js"></script>
-        <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
-        <script src="bower_components/jquery.easy-pie-chart/dist/angular.easypiechart.min.js"></script>
-        <script src="bower_components/ui-utils/ui-utils.js"></script>
-        <script src="bower_components/aside/aside.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/merchantCtrl.js"></script>
-        <script src="scripts/controllers/merchantCtrl.js"></script>
-        <script src="scripts/controllers/activityServicesCtrl.js"></script>
-        <script src="scripts/controllers/activityClassCtrl.js"></script>
-        <script src="scripts/controllers/userCtrl.js"></script>
-        <script src="scripts/controllers/dashBoardCtrl.js"></script>
-        <script src="scripts/controllers/build.js"></script>
-        <script src="scripts/controllers/customerCtrl.js"></script>
-        <script src="scripts/controllers/test.js"></script>
-        <script src="scripts/services/merchantService.js"></script>
-        <script src="scripts/services/activityService.js"></script>
-        <script src="scripts/services/userService.js"></script>
-        <script src="scripts/services/customerService.js"></script>
-        <script src="scripts/directives/directives.js"></script>
-        <!-- endbuild -->
-    </body>
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/merchantCtrl.js"></script>
+<script src="scripts/controllers/merchantCtrl.js"></script>
+<script src="scripts/controllers/activityServicesCtrl.js"></script>
+<script src="scripts/controllers/activityClassCtrl.js"></script>
+<script src="scripts/controllers/userCtrl.js"></script>
+<script src="scripts/controllers/dashBoardCtrl.js"></script>
+<script src="scripts/controllers/build.js"></script>
+<script src="scripts/controllers/customerCtrl.js"></script>
+<script src="scripts/controllers/editCustomerCtrl.js"></script>
+<script src="scripts/controllers/test.js"></script>
+<script src="scripts/services/merchantService.js"></script>
+<script src="scripts/services/activityService.js"></script>
+<script src="scripts/services/userService.js"></script>
+<script src="scripts/services/customerService.js"></script>
+<script src="scripts/directives/directives.js"></script>
+<!-- endbuild -->
+</body>
 </html>
