@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-    .controller('dashBoardCtrl', function ($scope, activityService, $q, $http, $location, $window, $route, $timeout, $cookies) {
+    .controller('dashBoardCtrl', function ($scope, activityService, $q, $http, $location, $window, $route, $timeout, $cookies, $aside) {
 
 
         $scope.options =
@@ -32,16 +32,16 @@ angular.module('outingzApp')
             }
         ];
         $scope.data = [
-            [65, 59, 80, 81, 56, 55, 40,65, 59, 80, 81, 56]
+            [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56]
         ];
 
         $scope.onClick = function () {
             console.log("Ere");
         };
-        $scope.pielabels = ["Eating", "Drinking", "Sleeping"];
+        $scope.pielabels = ["Attended", "Missed"];
 
         $scope.piedata =
-            [65, 59, 90];
+            [65, 35];
 
 
         // Simulate async data update
@@ -84,4 +84,5 @@ angular.module('outingzApp')
             size: 200,
             lineCap: 'circle'
         };
+
     });
