@@ -2,7 +2,7 @@
 <div class="pageTitle">
 
     <div class="plusSign"><div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-            <div class="close_customer_toggle"><a href="javascript:void(0);" ng-click="ok($event)"><img src="images/close_customer.png" /></a></div>
+            <div class="close_customer_toggle"><a ng-click="cancel()"><img src="images/close_customer.png" /></a></div>
             <div class="customerForm"> <form name="customer" ng-submit="create_customer(customerr,customer.$valid)"  novalidate>
                 <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
                 <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>
