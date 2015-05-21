@@ -13,7 +13,7 @@ and open the template in the editor.
     <div class="pageTitle">
          <h2 class="heading headingPlus" style="float:left"> Your Customers</h2>
          <div class="plusSign">
-            <img src="images/plus.png"   ng-click="openAside('right')"/>             
+            <img src="images/plus.png"   ng-click="openMod('right')"/>
          </div>
     </div>
    
@@ -29,7 +29,6 @@ and open the template in the editor.
 </div>
 </form>
 </div>
-
 <div class="customerMemberInfo">
 <ul>
 	<li>MEMBERS {{customerr.firstName}}<br/><span>124</span></li>
@@ -37,7 +36,31 @@ and open the template in the editor.
     <li>NEW THIS MONTH <br/><span>1</span></li>
 </ul>
 </div>
-</div>      
+</div>
+
+    <table ng-table="tableParams" show-filter="true" class="table table-responsive">
+        <tr ng-repeat="user in $data">
+            <td data-title="'Name'" filter="{ 'name': 'text' }" sortable="'name'">
+                {{user.name}}
+            </td>
+            <td data-title="'Account Status'">
+                {{user.accountType}}
+            </td>
+              <td data-title="'Membership'">
+                {{user.membership}}
+            </td>
+              <td data-title="'Start'">
+                {{user.start}}
+            </td>
+             <td data-title="'Expiration'">
+                {{user.expiration}}
+            </td>
+
+
+
+
+        </tr>
+    </table>
 
 <div class="table-responsive customerInfo">
 <table class="table table-condensed">
