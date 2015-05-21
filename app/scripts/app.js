@@ -23,7 +23,9 @@ angular
             'ngAside',
             'ngCookies',
             'chart.js',
-            'easypiechart'
+            'easypiechart',
+            'ngAside',
+            'ngTable'
         ])
         .config(function ($routeProvider, $httpProvider) {
             $routeProvider
