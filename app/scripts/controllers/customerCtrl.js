@@ -6,110 +6,55 @@
 
 
 angular.module('outingzApp')
-        .controller('customerCtrl', ['$scope', 'merchantService', '$q', '$http', '$routeParams', '$location', '$timeout', '$aside', 'userService','customerService','$filter','$rootScope', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $aside, userService,$rootScope) {
+    .controller('customerCtrl', ['$scope', 'merchantService', '$q', '$http', '$routeParams', '$location', '$timeout', '$aside', 'userService', 'customerService', 'ngTableParams', '$filter', '$rootScope', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $aside, userService, $rootScope, ngTableParams, $filter) {
 
 
-                
-                
-                $scope.$on("myEvent",function () {console.log('my event occurred'); });
-                
-                
-                
-                
-                $scope.openAside = function (position) {
-
-                    $aside.open({
-                        templateUrl: '../../views/aside.html',
-                        placement: position,
-                        backdrop: true,
-                        controller: function ($scope, $modalInstance,customerService,$filter,$rootScope,merchantService) {
-
-                            
-                            $scope.ok = function (e) {
-//                                $scope.$emit('eventName',['asd']);
-                                $rootScope.$broadcast("myEvent");
-
-                                
-                                
-                                console.log("OK");
-                                $modalInstance.close();
-                                e.stopPropagation();
-                            };
-                            $scope.cancel = function (e) {
-                                
-                                    
-                                $modalInstance.dismiss();
-                                
-                                e.stopPropagation();
-                            };
-                            
-                           $scope.open_since = function($event){
-                               $event.preventDefault();
-                               $event.stopPropagation();
-                               $scope.opened_since = true;
-                           }
-
-                            $scope.open = function ($event) {
-                                $event.preventDefault();
-                                $event.stopPropagation();
-
-                                $scope.opened = true;
-                            };
-
-                            $scope.dateOptions = {
-                                formatYear: 'yy',
-                                startingDay: 1
-                            };
-
-                            $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'MM/dd/yy', 'shortDate'];
-                            $scope.format = $scope.formats[2];
-                            
-                            $scope.success="";
-                            $scope.error="";
-                            $scope.showValidation=false;
-                            $scope.customer={};
-                            
-                            $scope.states = merchantService.get_states();
-
-                            // Used to setup the business for first time (Creates merchant)
-                            $scope.create_customer = function (customer, isvalid) {
-                                //alert("HELO");
-
-                                if (isvalid) {
-                                    
-                                   // customer.startDate = $filter('date')(customer.startDate, 'MM/yy/dd');
-                                   // customer.dob = $filter('date')(customer.dob, 'MM/yy/dd');
-                                    console.log(JSON.stringify(customer.startDate));
-                                    customer.primaryAddress.country = "USA";
-                                    customerService.add_customer(customer).then(function (data) {
-                                        $scope.success = "Your Customer added sucessfully";
-                                        
-                                    }, function (error) {
-                                        $scope.error = "Error in creating your Customer!";
-                                        
-                                    });
-
-                                } else {
-
-                                    $scope.showValidation = true;
-                                 $scope.error = "Error in creating your customer!";
-                                 //$scope.error = $scope.customer.$error;
-                                    $timeout(function () {
-                                        $scope.error = false;
-                                        $scope.success = false;
-                                    }, 3000);
-                                }
-                            }
+        $scope.$on("myEvent", function () {
+            console.log('my event occurred');
+        });
 
 
+        $scope.openMod = function () {
 
-                        }
-                    });
-                }
-                
-                
+            var modalInstance = $aside.open({
+                templateUrl: 'views/aside.html',
+                controller: 'editCustomerCtrl',
+                placement: 'right',
+                size: 'lg'
+            });
+        };
+
+        var data = [
+            {name: "Moroni", accountStatus: 50, membership: "monthly", start: "1/11/2012", expiration: "1 day"},
+            {name: "Nancy", accountStatus: "Expired", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
+            {name: "Berni", accountStatus: "Active", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
+            {name: "Brett", accountStatus: "Active", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
+            {name: "Jake", accountStatus: "Active", membership: "monthly", start: "1/11/2012", expiration: "1 day"}
+        ];
+
+        $scope.tableParams = new ngTableParams({
+            page: 1,            // show first page
+            count: 10         // count per page
 
 
-            }]);
+        }, {
+            total: data.length, // length of data
+            getData: function ($defer, params) {
+                // use build-in angular filter
+                 var orderedData = params.sorting() ?
+
+                                $filter('orderBy')(data, params.orderBy()) :
+
+                                data;
+
+                $scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+
+                params.total(orderedData.length); // set total for recalc pagination
+                $defer.resolve($scope.users);
+            }
+        });
+
+
+    }]);
 
        
