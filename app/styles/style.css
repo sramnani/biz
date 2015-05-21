@@ -2270,3 +2270,6 @@ body {
         width: 1170px;
     }
 }
+.ng-table-counts {
+    display: none;
+}
