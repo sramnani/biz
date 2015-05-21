@@ -25,7 +25,7 @@ angular.module('outingzApp')
         };
 
         var data = [
-            {name: "Moroni", accountStatus: 50, membership: "monthly", start: "1/11/2012", expiration: "1 day"},
+            {name: "Moroni", accountStatus: "Active", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
             {name: "Nancy", accountStatus: "Expired", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
             {name: "Berni", accountStatus: "Active", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
             {name: "Brett", accountStatus: "Active", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
@@ -34,7 +34,7 @@ angular.module('outingzApp')
 
         $scope.tableParams = new ngTableParams({
             page: 1,            // show first page
-            count: 10         // count per page
+            count: 3 // count per page
 
 
         }, {
@@ -46,11 +46,11 @@ angular.module('outingzApp')
                                 $filter('orderBy')(data, params.orderBy()) :
 
                                 data;
+                orderedData = params.filter ?
+                        $filter('filter')(orderedData, params.filter()) :
+                        orderedData;
 
-                $scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
-
-                params.total(orderedData.length); // set total for recalc pagination
-                $defer.resolve($scope.users);
+               $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));;
             }
         });
 
