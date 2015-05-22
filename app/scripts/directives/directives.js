@@ -17,6 +17,43 @@ angular.module('outingzApp').directive('validPasswordC', function () {
         }
     };
 });
+angular.module('outingzApp').directive("sparklinechart", function () {
+
+    return {
+        restrict: "E",
+        scope: {
+            data: "@"
+        },
+        compile: function (tElement, tAttrs, transclude) {
+            tElement.replaceWith("<span>" + tAttrs.data + "</span>");
+            return function (scope, element, attrs) {
+                attrs.$observe("data", function (newValue) {
+                    element.html(newValue);
+                    element.sparkline('html', { type:'line',height: '1.5em', width: '8em', lineWidth: 3,tooltipFormat:false, lineColor: '#00fc9e', fillColor: '#fff', minSpotColor: false, maxSpotColor: false, spotColor: '#77f', spotRadius: 3});
+                });
+            };
+        }
+    };
+});
+
+angular.module('outingzApp').directive("sparklinechartred", function () {
+
+    return {
+        restrict: "E",
+        scope: {
+            data: "@"
+        },
+        compile: function (tElement, tAttrs, transclude) {
+            tElement.replaceWith("<span>" + tAttrs.data + "</span>");
+            return function (scope, element, attrs) {
+                attrs.$observe("data", function (newValue) {
+                    element.html(newValue);
+                    element.sparkline('html', { type:'line',height: '1.5em', width: '8em', lineWidth: 3,tooltipFormat:false, lineColor: '#FB5139', fillColor: '#fff', minSpotColor: false, maxSpotColor: false, spotColor: '#77f', spotRadius: 3});
+                });
+            };
+        }
+    };
+});
 // Directive to check if confirm password matches with password.
 angular.module('outingzApp').directive('timePick', function () {
     return {
