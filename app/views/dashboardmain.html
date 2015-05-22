@@ -168,19 +168,98 @@ and open the template in the editor.
 
             </div>
             <div class="col-md-4 mT36">
-
-                <div class="dashboard-stat green-haze" href="javascript:;">
-                    <div class="visual">
-                    </div>
-                    <div class="details">
-                        <div class="number">
-                            REVENUE
+                <div class="col-md-12">
+                    <div class="dashboard-stat green-haze" href="javascript:;">
+                        <div class="visual">
                         </div>
-                        <div class="desc">
-                            $20,000
+                        <div class="details">
+                            <div class="number">
+                                REVENUE
+                            </div>
+                            <div class="desc">
+                                $20,000
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-12">
+                    <div class="pull-left" style="width:80px;margin-top:20px;">
+                        <strong>MEMBERS</strong> <br>
+                        TOTAL
+                    </div>
+                    <div class="pull-left" style="width:140px;margin-top:20px;">
+                        <sparklinechart data="{{Customers}}"></sparklinechart>
+                    </div>
+
+                    <div class="small dashboard-stat green-haze pull-left" href="javascript:;" style="width:120px;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="desc">
+                                200
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="pull-left" style="width:80px;margin-top:20px;">
+                        <strong>PROSPECTS</strong> <br>
+                        NEW
+                    </div>
+                    <div class="pull-left" style="width:140px;margin-top:20px;">
+                        <sparklinechartred data="{{Customers1}}"></sparklinechartred>
+                    </div>
+
+                    <div class="small dashboard-stat green-haze pull-left" href="javascript:;" style="width:120px;background-color:#FB5139!important;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="desc">
+                                20
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="pull-left" style="width:80px;margin-top:20px;">
+                        <strong>MEMBERS</strong> <br>
+                        NEW
+                    </div>
+                    <div class="pull-left" style="width:140px;margin-top:20px;">
+                        <sparklinechart data="{{Customers1}}"></sparklinechart>
+                    </div>
+
+                    <div class="small dashboard-stat green-haze pull-left" href="javascript:;" style="width:120px;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="desc">
+                                10
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="pull-left" style="width:80px;margin-top:20px;">
+                        <strong>MEMBERS</strong> <br>
+                        EXPIRING
+                    </div>
+                    <div class="pull-left" style="width:140px;margin-top:20px;">
+                        <sparklinechartred data="{{Customers2}}"></sparklinechartred>
+                    </div>
+
+                    <div class="small dashboard-stat green-haze pull-left" href="javascript:;" style="width:120px;background-color:#FB5139!important;">
+                        <div class="visual">
+                        </div>
+                        <div class="details">
+                            <div class="desc">
+                                100
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
         </div>
