@@ -2202,7 +2202,21 @@ body {
     content: " ";
     display: table;
 }
+.small .details .desc {
+  font-size:40px;
+  padding-top:15px;
 
+}
+.small .visual {
+  height:25px !important;
+
+}
+.small .details{
+ width:35%;
+}
+.small {
+background-color:#00cf9e !important;
+}
 .table-condensed th {
     padding: 8px !important;
     background: #f7f7f7;
@@ -2212,6 +2226,9 @@ body {
     font-family: 'proxima_novaregular';
     border-bottom: none !important;
 
+}
+.small {
+margin-bottom:30px;
 }
 
 .table-condensed td {
