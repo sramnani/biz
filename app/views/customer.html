@@ -20,14 +20,10 @@ and open the template in the editor.
 
 <div class="searchMonthInfo">
 <div class="searchBar">
-<form class="navbar-form" role="search">
-<div class="input-group add-on">
-<input class="form-control" placeholder="Customer Search" name="srch-term" id="srch-term" type="text">
-<div class="input-group-btn">
-<button class="btn btn-default" type="submit"><img src="images/search.png" /></button>
-</div>
-</div>
-</form>
+ <input type="text" class="form-control" placeholder="Search " ng-model="search" />
+
+
+
 </div>
 <div class="customerMemberInfo">
 <ul>
@@ -37,22 +33,22 @@ and open the template in the editor.
 </ul>
 </div>
 </div>
-
-    <table ng-table="tableParams" show-filter="true" class="table table-responsive">
-        <tr ng-repeat="user in $data">
-            <td data-title="'Name'" filter="{ 'name': 'text' }" sortable="'name'">
+<div class="customerInfo table-responsive">
+    <table ng-table="tableParams" class="table">
+        <tr ng-repeat="user in $data | filter:search">
+             <td data-title="'Name'" sortable="'name'">
                 {{user.name}}
             </td>
-            <td data-title="'Account Status'">
-                {{user.accountType}}
+            <td data-title="'Account Status'" sortable="'status'">
+                {{user.accountStatus}}
             </td>
-              <td data-title="'Membership'">
+              <td data-title="'Membership'" sortable="'membership'">
                 {{user.membership}}
             </td>
-              <td data-title="'Start'">
+              <td data-title="'Start'" sortable="'start'">
                 {{user.start}}
             </td>
-             <td data-title="'Expiration'">
+             <td data-title="'Expiration'" sortable="'expiration'">
                 {{user.expiration}}
             </td>
 
@@ -62,85 +58,6 @@ and open the template in the editor.
         </tr>
     </table>
 
-<div class="table-responsive customerInfo">
-<table class="table table-condensed">
-      <thead>
-        <tr>
-          <th>Name <span class="caret"></span></th>
-          <th>Account Status <span class="caret"></span></th>
-          <th>Membership <span class="caret"></span></th>
-          <th>Start <span class="caret"></span></th>
-          <th>Expiration <span class="caret"></span></th>
-        </tr>
-      </thead>
-      <tbody>
-      
-        <tr>
-          <td>Hello Kitty</th>
-          <td>on hold</td>
-          <td>monthly</td>
-          <td>1/11/2015</td>
-          <td>1 day</td>
-        </tr>
-        
-        <tr>
-          <td>Super Man</th>
-          <td>past due</td>
-          <td>3 month</td>
-          <td>2/1/2015</td>
-          <td>3 days</td>
-        </tr>
-        
-        <tr>
-          <td>John Doe</th>
-          <td>payment expired</td>
-          <td>6 month</td>
-          <td>2/12/2014</td>
-          <td>1 week</td>
-        </tr>
-
-        <tr>
-          <td>Jane Doe</th>
-          <td>good</td>
-          <td>9 month</td>
-          <td>3/14/2015</td>
-          <td>3 weeks</td>
-        </tr>
-
-        <tr>
-          <td>Patty Cupcakes</th>
-          <td>on hold</td>
-          <td>1 month</td>
-          <td>3/28/2015</td>
-          <td>1 month</td>
-        </tr>
-
-        <tr>
-          <td>Yogi Ben</th>
-          <td>past due</td>
-          <td>6 months</td>
-          <td>4/1/2015</td>
-          <td>6 months</td>
-        </tr>
-
-        <tr>
-          <td>Heather Jackson</th>
-          <td>past due</td>
-          <td>Annual</td>
-          <td>11/30/2014</td>
-          <td>1 year</td>
-        </tr>
-
-        <tr>
-          <td>Karen Robinson</th>
-          <td>good</td>
-          <td>Annual</td>
-          <td>12/1/2014</td>
-          <td>2 years</td>
-        </tr>
-        
-      </tbody>
-    </table>
 </div>
 
 </div>
