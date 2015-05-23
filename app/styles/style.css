@@ -1343,11 +1343,11 @@ h2.headingPlus {
     text-transform: uppercase;
     font-family: 'proxima_novaregular';
     border-bottom: none !important;
+    text-align:left;
 }
 
 .customerInfo .table tr:nth-child(1) td {
     border: none !important;
-    padding-top: 43px !important
 }
 
 .add-on input[type="text"] {
