@@ -8,8 +8,18 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('activityListCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies,ngTableParams,$filter) {
+        .controller('activityListCtrl', function ($scope, activityService, $q, $http, $location, $window,$aside,$route,$timeout,$cookies,ngTableParams,$filter,activityService) {
             console.log("class");
+
+         $scope.openMod = function () {
+
+            var modalInstance = $aside.open({
+                templateUrl: 'views/activity_aside.html',
+                controller: 'editCustomerCtrl',
+                placement: 'right',
+                size: 'lg'
+            });
+        };
 
 
         var data = [
