@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('activityListCtrl', function ($scope, activityService, $q, $http, $location, $window,$aside,$route,$timeout,$cookies,ngTableParams,$filter,activityService) {
+        .controller('activityListCtrl', function ($scope, activityService, $q, $http, $location, $window,$aside,$route,$timeout,$cookies,ngTableParams,$filter) {
             console.log("class");
 
          $scope.openMod = function () {
