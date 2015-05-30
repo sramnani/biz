@@ -2,7 +2,7 @@
 <div class="pageTitle">
 
     <div class="plusSign"><div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-            <div class="close_customer_toggle"><a href="javascript:void(0);" ng-click="ok($event)"><img src="images/close_customer.png" /></a></div>
+            <div class="close_customer_toggle"><a href="javascript:void(0);" ng-click="cancel()"><img src="images/close_customer.png" /></a></div>
             <form name="customer" ng-submit="create_customer(customerr, customer.$valid)"  novalidate>
                 <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
                 <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>
@@ -12,13 +12,9 @@
                         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                             <div class="customerNameInfo">
                                 
-                                <span ><input class="form-control" name="firstname" type="text" ng-model="customerr.firstName" placeholder="firstname" required/> </span>
-                                <p ng-show="customer.firstname.$error.required && showValidation" class="help-block error">First is required</p>
-                                <span ><input class="form-control" type="text" name="lastname" ng-model="customerr.lastName" placeholder="lastname" required/> </span>
-                                <p ng-show="customer.lastname.$error.required && showValidation" class="help-block error">Last Name is required</p>
+                                <h3>Steel Banding</h3>
                             </div>
-                            <button class="greenBtn">Cancel</button>
-                            <button type="submit" class="greenBtn" >Save</button>
+
                         </div>
                     </div>
                 </div>
