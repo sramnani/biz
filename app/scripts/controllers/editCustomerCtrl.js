@@ -6,11 +6,11 @@
 
 
 angular.module('outingzApp')
-    .controller('editCustomerCtrl', ['$scope', 'merchantService', '$q', '$http', '$modalInstance', '$routeParams', '$location', '$timeout', '$aside', 'userService', 'customerService', '$filter', '$rootScope', function ($scope, merchantService, $q, $http, $routeParams, $location, $timeout, $aside, userService, $rootScope, $modalInstance) {
+    .controller('editCustomerCtrl', ['$scope', 'merchantService', '$q', '$http', '$modalInstance','$modal', '$routeParams', '$location', '$timeout', '$aside', 'userService', 'customerService', '$filter', '$rootScope', function ($scope, merchantService, $q, $http, $modal,$routeParams, $location, $timeout, $aside, userService, $rootScope, $modalInstance) {
 
 
         $scope.cancel = function () {
-          console.log($modalInstance);
+        $modal.close();
 
 
         };
