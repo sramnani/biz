@@ -16,13 +16,19 @@ angular.module('outingzApp')
 
         $scope.openMod = function () {
 
-            var modalInstance = $aside.open({
+             $aside.open({
                 templateUrl: 'views/aside.html',
                 controller: 'editCustomerCtrl',
                 placement: 'right',
-                size: 'lg'
+                size: 'lg',
+
             });
+
+
+
         };
+
+
 
         var data = [
             {name: "Moroni", accountStatus: "Active", membership: "monthly", start: "1/11/2012", expiration: "1 day"},
