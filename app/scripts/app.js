@@ -25,7 +25,8 @@ angular
             'chart.js',
             'easypiechart',
             'ngAside',
-            'ngTable'
+            'ngTable',
+            'ui.calendar'
         ])
         .config(function ($routeProvider, $httpProvider) {
             $routeProvider
@@ -167,6 +168,24 @@ angular
                             }
                         }
                     })
+                     .when('/res', {
+                        title: 'Add Activity',
+                        templateUrl: 'views/addReservation.html',
+                        controller: 'activityReservationCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, userService) {
+                                var deferred = $q.defer();
+
+                                if (!userService.isAuthenticated()) {
+                                    $location.path('/login');
+                                } else {
+                                    deferred.resolve();
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
+                    })
                     .when('/customer', {
                         title: 'Add Customer',
                         templateUrl: 'views/customer.html',
@@ -201,11 +220,46 @@ angular
                             }
                         }
                     })
+                     .when('/activities', {
+                        title: 'Activities',
+                        templateUrl: 'views/activityList.html',
+                        controller: 'activityListCtrl',
+                         resolve: {
+                            authenticated: function ($q, $location, userService) {
+                                var deferred = $q.defer();
+                                if (!userService.isAuthenticated()) {
+                                    $location.path('/login');
+                                } else {
+                                    deferred.resolve();
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
+                    })
+                    .when('/calendar', {
+                        title: 'Calendar',
+                        templateUrl: 'views/calendar.html',
+                        controller: 'calendarCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, userService) {
+                                var deferred = $q.defer();
+                                if (!userService.isAuthenticated()) {
+                                    $location.path('/login');
+                                } else {
+                                    deferred.resolve();
+                                }
+
+                                return deferred.promise;
+                            }
+                        }
+                    })
                     .when('/reset_password/:resetPassword/:key/:username/:token*', {
                         title: 'Reset your password',
                         templateUrl: 'views/reset-password.html',
                         controller: 'userCtrl'
                     })
+
                     .when('/login', {
                         title: 'Login',
                         templateUrl: 'views/login.html',
