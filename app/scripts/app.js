@@ -26,7 +26,8 @@ angular
             'easypiechart',
             'ngAside',
             'ngTable',
-            'ui.calendar'
+            'ui.calendar',
+            'xeditable'
         ])
         .config(function ($routeProvider, $httpProvider) {
             $routeProvider
