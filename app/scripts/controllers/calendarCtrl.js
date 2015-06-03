@@ -110,7 +110,7 @@ angular.module('outingzApp')
         height: 450,
         editable: true,
         header:{
-          left: 'month basicWeek basicDay',
+          left: 'month agendaDay agendaWeek',
           center: 'title',
           right: 'prev,next'
         },
