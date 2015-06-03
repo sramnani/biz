@@ -86,6 +86,32 @@ angular.module('outingzApp')
    
 
         };
+        $scope.openCustomerModal = function () {
+
+             $aside.open({
+                templateUrl: 'views/aside.html',
+                controller: 'editCustomerCtrl',
+                placement: 'right',
+                size: 'lg',
+
+            });
+
+
+
+        };
+           $scope.openActivityModal = function () {
+
+             $aside.open({
+                templateUrl: 'views/activity_aside.html',
+                controller: 'editActivityCtrl',
+                placement: 'right',
+                size: 'lg',
+
+            });
+
+
+
+        };
         $scope.easy3options = {
             animate: {
                 duration: 0,
