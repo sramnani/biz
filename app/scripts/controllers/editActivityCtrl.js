@@ -5,18 +5,10 @@
  */
 
 
-angular.module('outingzApp')
-.run (function(editableOptions) {
-  editableOptions.theme = 'bs3';
-});
-    .controller('editActivityCtrl', ['$scope', 'merchantService', '$q', '$http','$modal', '$routeParams', '$location', '$timeout', '$aside', 'userService', 'customerService', '$filter', '$rootScope', function ($scope, merchantService, $q, $http, $modal,$routeParams, $location, $timeout, $aside, userService, $rootScope, $modalInstance) {
+angular.module('outingzApp').controller('editActivityCtrl', ['$scope', 'merchantService', '$q', '$http','$modal', '$routeParams', '$location', '$timeout', '$aside', 'userService', 'customerService', '$filter', '$rootScope', function ($scope, merchantService, $q, $http, $modal,$routeParams, $location, $timeout, $aside, userService, $rootScope, $modalInstance) {
 
         $scope.offering = {};
-         $scope.user = {
-    id: 1,
-    name: 'awesome user',
 
-  };
         $scope.cancel = function () {
         $modal.close();
 
