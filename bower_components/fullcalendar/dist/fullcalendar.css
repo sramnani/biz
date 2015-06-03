@@ -426,10 +426,10 @@ temporary rendered events).
 	position: relative; /* for resize handle and other inner positioning */
 	display: block; /* make the <a> tag block */
 	font-size: .85em;
-	line-height: 1.3;
-	border-radius: 3px;
-	border: 1px solid #3a87ad; /* default BORDER color */
-	background-color: #3a87ad; /* default BACKGROUND color */
+	line-height: 2.3;
+	border-radius: 0px;
+	border: 1px solid #00BAB4; /* default BORDER color */
+	background-color: #00BAB4; /* default BACKGROUND color */
 	font-weight: normal; /* undo jqui's ui-widget-header bold */
 }
 
