@@ -8,10 +8,10 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('calendarCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies) {
+        .controller('calendarCtrl', function ($scope, activityService, $q, $http, $location, $window, $route,$timeout,$cookies,uiCalendarConfig,$compile) {
 
 
-    var date = new Date();
+   var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
@@ -19,8 +19,9 @@ angular.module('outingzApp')
     $scope.changeTo = 'Hungarian';
     /* event source that pulls from google.com */
     $scope.eventSource = {
-            url: "https://www.google.com/calendar/feeds/sonia.r15%40gmail.com/public/",
-
+            url: "http://www.google.com/calendar/feeds/usa__en%40holiday.calendar.google.com/public/basic",
+            className: 'gcal-event',           // an option!
+            currentTimezone: 'America/Chicago' // an option!
     };
     /* event source that contains custom events on the scope */
     $scope.events = [
@@ -98,16 +99,20 @@ angular.module('outingzApp')
       }
     };
      /* Render Tooltip */
-
+    $scope.eventRender = function( event, element, view ) {
+        element.attr({'tooltip': event.title,
+                     'tooltip-append-to-body': true});
+        $compile(element)($scope);
+    };
     /* config object */
     $scope.uiConfig = {
       calendar:{
         height: 450,
         editable: true,
         header:{
-          left: 'title',
-          center: '',
-          right: 'today prev,next'
+          left: 'month basicWeek basicDay',
+          center: 'title',
+          right: 'prev,next'
         },
         eventClick: $scope.alertOnEventClick,
         eventDrop: $scope.alertOnDrop,
