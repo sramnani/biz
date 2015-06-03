@@ -1,157 +1,239 @@
-
 <div class="pageTitle">
 
-    <div class="plusSign"><div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
-            <div class="close_customer_toggle"><a href="javascript:void(0);" ng-click="cancel()"><img src="images/close_customer.png" /></a></div>
-            <form name="customer" ng-submit="create_customer(customerr, customer.$valid)"  novalidate>
-                <div ng-if="success" class="alert alert-success alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{success}}</div>
-                <div ng-if="error" class="alert alert-danger alert-dismissable"><button  class="close" data-dismiss="alert">&times;</button>{{error}}</div>
-                <div class="customer_photoInfo">
-                    <div class="customer_img_name_info">
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><img src="images/customer.png" /></div>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                            <div class="customerNameInfo">
-                                
-                                <h3>Steel Banding</h3>
-                            </div>
+    <div class="plusSign">
+        <div class="navmenu navmenu-default navmenu-fixed-left offcanvas">
+            <div class="close_customer_toggle"><a href="javascript:void(0);" ng-click="cancel()"><img
+                    src="images/close_customer.png"/></a></div>
 
+            <div ng-if="success" class="alert alert-success alert-dismissable">
+                <button class="close" data-dismiss="alert">&times;</button>
+                {{success}}
+            </div>
+            <div ng-if="error" class="alert alert-danger alert-dismissable">
+                <button class="close" data-dismiss="alert">&times;</button>
+                {{error}}
+            </div>
+            <div class="customer_photoInfo">
+                <div class="customer_img_name_info">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5"><img src="images/customer.png"/></div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <div class="customerNameInfo">
+
+                            <h3>Steel Banding</h3>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="customer_photoInfo">
+                <form editable-form name="editableForm">
+
+                    <div class="col-md-12 cus_headingbox">
+                        <h3 class="pull-left">Activity</h3>
+                        <h4 class="pull-right">
+                            <i class="fa fa-pencil fa-lg" ng-click="editableForm.$show()"
+                               ng-show="!editableForm.$visible">
+
+                            </i>
+                        </h4>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="box_cus" style="margin-bottom:15px;">
+                            <span class="box_label">Description</span>
+                            <span editable-textarea="offering.description">{{offering.description}}</span></span>
+                        </div>
+                    </div>
+                    <span ng-show="editableForm.$visible">
+                    <button type="submit" class="btn btn-default btn-sm greenBtn" ng-disabled="editableForm.$waiting"
+                            ng-click="saveActivity(offering)">
+                        SAVE
+                    </button>
+        <button type="button" class="btn btn-link" ng-disabled="editableForm.$waiting"
+                ng-click="editableForm.$cancel()">
+            CANCEL
+        </button>
+      </span>
+
+                </form>
+            </div>
+
+            <hr>
+            <div class="customer_photoInfo">
+                <form editable-form name="editableForm1">
+                    <div class="col-md-12 cus_headingbox">
+                        <h3 class="pull-left">Pricing</h3>
+                        <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableForm1.$show()"
+                                                  ng-show="!editableForm1.$visible">
+
+                        </i></h4>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="box_cus">
+                            <span class="box_label">Drop In Price</span>
+                            <span editable-text="offering.price"><span ng-if="!editableForm1.$visible">{{offering.price}}</span></span>
+                        </div>
+                    </div>
+
+                    <span ng-show="editableForm1.$visible">
+                    <button type="submit" class="btn btn-default btn-sm greenBtn" ng-disabled="editableForm1.$waiting"
+                            ng-click="saveActivity(offering)">
+                        SAVE
+                    </button>
+        <button type="button" class="btn btn-link" ng-disabled="editableForm1.$waiting"
+                ng-click="editableForm1.$cancel()">
+            CANCEL
+        </button>
+      </span>
+                </form>
+            </div>
+
+            <hr>
+            <div class="customer_photoInfo">
+                <form editable-form name="editableFormTime">
+                <div class="col-md-12 cus_headingbox">
+                    <h3 class="pull-left">Schedule</h3>
+                    <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableFormTime.$show()"
+                                                  ng-show="!editableFormTime.$visible">
+
+                        </i></h4>
+                </div>
+                <div class="col-md-7">
+                    <div class="box_cus">
+                        <span class="box_label">Time</span>
+                                                <span editable-text="offering.time"><span ng-if="!editableFormTime.$visible">{{offering.time}}</span></span>
+
+
+                        <div class="box_cus">
+                            <span class="box_label add_membership">+ Add a time</span>
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="customer_photoInfo">
-                    
-                    
-                    <div class="col-md-12 cus_headingbox">
-                        <h3 class="pull-left">Activity</h3>
-                        <h4 class="pull-right"><a href="#">Save</a></h4>
+                <div class="col-md-5">
+                    <div class="box_cus">
+                        <span class="box_label">Frequency</span>
+                        <span editable-text="offering.freq"><span ng-if="!editableFormTime.$visible">{{offering.freq}}</span></span>
                     </div>
-                    
-                     <div class="col-md-12">
-                        <div class="box_cus">	
-                            <span class="box_label">Description</span>	
-                            <span class="box_value"> <textarea class="form-control" cols="4">  </textarea> </span>	
-                        </div> 
-                    </div>
-                    
-                    
-                    
-                </div>
 
-                <hr>
-                <div class="customer_photoInfo">
-                    <div class="col-md-12 cus_headingbox">
-                        <h3 class="pull-left">Pricing</h3>
-                        <h4 class="pull-right"><a href="#">Save</a></h4>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="box_cus">	
-                            <span class="box_label">Drop In Price</span>	
-                            <span class="box_value"><input class="form-control" type="text" /></span>	
-                        </div> 
-                    </div>
-                    <div class="col-md-5">
-                        &nbsp;
-                    </div>
-                </div>
-
-                <hr>
-                <div class="customer_photoInfo">
-                    <div class="col-md-12 cus_headingbox">
-                        <h3 class="pull-left">Schedule</h3>
-                        <h4 class="pull-right"><a href="#">Save</a></h4>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="box_cus">	
-                            <span class="box_label">Time</span>	
-                            <span class="box_value"><input class="form-control" type="text" /></span>	
-                                <div class="box_cus">	
-                                    <span class="box_label add_membership">+ Add a time</span>	
-                                </div> 
-                        </div> 
-                    </div>
-                    <div class="col-md-5">
-                        <div class="box_cus">	
-                            <span class="box_label">Frequency</span>	
-                            <span class="box_value"><input class="form-control" type="text" /></span>	
-                        </div> 
-
-                        <div class="box_cus">	
-                            <span class="box_label">Days of The Week</span>	
+                    <div class="box_cus">
+                        <span class="box_label">Days of The Week</span>
                             <span class="box_value days_week">
-                                
-<form role="form">
-        <div class="checkbox checkbox-primary">
-             <input id="checkbox2" class="styled" type="checkbox" checked>
-             <label for="checkbox2">S</label>
-							</div>
-        <div class="checkbox checkbox-primary">
-             <input id="checkbox3" class="styled" type="checkbox">
-             <label for="checkbox3">M</label>
-							</div>
-        <div class="checkbox checkbox-primary">
-             <input id="checkbox4" class="styled" type="checkbox">
-             <label for="checkbox4">T</label>
-							</div>
-        <div class="checkbox checkbox-primary">
-             <input id="checkbox5" class="styled" type="checkbox">
-             <label for="checkbox5">W</label>
-							</div>
-        <div class="checkbox checkbox-primary">
-             <input id="checkbox6" class="styled" type="checkbox">
-             <label for="checkbox6">T</label>
-							</div>
-        <div class="checkbox checkbox-primary">
-             <input id="checkbox7" class="styled" type="checkbox">
-             <label for="checkbox7">F</label>
-							</div>
-        <div class="checkbox checkbox-primary">
-             <input id="checkbox8" class="styled" type="checkbox">
-             <label for="checkbox8">S</label>
-							</div>
-    </form>
-                                
-                            </span>	
-                        </div> 
-                    </div>
-                </div>
 
-                <hr>
-                <div class="customer_photoInfo mB20">
-                    <div class="col-md-12 cus_headingbox">
-                        <h3 class="pull-left">Location</h3>
-                        <h4 class="pull-right"><a href="#">Save</a></h4>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="box_cus">	
-                            <span class="box_label">Location</span>	
-                            <span class="box_value"><input class="form-control" type="text" /></span>	
-                        </div> 
-                    </div>
-                    <div class="col-md-5">
-                        <div class="box_cus">	
-                            <span class="box_label">Capacity</span>	
-                            <span class="box_value"><input class="form-control" type="text" /></span>	
-                        </div> 
+    <div class="checkbox checkbox-primary">
+        <input id="checkbox2" class="styled" type="checkbox" checked>
+        <label for="checkbox2">S</label>
+    </div>
+    <div class="checkbox checkbox-primary">
+        <input id="checkbox3" class="styled" type="checkbox">
+        <label for="checkbox3">M</label>
+    </div>
+    <div class="checkbox checkbox-primary">
+        <input id="checkbox4" class="styled" type="checkbox">
+        <label for="checkbox4">T</label>
+    </div>
+    <div class="checkbox checkbox-primary">
+        <input id="checkbox5" class="styled" type="checkbox">
+        <label for="checkbox5">W</label>
+    </div>
+    <div class="checkbox checkbox-primary">
+        <input id="checkbox6" class="styled" type="checkbox">
+        <label for="checkbox6">T</label>
+    </div>
+    <div class="checkbox checkbox-primary">
+        <input id="checkbox7" class="styled" type="checkbox">
+        <label for="checkbox7">F</label>
+    </div>
+    <div class="checkbox checkbox-primary">
+        <input id="checkbox8" class="styled" type="checkbox">
+        <label for="checkbox8">S</label>
+    </div>
+
+
+                            </span>
                     </div>
                 </div>
-                <hr>
-                <div class="customer_photoInfo mB20">
+                          <span ng-show="editableFormTime.$visible">
+                    <button type="submit" class="btn btn-default btn-sm greenBtn"
+                            ng-disabled="editableFormTime.$waiting"
+                            ng-click="saveActivity(offering)">
+                        SAVE
+                    </button>
+        <button type="button" class="btn btn-link" ng-disabled="editableFormTime.$waiting"
+                ng-click="editableFormTime.$cancel()">
+            CANCEL
+        </button>
+      </span>
+                    </form>
+            </div>
+
+            <hr>
+            <div class="customer_photoInfo mB20">
+                <form editable-form name="editableFormLoc">
+                <div class="col-md-12 cus_headingbox">
+                    <h3 class="pull-left">Location</h3>
+                    <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableFormLoc.$show()"
+                                                  ng-show="!editableFormLoc.$visible">
+
+                        </i></h4>
+                </div>
+                <div class="col-md-7">
+                    <div class="box_cus">
+                        <span class="box_label">Location</span>
+                                                    <span editable-text="offering.location"><span ng-if="!editableFormLoc.$visible">{{offering.location}}</span></span>
+
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="box_cus">
+                        <span class="box_label">Capacity</span>
+                                                                            <span editable-text="offering.capacity"><span ng-if="!editableFormLoc.$visible">{{offering.capacity}}</span></span>
+
+                    </div>
+                </div>
+                      <span ng-show="editableFormLoc.$visible">
+                    <button type="submit" class="btn btn-default btn-sm greenBtn"
+                            ng-disabled="editableFormLoc.$waiting"
+                            ng-click="saveActivity(offering)">
+                        SAVE
+                    </button>
+        <button type="button" class="btn btn-link" ng-disabled="editableFormLoc.$waiting"
+                ng-click="editableFormLoc.$cancel()">
+            CANCEL
+        </button>
+      </span>
+                    </form>
+            </div>
+            <hr>
+            <div class="customer_photoInfo mB20">
+                <form editable-form name="editableFormInstructor">
                     <div class="col-md-12 cus_headingbox">
                         <h3 class="pull-left">Instructor</h3>
-                        <h4 class="pull-right"><a href="#">Save</a></h4>
+                        <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableFormInstructor.$show()"
+                                                  ng-show="!editableFormInstructor.$visible">
+
+                        </i></h4>
                     </div>
-                    <div class="col-md-7">
-                        <div class="box_cus">	
-                            <span class="box_label">Name</span>	
-                            <span class="box_value"><input class="form-control" type="text" /></span>	
-                        </div> 
+                    <div class="col-md-12">
+                        <div class="box_cus">
+                            <span class="box_label">Name</span>
+                            <span editable-text="offering.instructor"><span ng-if="!editableFormInstructor.$visible">{{offering.instructor}}</span></span>
+                        </div>
                     </div>
-                    <div class="col-md-5">
-                        &nbsp;                    
-                    </div>
-                </div>
-            </form>
+                       <span ng-show="editableFormInstructor.$visible">
+                    <button type="submit" class="btn btn-default btn-sm greenBtn"
+                            ng-disabled="editableFormInstructor.$waiting"
+                            ng-click="saveActivity(offering)">
+                        SAVE
+                    </button>
+        <button type="button" class="btn btn-link" ng-disabled="editableFormInstructor.$waiting"
+                ng-click="editableFormInstructor.$cancel()">
+            CANCEL
+        </button>
+      </span>
+                </form>
+            </div>
+
         </div>
     </div>
-</div> 
+</div>
