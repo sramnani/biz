@@ -8,7 +8,7 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-    .controller('dashBoardCtrl', function ($scope, activityService, $q, $http, $location, $window, $route, $timeout, $cookies, $aside) {
+    .controller('dashBoardCtrl', function ($scope, activityService, $q, $http, $location, $window, $route, $timeout, $cookies, $aside,$modal) {
 
 
         $scope.options =
@@ -74,6 +74,17 @@ angular.module('outingzApp')
             lineWidth: 7,
             size: 200,
             lineCap: 'circle'
+        };
+        $scope.openActivity = function(){
+
+
+        var modalInstance = $modal.open({
+            templateUrl: 'views/viewactivity.html',
+            controller: 'activityClassCtrl',
+            size: 'lg'
+             });
+   
+
         };
         $scope.easy3options = {
             animate: {
