@@ -25,6 +25,11 @@ angular.module("outingzApp")
 			
 			return deferred.promise; 
 		},
+
+
+
+
+
                 add_activity_class : function(activity_class){
 			
 			
