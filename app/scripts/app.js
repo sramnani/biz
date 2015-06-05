@@ -10,7 +10,7 @@
  */
 angular
         .module('outingzApp', [
-            'chieffancypants.loadingBar',
+            'ui.bootstrap',
             'ngAnimate',
             'ngCookies',
             'ngMessages',
@@ -19,7 +19,6 @@ angular
             'ngSanitize',
             'ngTouch',
             'ui.utils',
-            'ui.bootstrap',
             'ngAside',
             'ngCookies',
             'chart.js',
