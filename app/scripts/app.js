@@ -11,6 +11,7 @@
 angular
         .module('outingzApp', [
             'ui.bootstrap',
+            'chieffancypants.loadingBar',
             'ngAnimate',
             'ngCookies',
             'ngMessages',
