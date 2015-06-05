@@ -5162,7 +5162,8 @@ $.extend(DayGrid.prototype, {
 
 		// Only display a timed events time if it is the starting segment
 		if (!event.allDay && seg.isStart) {
-			timeHtml = '<span class="fc-time">' + htmlEscape(view.getEventTimeText(event)) + '</span>';
+			timeHtml = '<i class="fa fa-user"></i> <span class="fc-time">' + htmlEscape(view.getEventTimeText(event)) + '</span>';
+			timeHtml = '<i class="fa fa-user"></i> <span class="fc-time">' + htmlEscape(view.getEventTimeText(event)) + '</span>';
 		}
 
 		titleHtml =
