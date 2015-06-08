@@ -11,13 +11,32 @@ angular.module('outingzApp')
 
         $scope.service = {};
         $scope.service.offering = {};
+$scope.vm = {
+      address: {}
+    };
+    $scope.details = {};
+
+
         $scope.cancel = function () {
                 $modal.close();
+                 $scope.options = null;
+    $scope.details = '';
 
 //        $modal.close();
 
 
         };
+        $scope.reload = function(){
+        if($scope.params){
+        $scope.activityName = $scope.params.activityName;
+        $scope.service.offering.location = $scope.params.location;
+        $scope.service.offering.description = $scope.params.description;
+        $scope.service.offering.instructor = $scope.params.instructor;
+        }
+                    $scope.result1 = 'initial value';
+
+        };
+
         $scope.saveActivity = function (service) {
 
 
@@ -41,7 +60,7 @@ angular.module('outingzApp')
 
 
             };
-
+        $scope.reload();
 
 
     }]);
