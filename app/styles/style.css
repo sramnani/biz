@@ -11,6 +11,10 @@ select {
     color: #999;
     font-size: 12px;
 }
+.pac-container {
+    z-index: 1051 !important;
+    background-color:#fff !important
+}
 
 @font-face {
     font-family: 'proxima_novaregular';
@@ -1785,7 +1789,7 @@ button.greenBtn {
 }
 
 body.modal-open {
-    padding-right: 320px;
+    padding-right: 443px;
 }
 
 body {
