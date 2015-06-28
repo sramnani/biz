@@ -30,14 +30,14 @@ angular.module('outingzApp')
             $scope.success="";
             
             
-            $scope.service.offering={};
-            $scope.service.offering.duration="1 Hour";
+            $scope.service={};
+            $scope.service.listingrule.duration="1 Hour";
             // Used to add activity of type Service.
             $scope.add_activity_service = function (activity_service,isvalid) {
 
                 if (isvalid) {
 
-                    activityService.add_activity_service(activity_service).then(function (data) {
+                    activityService.addActivityService(activity_service).then(function (data) {
 
                         $scope.success="Activity service added successfully";
                         $timeout(function () {
