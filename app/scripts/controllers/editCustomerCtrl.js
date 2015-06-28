@@ -10,6 +10,7 @@ angular.module('outingzApp')
 
 
         $scope.cancel = function () {
+
         $modal.close();
 
 
