@@ -41,11 +41,12 @@
                     <div class="col-md-12">
                         <div class="box_cus" style="margin-bottom:15px;">
                             <span class="box_label">Description</span>
-                            <span editable-textarea="service.offering.description" onbeforesave="checkName($data)"><span ng-if="!editableForm.$visible">{{service.offering.description}}</span></span>
+                            <span editable-textarea="service.description" onbeforesave="checkName($data)"><span
+                                    ng-if="!editableForm.$visible">{{service.description}}</span></span>
 
                         </div>
                     </div>
-                    <span ng-show="editableForm.$visible && !service.offering.description">
+                    <span ng-show="editableForm.$visible && !service.description">
                     <button type="submit" class="btn btn-default btn-sm greenBtn" ng-disabled="editableForm.$waiting"
                             >
                         SAVE
@@ -72,13 +73,13 @@
                     <div class="col-md-12">
                         <div class="box_cus">
                             <span class="box_label">Drop In Price</span>
-                            <span editable-text="offering.price" erequired><span ng-if="!editableForm1.$visible">{{offering.price}}</span></span>
+                            <span editable-text="service.listingrule.price" erequired><span ng-if="!editableForm1.$visible">{{service.listingrule.price}}</span></span>
                         </div>
                     </div>
 
                     <span ng-show="editableForm1.$visible">
                     <button type="submit" class="btn btn-default btn-sm greenBtn" ng-disabled="editableForm1.$waiting"
-                            ng-click="saveActivity(offering)">
+                            ng-click="saveActivity(service)">
                         SAVE
                     </button>
         <button type="button" class="btn btn-link" ng-disabled="editableForm1.$waiting"
@@ -92,32 +93,32 @@
             <hr>
             <div class="customer_photoInfo">
                 <form editable-form name="editableFormTime">
-                <div class="col-md-12 cus_headingbox">
-                    <h3 class="pull-left">Schedule</h3>
-                    <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableFormTime.$show()"
+                    <div class="col-md-12 cus_headingbox">
+                        <h3 class="pull-left">Schedule</h3>
+                        <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableFormTime.$show()"
                                                   ng-show="!editableFormTime.$visible">
 
                         </i></h4>
-                </div>
-                <div class="col-md-7">
-                    <div class="box_cus">
-                        <span class="box_label">Time</span>
-                                                <span editable-text="offering.time" erequired><span ng-if="!editableFormTime.$visible">{{offering.time}}</span></span>
-
-
+                    </div>
+                    <div class="col-md-7">
                         <div class="box_cus">
-                            <span class="box_label add_membership">+ Add a time</span>
+                            <span class="box_label">Time</span>
+                            <span editable-text="service.listingrule.time" erequired><span ng-if="!editableFormTime.$visible">{{service.listingrule.time}}</span></span>
+
+
+                            <div class="box_cus">
+                                <span class="box_label add_membership">+ Add a time</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="box_cus">
-                        <span class="box_label">Frequency</span>
-                        <span editable-text="offering.freq"><span ng-if="!editableFormTime.$visible">{{offering.freq}}</span></span>
-                    </div>
+                    <div class="col-md-5">
+                        <div class="box_cus">
+                            <span class="box_label">Frequency</span>
+                            <span editable-text="service.listingrule.freq"><span ng-if="!editableFormTime.$visible">{{service.listingrule.freq}}</span></span>
+                        </div>
 
-                    <div class="box_cus">
-                        <span class="box_label">Days of The Week</span>
+                        <div class="box_cus">
+                            <span class="box_label">Days of The Week</span>
                             <span class="box_value days_week">
 
     <div class="checkbox checkbox-primary">
@@ -151,12 +152,12 @@
 
 
                             </span>
+                        </div>
                     </div>
-                </div>
                           <span ng-show="editableFormTime.$visible">
                     <button type="submit" class="btn btn-default btn-sm greenBtn"
                             ng-disabled="editableFormTime.$waiting"
-                            ng-click="saveActivity(offering)">
+                            ng-click="saveActivity(service)">
                         SAVE
                     </button>
         <button type="button" class="btn btn-link" ng-disabled="editableFormTime.$waiting"
@@ -164,44 +165,42 @@
             CANCEL
         </button>
       </span>
-                    </form>
+                </form>
             </div>
 
             <hr>
             <div class="customer_photoInfo mB20">
                 <form editable-form name="editableFormLoc">
-                <div class="col-md-12 cus_headingbox">
-                    <h3 class="pull-left">Location</h3>
-                    <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableFormLoc.$show()"
+                    <div class="col-md-12 cus_headingbox">
+                        <h3 class="pull-left">Location</h3>
+                        <h4 class="pull-right"><i class="fa fa-pencil fa-lg" ng-click="editableFormLoc.$show()"
                                                   ng-show="!editableFormLoc.$visible">
 
                         </i></h4>
-                </div>
-                <div class="col-md-12">
-                    <div class="box_cus">
-                        <span class="box_label">Location</span>
-
-      <label for="address">Address</label>
-      <input ng-model="vm.address.formattedAddress"
-        ng-autocomplete details="vm.address" id="address" name="address" type="text" class="form-control" />
-
-
-
-
-
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="box_cus">
-                        <span class="box_label">Capacity</span>
-                                                                            <span editable-text="offering.capacity"><span ng-if="!editableFormLoc.$visible">{{offering.capacity}}</span></span>
+                    <div class="col-md-12">
+                        <div class="box_cus">
+                            <span class="box_label">Location</span>
 
+                            <label for="address">Address</label>
+                            <input ng-model="vm.address.formattedAddress"
+                                   ng-autocomplete details="vm.address" id="address" name="address" type="text"
+                                   class="form-control"/>
+
+
+                        </div>
                     </div>
-                </div>
+                    <div class="col-md-12">
+                        <div class="box_cus">
+                            <span class="box_label">Capacity</span>
+                            <span editable-text="service.listingrule.capacity"><span ng-if="!editableFormLoc.$visible">{{service.listingrule.capacity}}</span></span>
+
+                        </div>
+                    </div>
                       <span ng-show="editableFormLoc.$visible">
                     <button type="submit" class="btn btn-default btn-sm greenBtn"
                             ng-disabled="editableFormLoc.$waiting"
-                            ng-click="saveActivity(offering)">
+                            ng-click="saveActivity(service)">
                         SAVE
                     </button>
         <button type="button" class="btn btn-link" ng-disabled="editableFormLoc.$waiting"
@@ -209,7 +208,7 @@
             CANCEL
         </button>
       </span>
-                    </form>
+                </form>
             </div>
             <hr>
             <div class="customer_photoInfo mB20">
@@ -220,17 +219,18 @@
                                                   ng-show="!editableFormInstructor.$visible">
 
                         </i></h4>
+                        {{vm}}
                     </div>
                     <div class="col-md-12">
                         <div class="box_cus">
                             <span class="box_label">Name</span>
-                            <span editable-text="offering.instructor"><span ng-if="!editableFormInstructor.$visible">{{service.offering.instructor}}</span></span>
+                            <span editable-text="instructor"><span ng-if="!editableFormInstructor.$visible">{{instructor}}</span></span>
                         </div>
                     </div>
                        <span ng-show="editableFormInstructor.$visible">
                     <button type="submit" class="btn btn-default btn-sm greenBtn"
                             ng-disabled="editableFormInstructor.$waiting"
-                            ng-click="saveActivity(offering)">
+                            ng-click="saveActivity(service)">
                         SAVE
                     </button>
         <button type="button" class="btn btn-link" ng-disabled="editableFormInstructor.$waiting"
@@ -240,10 +240,10 @@
       </span>
                 </form>
             </div>
-          <input ng-model="vm.address.formattedAddress" required
-        ng-autocomplete details="vm.address"
-        placeholder="Start typing your address" id="address" name="address" type="text" />
+             <span editable-text="service.instructor" onbeforesave="checkName($data)"><span
+                                    ng-if="!editableForm.$visible">{{service.instructor}}</span></span>
 
         </div>
+
     </div>
 </div>
