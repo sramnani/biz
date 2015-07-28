@@ -5,21 +5,21 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <div ng-if="msg" class="alert alert-success alert-dismissable">
+                <div ng-if="msg " class="alert alert-success alert-dismissable">
                     <button class="close" data-dismiss="alert">&times;</button>
                     {{Reset_message}}
                 </div>
                 <h2 class="heading"><span>Step 1:</span> About Your Business</h2>
                 <h6>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</h6>
-                <div ng-if="success" class="alert alert-success alert-dismissable">
+                <div ng-if="success && data" class="alert alert-success alert-dismissable">
                             <button class="close" data-dismiss="alert">&times;</button>
                             {{success}}
                         </div>
-                        <div ng-if="error" class="alert alert-danger alert-dismissable">
+                        <div ng-if="error && data" class="alert alert-danger alert-dismissable">
                             <button class="close" data-dismiss="alert">&times;</button>
                             {{error}}
                         </div>
-                <form name="BussinessForm" ng-submit="create_merchant(merchant, BussinessForm.$valid)"
+                <form name="BussinessForm"
                       class="bussinessInfo" novalidate>
                     <div class="col-lg-5 col-md-5">
                         <div class="row">
@@ -28,10 +28,10 @@
                                 <div class="form-group ">
                                     <label for="exampleInputEmail1">Business Name*</label>
                                     <input type="text" name="name" class="form-control left-control"
-                                           ng-model="merchant.shortName" placeholder="Enter Bussiness" required>
+                                           ng-model="merchant.shortName" placeholder="Enter Business" required="">
+                                    <p ng-if="BussinessForm.name.$invalid && showValidation" class="help-block error">
+                                        Business name is required.</p>
 
-                                    <p ng-show="BussinessForm.name.$invalid && showValidation" class="help-block error">
-                                        Bussiness name is required.</p>
                                 </div>
                                 <div class="form-group clearfix">
                                     <label for="exampleInputEmail1" class="bussinessContact clearfix">Business
@@ -44,7 +44,7 @@
                                     <input type="text" class="form-control entryInput1" placeholder="Smith"
                                            ng-model="merchant.primaryContactPerson.name.lastName">
 
-                                    <p ng-show="BussinessForm.firstname.$invalid && showValidation"
+                                    <p ng-show="BussinessForm.firstname.$isdirty"
                                        class="help-block error" style="clear:both;margin-top:35px;">First name is
                                         required.</p>
 
@@ -64,6 +64,9 @@
                                              <input type="text" class="form-control left-control addresec" name="locationName"
                                            ng-model="merchant.primaryAddress.locationName"
                                            placeholder="Location Name, i.e. Sunnyvale Location" required>
+                                 <p ng-show="BussinessForm.locationName.$error.required && showValidation"
+                                       class="help-block error">Location is required</p>
+
 
                             </div>
 
@@ -123,7 +126,7 @@
 
 
                         <!--<button type="submit" id="reloader" class="btn btn-default btn-primary" ng-disabled="BussinessForm.$invalid">Save & Continue</button>-->
-                        <button type="submit" id="reloader" class="btn btn-default btn-primary">Save & Continue</button>
+                        <button type="submit" id="reloader" class="btn btn-default btn-primary" ng-click="create_merchant(merchant)">Save & Continue</button>
                 </form>
 
 
