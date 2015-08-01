@@ -27,7 +27,9 @@ angular
             'ngAside',
             'ngTable',
             'ui.calendar',
-            'xeditable'
+            'xeditable',
+            'ngAutocomplete',
+            'ngS3upload'
         ])
         .config(function ($routeProvider, $httpProvider) {
             $routeProvider
@@ -38,12 +40,7 @@ angular
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!userService.isAuthenticated()) {
-                                    $location.path('/login');
-                                } else {
-                                    deferred.resolve();
-                                }
-
+                                deferred.resolve();
                                 return deferred.promise;
                             }
                         }
@@ -90,11 +87,7 @@ angular
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!userService.isAuthenticated()) {
-                                    $location.path('/login');
-                                } else {
-                                    deferred.resolve();
-                                }
+                                deferred.resolve();
 
                                 return deferred.promise;
                             }
@@ -107,11 +100,9 @@ angular
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!userService.isAuthenticated()) {
-                                    $location.path('/login');
-                                } else {
+
                                     deferred.resolve();
-                                }
+
 
                                 return deferred.promise;
                             }
@@ -124,11 +115,9 @@ angular
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
-                                if (!userService.isAuthenticated()) {
-                                    $location.path('/login');
-                                } else {
+
                                     deferred.resolve();
-                                }
+
 
                                 return deferred.promise;
                             }
@@ -177,6 +166,19 @@ angular
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
 
+                               deferred.resolve();
+
+                                return deferred.promise;
+                            }
+                        }
+                    })
+                    .when('/customer', {
+                        title: 'Add Customer',
+                        templateUrl: 'views/customer.html',
+                        controller: 'customerCtrl',
+                        resolve: {
+                            authenticated: function ($q, $location, userService) {
+                                var deferred = $q.defer();
                                 if (!userService.isAuthenticated()) {
                                     $location.path('/login');
                                 } else {
@@ -187,10 +189,10 @@ angular
                             }
                         }
                     })
-                    .when('/customer', {
+                    .when('/instructors', {
                         title: 'Add Customer',
-                        templateUrl: 'views/customer.html',
-                        controller: 'customerCtrl',
+                        templateUrl: 'views/instructorList.html',
+                        controller: 'instructorListCtrl',
                         resolve: {
                             authenticated: function ($q, $location, userService) {
                                 var deferred = $q.defer();
