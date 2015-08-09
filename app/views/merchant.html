@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Location*</label>
                                              <input type="text" class="form-control left-control addresec" name="locationName"
-                                           ng-model="merchant.primaryAddress.locationName"
+                                           ng-model="location.address.locationName"
                                            placeholder="Location Name, i.e. Sunnyvale Location" required>
                                  <p ng-show="BussinessForm.locationName.$error.required && showValidation"
                                        class="help-block error"></p>
@@ -68,9 +68,9 @@
 
                             </div>
 
-                                <div class="form-group">
-                                <input ng-model="vm.address.formattedAddress"
-                                   ng-autocomplete details="vm.address" id="address" name="address" type="text"
+                                <div class="form-group">{{location.address}}
+                                <input ng-model="location.address.formattedAddress"
+                                   ng-autocomplete details="location.address" id="address" name="address" type="text"
                                    class="form-control"/>
 
                                 </div>
