@@ -28,25 +28,24 @@ and open the template in the editor.
                     <div class="customerMemberInfo">
                         <ul>
                             <li>ACTIVITIES<br/><span>124</span></li>
-                            <li>CLASSES <br/><span>5</span></li>
-                            <li>WEEKLY ATTENDANCE<br/><span>1</span></li>
+                            <li>CLASSES <br/><span>{{clazzServiceCount}}</span></li>
                         </ul>
                     </div>
                 </div>
                 <div class="customerInfo table-responsive">
                     <table ng-table="tableParams" class="table">
-                        <tr ng-repeat="activity in $data | filter:search">
-                            <td data-title="'Activity'" sortable="'name'">
-                                {{activity.name}}
+                        <tr ng-repeat="service in $data | filter:search">
+                            <td data-title="'Activity'" sortable="'activity.name'">
+                                {{service.activity.name}}
                             </td>
-                            <td data-title="'Schedule'" sortable="'status'">
-                                {{activity.schedule}}
+                            <td data-title="'Schedule'" sortable="'activity.schedule'">
+                                {{service.activity.schedule}}
                             </td>
-                            <td data-title="'Location'" sortable="'membership'">
-                                {{activity.location}}
+                            <td data-title="'Location'" sortable="'activity.location'">
+                                {{service.activity.location}}
                             </td>
-                            <td data-title="'Instructor'" sortable="'start'">
-                                {{activity.instructor}}
+                            <td data-title="'Instructor'" sortable="'instructors.instructor[0].name.firstName'">
+                                {{service.instructors.instructor[0].name.firstName}}
                             </td>
 
 
