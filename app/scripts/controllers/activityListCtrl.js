@@ -10,42 +10,65 @@
 angular.module('outingzApp')
         .controller('activityListCtrl', function ($scope, activityService, $q, $http, $location, $window,$aside,$route,$timeout,$cookies,ngTableParams,$filter) {
             console.log("class");
+        $scope.services = [];
+        $scope.activities = [{
+            activityName:"",
+            instructorName:""
 
-         $scope.openMod = function () {
+        }];
+
+        $scope.openMod = function () {
 
             var modalInstance = $aside.open({
-                templateUrl: 'views/activity_aside.html',
-                controller: 'editCustomerCtrl',
+                templateUrl: 'views/newActivity.html',
+                controller: 'editActivityCtrl',
                 placement: 'right',
                 size: 'lg'
             });
         };
 
 
-        var data = [
+       var data = [
             {name: "Steel Bending", schedule: "9:30-11AM", location: "Mountain View", instructor: "Jerry"},
-             {name: "Rock Climbing", schedule: "5:30-8:30PM", location: "Palo alto", instructor: "John"}
+            {name: "Rock Climbing", schedule: "5:30-8:30PM", location: "Palo alto", instructor: "John"}
 
 
         ];
+        $scope.getActivities = function(){
+            activityService.getActivities().then(function (data) {
+                $scope.services = data.services.service;
+                $scope.clazzServiceCount = data.clazzServiceCount;
 
-        $scope.tableParams = new ngTableParams({
-        page: 1,            // show first page
-        count: 10,          // count per page
-        sorting: {
-            name: 'asc'     // initial sorting
-        }
-    }, {
-        total: data.length, // length of data
-        getData: function($defer, params) {
-            // use build-in angular filter
-            var orderedData = params.sorting() ?
-                    $filter('orderBy')(data, params.orderBy()) :
-                    data;
+                $scope.tableParams = new ngTableParams({
+                    page: 1,            // show first page
+                    count: 10,          // count per page
 
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-        }
-    });
+                }, {
+                    total: $scope.services.length, // length of data
+                    getData: function($defer, params) {
+                        // use build-in angular filter
+                        var orderedData = params.sorting() ?
+                            $filter('orderBy')($scope.services, params.orderBy()) :
+                            $scope.services;
+
+                        $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                    }
+                });
+
+
+
+            }, function (error) {
+
+                console.log("There is an error" + error);
+
+            });
+
+
+        };
+        $scope.getActivities();
+
+
+
 
 
 
