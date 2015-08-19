@@ -14,7 +14,7 @@ and open the template in the editor.
                     <h2 class="heading headingPlus" style="float:left"> Your Activities</h2>
 
                     <div class="plusSign">
-                        <img src="images/plus.png" ng-click="openMod('right')"/>
+                        <img src="images/plus.png" ng-click="openNewActivityMod('right')"/>
                     </div>
                 </div>
 
@@ -36,7 +36,7 @@ and open the template in the editor.
                     <table ng-table="tableParams" class="table">
                         <tr ng-repeat="service in $data | filter:search">
                             <td data-title="'Activity'" sortable="'activity.name'">
-                                {{service.activity.name}}
+                                <a ng-click="openMod(service)">{{service.activity.name}}</a>
                             </td>
                             <td data-title="'Schedule'" sortable="'activity.schedule'">
                                 {{service.activity.schedule}}
