@@ -19,7 +19,7 @@
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                         <div class="customerNameInfo">
 
-                            <h3>{{activityName}}</h3>
+                            <h3>{{service.activity.name}}</h3>
                         </div>
 
                     </div>
@@ -27,7 +27,7 @@
             </div>
             <hr>
             <div class="customer_photoInfo">
-                <form editable-form name="editableForm" onaftersave="saveActivity(service)">
+                <form editable-form name="editableForm" onaftersave="updateActivity(service,service.serviceId)">
 
                     <div class="col-md-12 cus_headingbox">
                         <h3 class="pull-left">Activity</h3>
@@ -41,12 +41,12 @@
                     <div class="col-md-12">
                         <div class="box_cus" style="margin-bottom:15px;">
                             <span class="box_label">Description</span>
-                            <span editable-textarea="service.description" onbeforesave="checkName($data)"><span
-                                    ng-if="!editableForm.$visible">{{service.description}}</span></span>
+                            <span editable-textarea="service.activity.description" onbeforesave="checkName($data)"><span
+                                    ng-if="!editableForm.$visible">{{service.activity.description}}</span></span>
 
                         </div>
                     </div>
-                    <span ng-show="editableForm.$visible && !service.description">
+                    <span ng-show="editableForm.$visible">
                     <button type="submit" class="btn btn-default btn-sm greenBtn" ng-disabled="editableForm.$waiting"
                             >
                         SAVE
