@@ -8,23 +8,38 @@
  * Controller of the outingzApp
  */
 angular.module('outingzApp')
-        .controller('activityListCtrl', function ($scope, activityService, $q, $http, $location, $window,$aside,$route,$timeout,$cookies,ngTableParams,$filter) {
+        .controller('activityListCtrl', function ($scope, activityService,merchantService, $q, $http, $location, $window,$aside,$route,$timeout,$cookies,ngTableParams,$filter,$rootScope) {
             console.log("class");
         $scope.services = [];
-        $scope.activities = [{
-            activityName:"",
-            instructorName:""
+        $scope.location = {};
 
-        }];
+        $scope.merchant = {};
 
-        $scope.openMod = function () {
+        var scope = $rootScope.$new();
+        $scope.openMod = function (param,location) {
+            if (param) {
+                scope.param = param;
+                scope.location = location;
+                var modalInstance = $aside.open({
+                    templateUrl: 'views/activity_aside.html',
+                    controller: 'editActivityCtrl',
+                    placement: 'right',
+                    size: 'lg',
+                    scope: scope
+                });
+            }
 
-            var modalInstance = $aside.open({
-                templateUrl: 'views/newActivity.html',
-                controller: 'editActivityCtrl',
-                placement: 'right',
-                size: 'lg'
-            });
+        };
+        $scope.openNewActivityMod = function () {
+                var modalInstance = $aside.open({
+                    templateUrl: 'views/newActivity.html',
+                    controller: 'editActivityCtrl',
+                    placement: 'right',
+                    size: 'lg',
+                    scope: scope
+                });
+
+
         };
 
 
@@ -34,10 +49,13 @@ angular.module('outingzApp')
 
 
         ];
-        $scope.getActivities = function(){
-            activityService.getActivities().then(function (data) {
+        $scope.getActivityData = function(){
+            merchantService.get_merchat().then(function (data){
+                $scope.merchant = data;
                 $scope.services = data.services.service;
+                $scope.location = data.locations.location[0].locationName;
                 $scope.clazzServiceCount = data.clazzServiceCount;
+
 
                 $scope.tableParams = new ngTableParams({
                     page: 1,            // show first page
@@ -65,7 +83,7 @@ angular.module('outingzApp')
 
 
         };
-        $scope.getActivities();
+        $scope.getActivityData ();
 
 
 
