@@ -36,6 +36,10 @@ angular.module('outingzApp')
                 $scope.service.activity.description = $scope.param.activity.description;
                 $scope.service.instructor = $scope.param.instructors.instructor[0].name.firstName;
 
+
+            }
+            if($scope.location){
+                $scope.service.location = $scope.location;
             }
             $scope.result1 = 'initial value';
 
